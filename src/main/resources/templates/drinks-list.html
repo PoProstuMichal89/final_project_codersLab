@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Drinki</title>
+</head>
+<body>
+<h1>Drinki</h1>
+<ul>
+    <li th:each="drink: ${drinks}" th:text="${drink.getId() + ' ||  ' + drink.getName()}"></li>
+</ul>
+
+
+</body>
+</html>
