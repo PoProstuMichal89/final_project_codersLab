@@ -2,6 +2,8 @@ package pl.private_programing_barman.service;
 
 import org.springframework.stereotype.Service;
 import pl.private_programing_barman.dto.OpinionDto;
+import pl.private_programing_barman.dto.OpinionToSaveDto;
+import pl.private_programing_barman.mapper.OpinionDtoMapper;
 import pl.private_programing_barman.model.Opinion;
 import pl.private_programing_barman.repositories.OpinionRepository;
 
@@ -19,12 +21,12 @@ public class OpinionService {
     }
 
     @Transactional
-    public void add(OpinionDto newOpinion) {
-        Opinion opinion = new Opinion(
-                newOpinion.getContent(),
-                newOpinion.getNickname(),
-                newOpinion.getRate());
-        opinionrepository.save(opinion);
+    public void add(OpinionToSaveDto newOpinion) {
+      Opinion opinion = new Opinion();
+      opinion.setNickname(newOpinion.getNickname());
+      opinion.setContent(newOpinion.getContent());
+      opinion.setRate(newOpinion.getRate());
+      opinionrepository.save(opinion);
     }
 
     @Transactional
@@ -34,11 +36,10 @@ public class OpinionService {
 
     @Transactional
     public List<OpinionDto> findAllOpinion() {
-        return opinionrepository.findAll().stream().map(opinion -> new OpinionDto(
-                opinion.getNickname(),
-                opinion.getContent(),
-                opinion.getRate()
-        )).collect(Collectors.toList());
+        return opinionrepository.findAll().stream()
+                .map(OpinionDtoMapper::map)
+                .toList();
+
     }
 
     @Transactional
@@ -46,17 +47,8 @@ public class OpinionService {
         return opinionrepository.findById(opinionId);
     }
 
-    @Transactional
-    public Opinion getOpinion(OpinionDto opinionDto) {
-        Opinion opinia1 = new Opinion(opinionDto.getNickname(), opinionDto.getContent(), opinionDto.getRate());
-        return opinia1;
-    }
 
-//    @Transactional
-//    public Opinion getOpinionById(int opinionId) {
-//       Optional<Opinion> opinionss= opinionrepository.findById(opinionId);
-//        Opinion opinia1 = new Opinion(opinionss.getNickname(), opinionDto.getContent(), opinionDto.getRate());
-//        return opinia1;
+
     }
 
 

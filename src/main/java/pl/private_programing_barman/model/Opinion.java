@@ -13,15 +13,6 @@ public class Opinion {
     private String content;
     private int rate;
 
-    public Opinion(String nickname, String content, int rate) {
-        this.nickname = nickname;
-        this.content = content;
-        this.rate = rate;
-    }
-
-    public Opinion() {
-    }
-
     public int getId() {
         return id;
     }

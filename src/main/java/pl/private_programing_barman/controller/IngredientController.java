@@ -4,34 +4,32 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.private_programing_barman.dto.IngredientDto;
 import pl.private_programing_barman.repositories.IngredientRepository;
+import pl.private_programing_barman.service.IngredientService;
 
 
 import java.awt.print.Pageable;
+import java.util.List;
 
-@RestController
+@Controller
 public class IngredientController {
+    private final IngredientService ingredientService;
 
-//    public static final Logger logger = LoggerFactory.getLogger(IngredientController.class);
-//    private final IngredientRepository repository;
-//
-//    public IngredientController(IngredientRepository repository) {
-//        this.repository = repository;
-//    }
-//
-//    @GetMapping(value="/ingredients", params={"!sort", "!page", "!size"})
-//    ResponseEntity<?>readAllIngredients(){
-//        logger.warn("Exposing all the task!");
-//        return ResponseEntity.ok(repository.findAll());
-//
-//    }
-//
-///*    @GetMapping("/ingredients")
-//    ResponseEntity<?>readAllIngredients(Pageable page){
-//        logger.info("Custpmer page!");
-//        return ResponseEntity.ok(repository.findAll(page));
-//
-//    }*/
+    public IngredientController(IngredientService ingredientService) {
+        this.ingredientService = ingredientService;
+    }
+
+    @GetMapping("/ingredients")
+    public String ingredientsList(Model model){
+        List<IngredientDto> allIngredients = ingredientService.findAllIngredients();
+        model.addAttribute("ingredients", allIngredients);
+        return "ingredients-list";
+    }
+
+
 }

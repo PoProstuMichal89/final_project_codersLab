@@ -7,7 +7,8 @@ public class OpinionDto {
     private String content;
     private int rate;
 
-    public OpinionDto(String nickname, String content, int rate) {
+    public OpinionDto(int id, String nickname, String content, int rate) {
+        this.id=id;
         this.nickname = nickname;
         this.content = content;
         this.rate = rate;

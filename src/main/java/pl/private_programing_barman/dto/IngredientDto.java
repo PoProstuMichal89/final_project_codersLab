@@ -12,7 +12,8 @@ public class IngredientDto {
     private double quantity;
     private String uOm;
 
-    public IngredientDto(String name, String description, double quantity, String uOm) {
+    public IngredientDto(int id, String name, String description, double quantity, String uOm) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.quantity = quantity;

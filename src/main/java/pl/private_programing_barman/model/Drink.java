@@ -25,20 +25,11 @@ public class Drink {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany
     @JoinColumn(name = "drink_id")
     private List<Opinion> opinions = new ArrayList<>();
 
-    public Drink(String name, String description, List<Ingredient> ingredients, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.name = name;
-        this.description = description;
-        this.ingredients = ingredients;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
 
-    public Drink() {
-    }
 
 
 

@@ -7,7 +7,7 @@
 <body>
 <h1>Drinki</h1>
 <ul>
-    <li th:each="drink: ${drinks}" th:text="${drink.getId() + ' ||  ' + drink.getName()}"></li>
+    <li th:each="drink: ${drinks}" th:text="${drink.getId() + ' ||  ' + drink.getName() + ' || ' + drink.getIngredients()}"></li>
 </ul>
 
 

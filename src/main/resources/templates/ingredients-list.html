@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Składniki</title>
 </head>
 <body>
-$END$
+<h1>Składniki</h1>
+<ul>
+  <li th:each="ingredient: ${ingredients}" th:text="${ingredient.getId() + ' ||  ' + ingredient.getName() + ' || ' + ingredient.getuOm()}"></li>
+</ul>
+
+
 </body>
 </html>

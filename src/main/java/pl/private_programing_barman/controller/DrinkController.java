@@ -9,17 +9,17 @@ import pl.private_programing_barman.service.DrinkService;
 import java.util.List;
 
 @Controller
-public class HomeController {
+public class DrinkController {
     private final DrinkService drinkservice;
 
-    public HomeController(DrinkService drinkservice) {
+    public DrinkController(DrinkService drinkservice) {
         this.drinkservice = drinkservice;
     }
 
-    @GetMapping("/")
-    public String home(Model model){
+    @GetMapping("/drinks")
+    public String drinksList(Model model){
         List<DrinkDto> allDrinks = drinkservice.findAllDrinks();
         model.addAttribute("drinks", allDrinks);
-        return "index";
+        return "drinks-list";
     }
 }

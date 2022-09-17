@@ -38,9 +38,4 @@ opinions(content, nickname, rate, drink_id)
         ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer gravida eu tellus quis commodo. Curabitur fermentum gravida leo.', 'Ila', 5, 4),
         ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat orci vitae eros maximus egestas quis bibendum quam. Donec semper.', 'Ziuum', 2, 1);
 
--- INSERT INTO
---     drinks_opinions(drink_id, opinions_id)
---         VALUES
---             (1, 2),
---             (2, 3),
---             (3, 4);
+

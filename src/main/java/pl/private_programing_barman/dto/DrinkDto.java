@@ -19,7 +19,8 @@ public class DrinkDto {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public DrinkDto( String name, String description, List<Ingredient> ingredients, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public DrinkDto(int id, String name, List<Ingredient> ingredients, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.id=id;
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;

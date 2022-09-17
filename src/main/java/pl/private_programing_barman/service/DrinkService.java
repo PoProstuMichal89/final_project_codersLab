@@ -2,6 +2,8 @@ package pl.private_programing_barman.service;
 
 import org.springframework.stereotype.Service;
 import pl.private_programing_barman.dto.DrinkDto;
+import pl.private_programing_barman.dto.DrinkToSaveDto;
+import pl.private_programing_barman.mapper.DrinkDtoMapper;
 import pl.private_programing_barman.model.Drink;
 import pl.private_programing_barman.model.Ingredient;
 import pl.private_programing_barman.repositories.DrinkRepository;
@@ -20,14 +22,12 @@ public class DrinkService {
     }
 
     @Transactional
-    public void add(DrinkDto newDrink){
-        Drink drink = new Drink(
-                newDrink.getName(),
-                newDrink.getDescription(),
-                newDrink.getIngredients(),
-                newDrink.getCreatedAt(),
-                newDrink.getUpdatedAt()
-                );
+    public void add(DrinkToSaveDto newDrink){
+        Drink drink = new Drink();
+        drink.setName(newDrink.getName());
+        drink.setDescription(newDrink.getDescription());
+        drink.setIngredients(newDrink.getIngredients());
+        drink.setCreatedAt(newDrink.getCreatedAt());
         drinkrepository.save(drink);
     }
 
@@ -38,13 +38,9 @@ public class DrinkService {
 
     @Transactional
     public List<DrinkDto> findAllDrinks(){
-        return drinkrepository.findAll().stream().map(drink -> new DrinkDto(
-                drink.getName(),
-                drink.getDescription(),
-                drink.getIngredients(),
-                drink.getCreatedAt(),
-                drink.getUpdatedAt()
-        )).collect(Collectors.toList());
+        return drinkrepository.findAll().stream()
+                .map(DrinkDtoMapper::map)
+                .toList();
     }
 
     @Transactional
@@ -57,22 +53,23 @@ public class DrinkService {
         drinkDto.getIngredients().add(ingredient);
     }
 
-    @Transactional
-    public DrinkDto getDrinkDetails(int drinkId){
-        Drink drink1= new Drink();
-        Optional<Drink> drink = drinkrepository.findById(2);
-        if(drink.isPresent()){
-             drink1 = drink.get();
-        }
-        DrinkDto drinkDetail = new DrinkDto(
-                drink1.getName(),
-                drink1.getDescription(),
-                drink1.getIngredients(),
-                drink1.getCreatedAt(),
-                drink1.getUpdatedAt()
-                );
-        return drinkDetail;
-    }
+//    @Transactional
+//    public DrinkDto getDrinkDetails(int drinkId){
+//        Drink drink1= new Drink();
+//        Optional<Drink> drink = drinkrepository.findById(2);
+//        if(drink.isPresent()){
+//             drink1 = drink.get();
+//        }
+//        DrinkDto drinkDetail = new DrinkDto(
+//                drink1.getId(),
+//                drink1.getName(),
+//                drink1.getDescription(),
+//                drink1.getIngredients(),
+//                drink1.getCreatedAt(),
+//                drink1.getUpdatedAt()
+//                );
+//        return drinkDetail;
+//    }
 
 
 }

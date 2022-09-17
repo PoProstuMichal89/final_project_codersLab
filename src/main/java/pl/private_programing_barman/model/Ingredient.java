@@ -20,16 +20,6 @@ public class Ingredient {
     private String uOm;
 
 //czy potrzebne są id w knstruktorze?!
-    public Ingredient(String name, String description, double quantity, String uOm) {
-
-        this.name = name;
-        this.description = description;
-        this.quantity = quantity;
-        this.uOm = uOm;
-    }
-
-    public Ingredient() {
-    }
 
     public String getName() {
         return name;
@@ -62,4 +52,14 @@ public class Ingredient {
     public void setuOm(String uOm) {
         this.uOm = uOm;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
 }
