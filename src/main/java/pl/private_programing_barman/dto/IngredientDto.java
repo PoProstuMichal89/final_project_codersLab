@@ -1,9 +1,13 @@
 package pl.private_programing_barman.dto;
 
+import pl.private_programing_barman.model.Drink;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 public class IngredientDto {
     private int id;
@@ -11,6 +15,7 @@ public class IngredientDto {
     private String description;
     private double quantity;
     private String uOm;
+
 
     public IngredientDto(int id, String name, String description, double quantity, String uOm) {
         this.id = id;
@@ -59,6 +64,8 @@ public class IngredientDto {
     public void setuOm(String uOm) {
         this.uOm = uOm;
     }
+
+
 
     @Override
     public String toString() {

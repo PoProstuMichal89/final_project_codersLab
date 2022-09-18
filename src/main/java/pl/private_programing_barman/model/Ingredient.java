@@ -2,6 +2,8 @@ package pl.private_programing_barman.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "ingredients")
@@ -18,6 +20,8 @@ public class Ingredient {
     private double quantity;
 
     private String uOm;
+
+
 
 //czy potrzebne są id w knstruktorze?!
 
