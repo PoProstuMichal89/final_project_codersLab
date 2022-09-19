@@ -19,15 +19,15 @@ VALUES ('Vodka', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curab
 
 
 INSERT INTO
-    drinks_ingredients(drink_id, ingredients_id)
+    ingredients_drinks(ingredients_id, drinks_id)
 VALUES
     (1, 1),
-    (1,3),
-    (1, 4),
-    (4, 2),
-    (4, 3),
-    (4, 5),
-    (4, 6);
+    (3, 1),
+    (5, 1),
+    (2, 4),
+    (3, 4),
+    (5, 4),
+    (6, 4);
 
 INSERT INTO
 opinions(content, nickname, rate, drink_id)

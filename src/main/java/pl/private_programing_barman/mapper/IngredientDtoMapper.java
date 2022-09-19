@@ -10,7 +10,8 @@ public class IngredientDtoMapper {
                 ingredient.getName(),
                 ingredient.getDescription(),
                 ingredient.getQuantity(),
-                ingredient.getuOm()
+                ingredient.getuOm(),
+                ingredient.getDrinks()
         );
     }
 }

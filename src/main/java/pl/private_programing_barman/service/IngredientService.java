@@ -43,8 +43,8 @@ public class IngredientService {
 
 
     @Transactional
-    public Optional<Ingredient> findById(int ingredientId){
-        return ingredientrepository.findById(ingredientId);
+    public Optional<IngredientDto> findById(int ingredientId){
+        return ingredientrepository.findById(ingredientId).map(IngredientDtoMapper::map);
     }
 
 }

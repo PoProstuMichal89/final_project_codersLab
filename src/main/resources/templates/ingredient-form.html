@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">>
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+</head>
+<body>
+<h2>Dodaj składnik</h2>
+
+<form action="" method="post"  th:object="${ingredient}">
+    <input th:field="*{name}"  name="name">Podaj nazwę<br><br>
+    <input th:field="*{description}" type="text">Wpisz opis<br><br>
+    <input th:field="*{quantity}"><br><br>
+    <input th:field="*{uOm}"> <br><br>
+    <input type="submit" value="Wyślij">
+</form>
+</body>
+</html>

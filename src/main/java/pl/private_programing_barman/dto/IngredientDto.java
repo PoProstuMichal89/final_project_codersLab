@@ -17,6 +17,20 @@ public class IngredientDto {
     private String uOm;
 
 
+    //dodane do konstruktora, żeby zwracał w obiekcie drinki z którymi jest powązany składnik. Czy przeciążać konstruktor bez podawania listy drinków?
+    private List<Drink> drinks = new ArrayList<>();
+
+
+    public IngredientDto(int id, String name, String description, double quantity, String uOm, List<Drink> drinks) {
+       this.drinks = drinks;
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.quantity = quantity;
+        this.uOm = uOm;
+    }
+
+    //konstruktor bez podawania listy drinków!
     public IngredientDto(int id, String name, String description, double quantity, String uOm) {
         this.id = id;
         this.name = name;
@@ -65,7 +79,9 @@ public class IngredientDto {
         this.uOm = uOm;
     }
 
-
+    public List<Drink> getDrinks() {
+        return drinks;
+    }
 
     @Override
     public String toString() {

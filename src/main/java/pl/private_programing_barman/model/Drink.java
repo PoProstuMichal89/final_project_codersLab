@@ -19,7 +19,7 @@ public class Drink {
 
     //String czy obiekt Ingredeint?
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "drinks")
     private List<Ingredient> ingredients = new ArrayList<>();
 
     private LocalDateTime createdAt;

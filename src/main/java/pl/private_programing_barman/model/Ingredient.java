@@ -21,6 +21,9 @@ public class Ingredient {
 
     private String uOm;
 
+    @ManyToMany
+    private List<Drink> drinks = new ArrayList<>();
+
 
 
 //czy potrzebne są id w knstruktorze?!
@@ -65,5 +68,7 @@ public class Ingredient {
         this.id = id;
     }
 
-
+    public List<Drink> getDrinks() {
+        return drinks;
+    }
 }

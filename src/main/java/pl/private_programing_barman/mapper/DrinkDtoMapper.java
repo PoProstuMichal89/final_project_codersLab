@@ -3,7 +3,7 @@ package pl.private_programing_barman.mapper;
 import pl.private_programing_barman.dto.DrinkDto;
 import pl.private_programing_barman.model.Drink;
 
-//do przeniesienia do pakietu serwisem?
+
 public class DrinkDtoMapper {
     public static DrinkDto map(Drink drink){
          return new DrinkDto(
