@@ -19,14 +19,14 @@ public class DrinkToSaveDto {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public DrinkToSaveDto(String name, List<Ingredient> ingredients, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
-
-        this.name = name;
-        this.description = description;
-        this.ingredients = ingredients;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
+//    public DrinkToSaveDto(String name, List<Ingredient> ingredients, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+//
+//        this.name = name;
+//        this.description = description;
+//        this.ingredients = ingredients;
+//        this.createdAt = createdAt;
+//        this.updatedAt = updatedAt;
+//    }
 
 
     public String getName() {
