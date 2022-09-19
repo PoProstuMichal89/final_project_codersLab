@@ -1,5 +1,7 @@
 package pl.private_programing_barman.dto;
 
+
+
 public class IngredientToSaveDto {
     private String name;
     private String description;

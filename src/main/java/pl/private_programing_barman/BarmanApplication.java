@@ -24,7 +24,7 @@ public class BarmanApplication implements RepositoryRestConfigurer {
 
 
 
-        List<IngredientToSaveDto>  ingredients = new ArrayList<>();
+//        List<IngredientToSaveDto>  ingredients = new ArrayList<>();
 //     IngredientToSaveDto gin = new IngredientToSaveDto("Gin", "Lorem Ipsum", 20.00, "ml" );
 //        IngredientToSaveDto vermut = new IngredientToSaveDto("Vermut", "Lorem Ipsum", 20.00, "ml" );
 
@@ -36,7 +36,7 @@ public class BarmanApplication implements RepositoryRestConfigurer {
 //        ingredients.add(vermut);
 
 
-        DrinkService drinkService = context.getBean(DrinkService.class);
+//        DrinkService drinkService = context.getBean(DrinkService.class);
 //        DrinkToSaveDto drink_new = new DrinkToSaveDto("Martini", ingredients, "xxxx", LocalDateTime.now(), LocalDateTime.now());
 
 //        drinkService.add(drink_new);

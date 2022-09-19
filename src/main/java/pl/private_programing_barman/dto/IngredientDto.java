@@ -2,10 +2,8 @@ package pl.private_programing_barman.dto;
 
 import pl.private_programing_barman.model.Drink;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
+
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +12,7 @@ public class IngredientDto {
     private String name;
     private String description;
     private double quantity;
+
     private String uOm;
 
 
@@ -22,7 +21,7 @@ public class IngredientDto {
 
 
     public IngredientDto(int id, String name, String description, double quantity, String uOm, List<Drink> drinks) {
-       this.drinks = drinks;
+        this.drinks = drinks;
         this.id = id;
         this.name = name;
         this.description = description;
