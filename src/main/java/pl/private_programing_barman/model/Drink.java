@@ -54,7 +54,7 @@ public class Drink {
     }
 
     public void setDescription(String description) {
-        description = description;
+        this.description = description;
     }
 
     public List<Ingredient> getIngredients() {

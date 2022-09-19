@@ -3,6 +3,8 @@ package pl.private_programing_barman.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.private_programing_barman.dto.DrinkDto;
 import pl.private_programing_barman.dto.DrinkToSaveDto;
 import pl.private_programing_barman.dto.IngredientDto;
@@ -37,5 +39,12 @@ public class DrinkController {
         List<IngredientDto> allIngredients = ingredientService.findAllIngredients();
         model.addAttribute("allIngredients", allIngredients);
         return "drink-form";
+    }
+
+    @PostMapping("/add-drink")
+    public String addDrink(DrinkToSaveDto drink, RedirectAttributes redirectAttributes){
+        drinkservice.add(drink);
+//        System.out.println(drink.getIngredients()+"xxxx");
+        return "redirect:/drinks";
     }
 }

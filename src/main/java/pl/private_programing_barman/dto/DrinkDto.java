@@ -49,7 +49,7 @@ public class DrinkDto {
     }
 
     public void setDescription(String description) {
-        description = description;
+        this.description = description;
     }
 
     public List<Ingredient> getIngredients() {
