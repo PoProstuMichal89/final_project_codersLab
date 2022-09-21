@@ -16,16 +16,16 @@ public class DrinkDto {
 
     private List<Opinion> opinions = new ArrayList<>();
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+//    private LocalDateTime createdAt;
+//    private LocalDateTime updatedAt;
 
-    public DrinkDto(int id, String name, List<IngredientDto> ingredients, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public DrinkDto(int id, String name, List<IngredientDto> ingredients, String description) {
         this.id=id;
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+//        this.createdAt = createdAt;
+//        this.updatedAt = updatedAt;
     }
 
     public int getId() {
@@ -60,21 +60,21 @@ public class DrinkDto {
         this.ingredients = ingredients;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+//    public LocalDateTime getCreatedAt() {
+//        return createdAt;
+//    }
+//
+//    public void setCreatedAt(LocalDateTime createdAt) {
+//        this.createdAt = createdAt;
+//    }
+//
+//    public LocalDateTime getUpdatedAt() {
+//        return updatedAt;
+//    }
+//
+//    public void setUpdatedAt(LocalDateTime updatedAt) {
+//        this.updatedAt = updatedAt;
+//    }
 
     @Override
     public String toString() {
@@ -83,8 +83,8 @@ public class DrinkDto {
                 ", name='" + name + '\'' +
                 ", Description='" + description + '\'' +
                 ", ingredients=" + ingredients +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
+//                ", createdAt=" + createdAt +
+//                ", updatedAt=" + updatedAt +
                 '}';
     }
 

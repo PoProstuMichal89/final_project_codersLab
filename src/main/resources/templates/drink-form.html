@@ -20,7 +20,7 @@
     <label for="ingredient">Składnik</label>
     <select id="ingredient" th:field="*{ingredients}" required>
         <option value="" hidden>Wybierz składnik1</option>
-        <option th:each="ingredient: ${allIngredients}" th:value="${ingredient.id}" th:text="${ingredient.name}"></option>
+        <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient}" th:text="${ingredient.name}"></option>
     </select>
 
 

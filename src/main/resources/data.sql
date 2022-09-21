@@ -1,10 +1,10 @@
 INSERT INTO
-drinks (name, description, created_at, updated_at)
+drinks (name, description)
     VALUES
-        ('Hala bum-bum', 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis', '2022-09-17T15:21:46+00:00', '2022-09-19T15:21:46+00:00' ),
-        ('Mojito', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis', '2022-09-17T15:21:46+00:00', '2022-09-19T15:21:46+00:00'),
-        ('Aperol', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis', '2022-09-19T15:21:46+00:00', '2022-11-20T15:21:46+00:00'),
-        ('Tequila Sunrise', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis', '2022-09-19T15:21:46+00:00', '2022-11-20T15:21:46+00:00');
+        ('Hala bum-bum', 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis'),
+        ('Mojito', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis'),
+        ('Aperol', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis'),
+        ('Tequila Sunrise', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis');
 
 
 INSERT INTO

@@ -3,6 +3,7 @@ package pl.private_programing_barman.service;
 import org.springframework.stereotype.Service;
 import pl.private_programing_barman.dto.DrinkDto;
 import pl.private_programing_barman.dto.DrinkToSaveDto;
+import pl.private_programing_barman.dto.IngredientDto;
 import pl.private_programing_barman.dto.IngredientToSaveDto;
 import pl.private_programing_barman.mapper.DrinkDtoMapper;
 import pl.private_programing_barman.model.Drink;
@@ -22,6 +23,23 @@ public class DrinkService {
     public DrinkService(DrinkRepository drinkrepository) {
         this.drinkrepository = drinkrepository;
 
+    }
+
+
+
+    public List<IngredientToSaveDto> mapIngredientDtoToSaveDto(List<IngredientDto> ingredients){
+        List<IngredientToSaveDto> list = new ArrayList<>();
+        for (IngredientDto item: ingredients) {
+            for(int index = 0; index < list.size(); index++) {
+                IngredientToSaveDto newIngredient = new IngredientToSaveDto();
+                newIngredient.setName(item.getName());
+                newIngredient.setDescription(item.getDescription());
+                newIngredient.setQuantity(item.getQuantity());
+                newIngredient.setuOm(item.getuOm());
+                list.add(newIngredient);
+            }
+        }
+        return list;
     }
 
     //Mapper listy IngredientToSaveDto na ecnję. Docelowo do przeniesienia do klasy DrinkDtoMapper
