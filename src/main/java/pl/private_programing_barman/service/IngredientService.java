@@ -41,6 +41,11 @@ public class IngredientService {
                 .toList();
     }
 
+//    @Transactional
+//    public List<IngredientToSaveDto> findAllIngredientsToForm(){
+//        return ingredientrepository.findAll().stream().map(IngredientDtoMapper::mapToForm).toList();
+//    }
+
 
     @Transactional
     public Optional<IngredientDto> findById(int ingredientId){

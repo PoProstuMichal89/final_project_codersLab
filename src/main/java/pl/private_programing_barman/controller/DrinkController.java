@@ -18,9 +18,12 @@ public class DrinkController {
     private final DrinkService drinkservice;
     private final IngredientService ingredientService;
 
+
+
     public DrinkController(DrinkService drinkservice, IngredientService ingredientService) {
         this.drinkservice = drinkservice;
         this.ingredientService = ingredientService;
+
     }
 
     @GetMapping("/drinks")
@@ -37,6 +40,7 @@ public class DrinkController {
         model.addAttribute("drink", drink);
 
         List<IngredientDto> allIngredients = ingredientService.findAllIngredients();
+
         model.addAttribute("allIngredients", allIngredients);
         return "drink-form";
     }

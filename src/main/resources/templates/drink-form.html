@@ -3,6 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <head>
+    <link rel="stylesheet" href="/styles/main.css">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -11,69 +12,19 @@
 
     <h2>Dodaj drinka </h2>
 
-    <fieldset>
-      <legend>Detale</legend>
-      <label>Nazwa <br> <input th:field="*{name}" name="name"></label> <br><br>
-        <label>Opis <br> <input th:field="*{description}" name="description"></label> <br><br>
-<!--      <label>Opis: <br>-->
-<!--        <textarea th:field="*{description}" name="description" id="opis"></textarea></label><br><br>-->
-    </fieldset>
-
-    <fieldset>
-      <legend>Składniki</legend>
-
-        <div style="float: left; margin: 8px; padding: 3px">
-            <label for="ingredient1"><br> </label>
-            <select style="margin: 5px" id="ingredient1" th:field="${allIngredients}" required>
-                <option value="" hidden>Wybierz składnik 1</option>
-                <option th:each="ingredeint: ${allIngredients}" th:value="${ingredeint.name}" th:text="${ingredeint.name}"></option>
-            </select>
-
-            <label for="ingredient2"><br></label>
-            <select style="margin: 5px" id="ingredient2" th:each="allIngredients, itemStat : *{ingredients}" >
-                <option value="" hidden>Wybierz składnik 2</option>
-                <option th:field="*{ingredients }"></option>
-            </select>
-
-<!--            <label for="ingredient3"><br> </label>-->
-<!--            <select style="margin: 5px" id="ingredient3" th:field="*{ingredients}" required>-->
-<!--                <option value="" hidden>Wybierz składnik 3</option>-->
-<!--                <option th:each="ingredient: ${allIngredients}" th:value="${ingredient.name}" th:text="${ingredient.name}"></option>-->
-<!--            </select>-->
-<!--        </div>-->
-
-<!--        <div style="float: left; margin: 8px; padding: 3px">-->
-<!--            <label for="ingredient4"><br> </label>-->
-<!--            <select style="margin: 5px" id="ingredient4" th:field="*{ingredients}" required>-->
-<!--                <option value="" hidden>Wybierz składnik 4</option>-->
-<!--                <option th:each="ingredient: ${allIngredients}" th:value="${ingredient.name}" th:text="${ingredient.name}"></option>-->
-<!--            </select>-->
-
-<!--            <label for="ingredient5"><br></label>-->
-<!--            <select style="margin: 5px" id="ingredient5" th:field="*{ingredients}" required>-->
-<!--                <option value="" hidden>Wybierz składnik 5</option>-->
-<!--                <option th:each="ingredient: ${allIngredients}" th:value="${ingredient.name}" th:text="${ingredient.name}"></option>-->
-<!--            </select>-->
-
-<!--            <label for="ingredient6"><br></label>-->
-<!--            <select style="margin: 5px" id="ingredient6" th:field="*{ingredients}" required>-->
-<!--                <option value="" hidden>Wybierz składnik 6</option>-->
-<!--                <option th:each="ingredient: ${allIngredients}" th:value="${ingredient.name}" th:text="${ingredient.name}"></option>-->
-<!--            </select>-->
-        </div>
 
 
+    <label>Nazwa <br> <input th:field="*{name}" name="name"></label> <br><br>
+    <label>Opis <br> <input th:field="*{description}" name="description"></label> <br><br>
 
-    </fieldset><br><br>
+    <label for="ingredient">Składnik</label>
+    <select id="ingredient" th:field="*{ingredients}" required>
+        <option value="" hidden>Wybierz składnik1</option>
+        <option th:each="ingredient: ${allIngredients}" th:value="${ingredient.id}" th:text="${ingredient.name}"></option>
+    </select>
+
+
     <input type="submit" value="Wyślij">
-
-
-
-
-
-    <!--    <label>Ilość <br> <input th:field="*{quantity}"> </label> <br><br>-->
-    <!--    <label>Jednostka miary <br> <input th:field="*{uOm}"> </label> <br><br>-->
-
 
 </form>
 </body>
