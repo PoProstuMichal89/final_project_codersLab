@@ -12,7 +12,7 @@ public class DrinkToSaveDto {
     private String name;
     private String description;
 
-    private List<Ingredient> ingredients = new ArrayList<>();
+    private List<IngredientToSaveDto> ingredients = new ArrayList<>();
 
     private List<Opinion> opinions = new ArrayList<>();
 
@@ -45,11 +45,11 @@ public class DrinkToSaveDto {
         this.description = description;
     }
 
-    public List<Ingredient> getIngredients() {
+    public List<IngredientToSaveDto> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    public void setIngredients(List<IngredientToSaveDto> ingredients) {
         this.ingredients = ingredients;
     }
 

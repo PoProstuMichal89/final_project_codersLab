@@ -1,7 +1,9 @@
 package pl.private_programing_barman.mapper;
 
+import org.springframework.context.annotation.Bean;
 import pl.private_programing_barman.dto.DrinkDto;
 import pl.private_programing_barman.dto.IngredientDto;
+import pl.private_programing_barman.dto.IngredientToSaveDto;
 import pl.private_programing_barman.model.Drink;
 import pl.private_programing_barman.model.Ingredient;
 
@@ -11,8 +13,8 @@ import java.util.List;
 
 public class DrinkDtoMapper {
 
-    //dodanie mapowania listy składników z encji na IngredientDto
-    public static List<IngredientDto> mapDrinkList(List<Ingredient> ingredients){
+    //Mapowanie listy składników na listę DTO
+    public static List<IngredientDto> mapIngredientsToDto(List<Ingredient> ingredients){
        List<IngredientDto> list = new ArrayList<>();
 
         for(Ingredient item : ingredients) {
@@ -25,19 +27,20 @@ public class DrinkDtoMapper {
 
             return list;
     };
+
+
     public static DrinkDto map(Drink drink){
 
        List<Ingredient> ingredientList = drink.getIngredients();
-      List<IngredientDto> ingedientDtoList= mapDrinkList(ingredientList);
+      List<IngredientDto> ingedientDtoList= mapIngredientsToDto(ingredientList);
 
          return new DrinkDto(
                  drink.getId(),
                  drink.getName(),
                  ingedientDtoList,
-                 drink.getDescription(),
-                 drink.getCreatedAt(),
-                 drink.getUpdatedAt()
-
+                 drink.getDescription()
+//                 drink.getCreatedAt(),
+//                 drink.getUpdatedAt()
          );
          }
      }
