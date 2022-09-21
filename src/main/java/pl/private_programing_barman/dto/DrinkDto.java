@@ -12,14 +12,14 @@ public class DrinkDto {
     private String name;
     private String description;
 
-    private List<Ingredient> ingredients = new ArrayList<>();
+    private List<IngredientDto> ingredients = new ArrayList<>();
 
     private List<Opinion> opinions = new ArrayList<>();
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public DrinkDto(int id, String name, List<Ingredient> ingredients, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public DrinkDto(int id, String name, List<IngredientDto> ingredients, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id=id;
         this.name = name;
         this.description = description;
@@ -52,11 +52,11 @@ public class DrinkDto {
         this.description = description;
     }
 
-    public List<Ingredient> getIngredients() {
+    public List<IngredientDto> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    public void setIngredients(List<IngredientDto> ingredients) {
         this.ingredients = ingredients;
     }
 
