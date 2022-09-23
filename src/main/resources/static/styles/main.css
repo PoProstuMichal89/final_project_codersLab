@@ -99,6 +99,15 @@ fieldset
     padding: 5px;
 }
 
+.ingredientSelect
+{
+    margin: 8px;
+}
+.columnOfIngredeintsSelect
+{
+    float: left;
+    margin-right: 15px;
+}
 /*inputy*/
 .detailsOfItem
 {
@@ -112,14 +121,30 @@ textarea
     width: 450px;
     height: 85px;
     border-radius: 5px;
+}
+
+/*lista składników*/
+.editItemOnList
+{
+    padding: 13px;
 
 }
-.ingredientSelect
+
+.editItemOnListLink
 {
-margin: 8px;
+    text-decoration: none;
+    margin-left: 45px;
+    color: burlywood;
+    font-size: 20px;
 }
-.columnOfIngredeintsSelect
+
+.editItemOnListLink:hover
 {
-    float: left;
-    margin-right: 15px;
+    color: chocolate;
+}
+
+.itemNameOnList
+{
+    font-size: 27px;
+    color: #FA7C00;
 }

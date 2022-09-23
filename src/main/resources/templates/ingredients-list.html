@@ -7,9 +7,27 @@
 </head>
 <body>
 <h2>Składniki</h2>
-<ul>
-  <li th:each="ingredient: ${ingredients}" th:text="${ingredient.getId() + ' ||  ' + ingredient.getName() + ' || ' + ingredient.getDrinks()}"></li>
-</ul>
+<table>
+<tr th:each="ingredient: ${ingredients}" >
+  <td class="itemNameOnList" th:text="${ingredient.name}">Dupa</td>
+  <td class="editItemOnList">
+    <a class="editItemOnListLink" th:href="@{'/ingredient/{id}'(id=${ingredient.id})}">Zobacz</a>
+  </td>
+<!--  <td th:each="ingredient: ${ingredients}" th:text="${ingredient.name}"></td>-->
+</tr>
+
+</table>
+
+
+
+
+
+
+
+
+<!--<ul>-->
+<!--  <li th:each="ingredient: ${ingredients}" th:text="${ingredient.getId() + ' ||  ' + ingredient.getName() + ' || ' + ingredient.getDrinks()}"></li>-->
+<!--</ul>-->
 
 
 </body>
