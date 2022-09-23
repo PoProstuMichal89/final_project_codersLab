@@ -9,13 +9,49 @@ drinks (name, description)
 
 INSERT INTO
     ingredients(name, description, quantity, u_om)
-VALUES ('Vodka', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur erat', 50.221, 'ml'),
-       ('Tequila', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur erat', 60.00, 'ml'),
-       ('Orange juce', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur erat', 70.00, 'ml'),
-       ('Aperol', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur erat', 40.00, 'ml'),
-       ('Grenadine', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur erat', 20.00, 'ml'),
-       ('Ice', 'Lorem ipsum dolor sit amet', 3, 'cube'),
-       ('Lemon', 'Lorem ipsum dolor sit', 2, 'piece');
+VALUES ('Vodka', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur erat.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in euismod leo. ' ||
+'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+50.221, 'ml'),
+
+
+('Tequila', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in interdum arcu, nec euismod dui. ' ||
+'Donec congue quis lacus non maximus. Duis pellentesque justo sit amet elit consectetur consequat vel eu lacus. ' ||
+'Pellentesque eu dui posuere eros sollicitudin condimentum. Suspendisse et volutpat erat. Donec non malesuada felis, ' ||
+'in vestibulum mi. Nulla pretium pulvinar dignissim. Morbi volutpat id neque nec malesuada. Pellentesque fringilla ' ||
+'dui non interdum sodales. Duis euismod eu mi sit amet rhoncus. Pellentesque condimentum lectus magna, at venenatis felis maximus id. ' ||
+'Duis tristique molestie elit. Quisque commodo gravida ex quis placerat. Vivamus lobortis dolor iaculis odio semper ornare. ' ||
+'Sed venenatis dictum volutpat.',
+60.00, 'ml'),
+
+
+('Orange juce', 'Proin iaculis, urna nec consequat lacinia, justo elit maximus ligula, id pharetra nibh sem ac lacus. ' ||
+'Suspendisse eget augue eu urna laoreet aliquet. Pellentesque libero dui, vehicula interdum ullamcorper nec, fringilla in erat. Nam commodo quam in tellus imperdiet, in auctor ex fringilla. ' ||
+ 'Mauris accumsan massa justo, tincidunt commodo lacus molestie sit amet. Duis sit amet neque sed nisl tempus ornare et eu elit. Proin elementum tellus sed risus dapibus consequat.' ||
+' Nunc lobortis sem lacus, eget pellentesque enim dignissim nec. Sed a tellus quam. Mauris ut erat eu nibh sollicitudin aliquam. Donec vel augue id ex malesuada rhoncus vehicula a ex.',
+ 70.00, 'ml'),
+
+('Aperol', 'Suspendisse ut urna nec mauris luctus ornare. Quisque tincidunt metus ac urna mattis convallis. Integer lacinia convallis volutpat. ' ||
+'Morbi tempor placerat nulla vel dignissim. Pellentesque vel purus vulputate, pretium tortor quis, luctus magna. ' ||
+'Aliquam ligula sapien, faucibus eu interdum eu, dictum nec est. Donec nec turpis commodo ipsum pellentesque blandit.' ||
+' Suspendisse nec nisi id nibh ullamcorper consequat. Sed congue orci in risus sagittis ornare. Donec sed tincidunt ipsum.',
+ 40.00, 'ml'),
+
+('Grenadine', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur erat.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' ||
+'Vestibulum facilisis turpis quis condimentum fermentum. Nunc nec laoreet orci. Duis dictum libero et efficitur fermentum. ' ||
+ 'Phasellus sapien diam, commodo eget odio in, tristique viverra nibh.', 20.00, 'ml'),
+
+('Ice', 'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia urna ante, ac pulvinar tortor maximus eu. ' ||
+  'Mauris consequat justo.', 3, 'cube'),
+
+('Lemon', 'Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' ||
+'Nulla sit amet libero ipsum. Donec tincidunt tincidunt diam, a commodo massa aliquam a. Nullam arcu sapien, ' ||
+ 'placerat auctor ex feugiat, viverra ullamcorper nisi. Nam imperdiet.',
+ 2, 'piece');
+
+
 
 
 INSERT INTO

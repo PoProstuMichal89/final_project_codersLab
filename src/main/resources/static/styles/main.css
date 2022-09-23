@@ -1,6 +1,6 @@
 body
 {
-    margin: 0;
+    margin: 15px;
     padding: 0px 60px;
     background-color: #29201B;
     color: #efefef;
@@ -11,11 +11,11 @@ body
 
 h1
 {
-    font-size: 42px;
-    font-weight: 400;
+    font-size: 25px;
+    font-weight: 200;
     color: #FA7C00;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 h2
@@ -23,6 +23,8 @@ h2
     font-size: 60px;
     font-weight: 600;
     text-align: center;
+    color: #FA7C00;
+    font-weight: 400;
 }
 
 .row
@@ -35,3 +37,19 @@ h2
     display: inline-block;
     margin: 0 10px;
 }
+
+.ingredientDescription
+{
+    margin-right: 40%;
+    display: block;
+
+    text-align: justify;
+}
+
+.ingredientDescBox
+{
+    margin: 45px;
+
+}
+
+

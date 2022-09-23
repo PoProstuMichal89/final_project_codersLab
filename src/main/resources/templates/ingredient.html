@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<div clas="wrapper">
+    <div>
+        <h2 th:text="${ingredient.name}" ></h2>
+    </div>
+
+    <div class="ingredientDescBox">
+        <h1>Description</h1>
+        <p class="ingredientDescription" th:text="${ingredient.description}"></p>
+    </div>
+
+    <div class="ingredientDescBox">
+        <h1>Unit of Measure</h1>
+        <p class="ingredientDescription" th:text="${ingredient.uOm}"></p>
+    </div>
+
+    <div class="ingredientDescBox">
+        <h1>Quantity</h1>
+        <p class="ingredientDescription" th:text="${ingredient.quantity}"></p>
+    </div>
+
+    <div class="ingredientDescBox">
+        <h1>You'll find it in drinks</h1>
+        <ul th:field="${ingredient.drinks}">
+            <li th:each="drink: ${ingredient.drinks}" th:text="${ingredient.drinks.listIterator().next().name}"> </li>
+        </ul>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

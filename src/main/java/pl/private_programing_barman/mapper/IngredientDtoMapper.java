@@ -4,6 +4,8 @@ import pl.private_programing_barman.dto.IngredientDto;
 import pl.private_programing_barman.dto.IngredientToSaveDto;
 import pl.private_programing_barman.model.Ingredient;
 
+import java.util.Optional;
+
 public class IngredientDtoMapper {
     public static IngredientDto map(Ingredient ingredient) {
         return new IngredientDto(
@@ -15,6 +17,8 @@ public class IngredientDtoMapper {
                 ingredient.getDrinks()
         );
     }
+
+
 
 //    public static IngredientToSaveDto mapToForm(Ingredient ingredient) {
 //        IngredientToSaveDto toSaveIngredeint = new IngredientToSaveDto();

@@ -14,7 +14,7 @@ public class Ingredient {
 
     private String name;
 
-
+@Column(length = 900)
     private String description;
 
     private double quantity;
