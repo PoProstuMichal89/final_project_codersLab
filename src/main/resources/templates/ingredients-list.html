@@ -2,10 +2,11 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="/styles/main.css">
   <title>Składniki</title>
 </head>
 <body>
-<h1>Składniki</h1>
+<h2>Składniki</h2>
 <ul>
   <li th:each="ingredient: ${ingredients}" th:text="${ingredient.getId() + ' ||  ' + ingredient.getName() + ' || ' + ingredient.getDrinks()}"></li>
 </ul>

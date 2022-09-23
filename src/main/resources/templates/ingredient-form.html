@@ -5,21 +5,24 @@
       layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/main.css">
     <title>add_ingredient</title>
 </head>
 <body>
 
 
 <form action="" method="post" th:object="${ingredient}">
+
+    <h2>Dodaj składnik</h2>
     <fieldset>
-        <legend>Dodaj składnik</legend>
-        <label>Nazwa <br> <input th:field="*{name}" name="name"></label> <br><br>
+        <legend>Detale składnika</legend>
+        <label>Nazwa <br> <input class="detailsOfItem" th:field="*{name}" name="name"></label> <br><br>
         <label>Opis: <br>
             <textarea th:field="*{description}" id="opis"></textarea></label><br><br>
 
-        <label>Ilość <br> <input th:field="*{quantity}"> </label> <br><br>
-        <label>Jednostka miary <br> <input th:field="*{uOm}"> </label> <br><br>
-        <input type="submit" value="Wyślij">
+        <label>Ilość <br> <input class="detailsOfItem" th:field="*{quantity}"> </label> <br><br>
+        <label>Jednostka miary <br> <input class="detailsOfItem" th:field="*{uOm}"> </label> <br><br>
+        <input class="addButton" type="submit" value="Dodaj">
     </fieldset>
 
 </form>
