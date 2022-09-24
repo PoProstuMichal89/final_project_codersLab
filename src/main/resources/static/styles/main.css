@@ -126,14 +126,14 @@ textarea
 /*lista składników*/
 .editItemOnList
 {
-    padding: 13px;
+    padding: 12px;
 
 }
 
 .editItemOnListLink
 {
     text-decoration: none;
-    margin-left: 45px;
+    margin-left: 40px;
     color: burlywood;
     font-size: 20px;
 }
@@ -149,7 +149,7 @@ textarea
     color: #FA7C00;
 }
 
-/*lista drinków na widoku skąłdnika*/
+/*lista drinków na widoku skałdnika*/
 .relatedItemNameOnList
 {
     font-size: 20px;
@@ -163,7 +163,7 @@ textarea
     text-decoration: none;
     margin-left: 45px;
     color: burlywood;
-    font-size: 18px;
+    font-size: 17px;
     padding: 4px;
 }
 
