@@ -177,7 +177,37 @@ textarea
 /*    margin-right: 45%;*/
 /*}*/
 
-/*.ediDrinkButtons*/
-/*{*/
-/*    margin: 20px;*/
-/*}*/
+.editDrinkButtons
+{
+    margin: 20px;
+
+}
+
+.drinkOperationButton
+{
+    /*display: block;*/
+    height: 30px;
+    width: 105px;
+    background: lightgrey;
+    /*color: #FA7C00;*/
+    /*font-weight: 850;*/
+    /*font-size: 20px;*/
+    margin-top: 55px;
+    margin-bottom: 40px;
+    margin-left: 25px;
+    margin-right: 10px;
+}
+
+.editDrinkOperationButtonLink
+{
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 550;
+    color: #FA7C00;
+    padding: 6px;
+}
+
+.editDrinkOperationButtonLink:hover
+{
+    color: chocolate;
+}
