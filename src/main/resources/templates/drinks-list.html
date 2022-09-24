@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/styles/main.css">
-    <title>Drinki</title>
+    <title>Składniki</title>
 </head>
 <body>
-<h1>Drinki</h1>
-<ul>
-    <li th:each="drink: ${drinks}" th:text="${drink.getId() + ' ||  ' + drink.getName() + ' || ' + drink.getIngredients()}"></li>
-</ul>
+<h2>Drinki</h2>
+<table>
+    <tr th:each="drink: ${drinks}" >
+        <td class="itemNameOnList" th:text="${drink.name}"></td>
+        <td class="editItemOnList">
+            <a class="editItemOnListLink" th:href="@{'/drink/{id}'(id=${drink.id})}">Zobacz</a>
+        </td>
+        <td class="editItemOnList">
+            <a class="editItemOnListLink" th:href="@{'/drink/{id}'(id=${drink.id})}">Edytuj</a>
+        </td>
+        <td class="editItemOnList">
+            <a class="editItemOnListLink" th:href="@{'/drink/{id}'(id=${drink.id})}">Usuń</a>
+        </td>
+    </tr>
 
-
-</body>
-</html>
+</table>
