@@ -27,11 +27,27 @@
     </div>
 
     <!--- Zamienić na tabelę, dodać "zobacz" prowadzący do detali drinka --->
+
     <div class="ingredientDescBox">
-        <h1>You'll find it in drinks</h1>
-        <ul th:field="${ingredient.drinks}">
-            <li th:each="drink: ${ingredient.drinks}" th:text="${ingredient.drinks.listIterator().next().name}"> </li>
-        </ul>
+
+        <h1>You'll find it in drinks:</h1>
+
+            <table>
+                <tr  th:each="drink: ${ingredient.drinks}">
+                    <td class="relatedItemNameOnList"  th:text="${ingredient.drinks.listIterator().next().name}"></td>
+                    <td class="editRelatedItemOnListLink">
+                        <a class="editRelatedItemOnListLink" th:href="@{'/drink/{id}'(id=${ingredient.drinks.listIterator().next().id})}">View</a>
+                    </td>
+                </tr>
+            </table>
+
+
+
+
+<!--        <h1>You'll find it in drinks</h1>-->
+<!--        <ul th:field="${ingredient.drinks}">-->
+<!--            <li th:each="drink: ${ingredient.drinks}" th:text="${ingredient.drinks.listIterator().next().name}"> </li>-->
+<!--        </ul>-->
     </div>
 
 
