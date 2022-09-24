@@ -194,7 +194,7 @@ textarea
     /*font-size: 20px;*/
     margin-top: 55px;
     margin-bottom: 40px;
-    margin-left: 25px;
+    margin-left: 10px;
     margin-right: 10px;
 }
 
@@ -210,4 +210,27 @@ textarea
 .editDrinkOperationButtonLink:hover
 {
     color: chocolate;
+}
+
+.navBar
+{
+    margin-top: 150px;
+    margin-left: 650px;
+    margin-right: 650px;
+    margin-bottom: 100px;
+}
+
+.navItems
+{
+
+    margin-left: 3px;
+    padding: 3px;
+}
+
+
+.navItemsLinks
+{
+    text-decoration: none;
+    color: #FA7C00;
+    font-size: 17px;
 }
