@@ -6,18 +6,18 @@
     <title>Składniki</title>
 </head>
 <body>
-<h2>Drinki</h2>
+<h2>Drinks</h2>
 <table>
     <tr th:each="drink: ${drinks}" >
         <td class="itemNameOnList" th:text="${drink.name}"></td>
         <td class="editItemOnList">
-            <a class="editItemOnListLink" th:href="@{'/drink/{id}'(id=${drink.id})}">Zobacz</a>
+            <a class="editItemOnListLink" th:href="@{'/drink/{id}'(id=${drink.id})}">View</a>
         </td>
         <td class="editItemOnList">
-            <a class="editItemOnListLink" th:href="@{'/drink/{id}'(id=${drink.id})}">Edytuj</a>
+            <a class="editItemOnListLink" th:href="@{'/drink/{id}'(id=${drink.id})}">Edit</a>
         </td>
         <td class="editItemOnList">
-            <a class="editItemOnListLink" th:href="@{'/drink/{id}'(id=${drink.id})}">Usuń</a>
+            <a class="editItemOnListLink" th:href="@{'/delete-drink/{id}'(id=${drink.id})}">Delete</a>
         </td>
     </tr>
 

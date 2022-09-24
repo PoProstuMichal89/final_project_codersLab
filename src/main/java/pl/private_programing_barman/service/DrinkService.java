@@ -74,7 +74,7 @@ public class DrinkService {
     }
 
     @Transactional
-    public void deletyById(int drinkId){
+    public void deleteById(int drinkId){
         drinkrepository.deleteById(drinkId);
     }
 

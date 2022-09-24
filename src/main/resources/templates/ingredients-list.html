@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/styles/main.css">
-  <title>Składniki</title>
+  <title>Ingredients</title>
 </head>
 <body>
 <h2>Składniki</h2>
 <table>
 <tr th:each="ingredient: ${ingredients}" >
-  <td class="itemNameOnList" th:text="${ingredient.name}">Dupa</td>
+  <td class="itemNameOnList" th:text="${ingredient.name}"></td>
   <td class="editItemOnList">
-    <a class="editItemOnListLink" th:href="@{'/ingredient/{id}'(id=${ingredient.id})}">Zobacz</a>
+    <a class="editItemOnListLink" th:href="@{'/ingredient/{id}'(id=${ingredient.id})}">View</a>
   </td>
 <!--  <td th:each="ingredient: ${ingredients}" th:text="${ingredient.name}"></td>-->
 </tr>

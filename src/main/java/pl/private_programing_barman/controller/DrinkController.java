@@ -2,9 +2,7 @@ package pl.private_programing_barman.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.private_programing_barman.dto.DrinkDto;
 import pl.private_programing_barman.dto.DrinkToSaveDto;
@@ -62,4 +60,17 @@ public class DrinkController {
         optionalDrink.ifPresent(drink -> model.addAttribute("drink", drink));
         return "drink";
     }
+
+    @GetMapping("/delete-drink/{id}")
+    public String deleteDrink(@PathVariable int id){
+        drinkservice.deleteById(id);
+
+        return "redirect:/drinks";
+    }
+
+//    @RequestMapping(value="/delete-drink/{id}", method = RequestMethod.DELETE)
+//    public void deleteDrink(@PathVariable int id){
+//        drinkservice.deleteById(id);
+//    }
+
 }

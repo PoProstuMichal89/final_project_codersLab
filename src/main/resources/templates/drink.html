@@ -27,13 +27,13 @@
   <div class="editDrinkButtons">
     <span>
       <button class="drinkOperationButton">
-              <a class="editDrinkOperationButtonLink"  href="/add-drink">Edytuj</a>
+              <a class="editDrinkOperationButtonLink"  href="/add-drink">Edit</a>
       </button>
     </span>
 
     <span>
-      <button class="drinkOperationButton">
-              <a class="editDrinkOperationButtonLink"  href="/add-drink">Usuń</a>
+      <button class="drinkOperationButton" >
+              <a class="editDrinkOperationButtonLink"  th:href="@{'/delete-drink/{id}'(id=${drink.id})}">Delete</a>
       </button>
     </span>
 
