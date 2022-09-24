@@ -20,13 +20,13 @@ public class IngredientDtoMapper {
 
 
 
-//    public static IngredientToSaveDto mapToForm(Ingredient ingredient) {
-//        IngredientToSaveDto toSaveIngredeint = new IngredientToSaveDto();
-//        toSaveIngredeint.setName(ingredient.getName());
-//        toSaveIngredeint.setDescription(ingredient.getDescription());
-//        toSaveIngredeint.setQuantity(ingredient.getQuantity());
-//        toSaveIngredeint.setuOm(ingredient.getuOm());
-//
-//        return toSaveIngredeint;
-//    }
+    public static IngredientToSaveDto mapToSave(IngredientDto ingredient) {
+        IngredientToSaveDto toSaveIngredeint = new IngredientToSaveDto();
+        toSaveIngredeint.setName(ingredient.getName());
+        toSaveIngredeint.setDescription(ingredient.getDescription());
+        toSaveIngredeint.setQuantity(ingredient.getQuantity());
+        toSaveIngredeint.setuOm(ingredient.getuOm());
+
+        return toSaveIngredeint;
+    }
 }

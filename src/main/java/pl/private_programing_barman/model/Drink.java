@@ -13,6 +13,8 @@ public class Drink {
     private int id;
 
     private String name;
+
+    @Column(length = 900)
     private String description;
 
 

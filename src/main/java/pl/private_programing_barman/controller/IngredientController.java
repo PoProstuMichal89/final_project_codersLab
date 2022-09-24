@@ -50,7 +50,7 @@ public class IngredientController {
 
     }
 
-    //wyświetlenie detli składnika
+    //wyświetlenie detali składnika
     @GetMapping("/ingredient/{id}")
     public String getIngredient(@PathVariable int id, Model model){
         Optional<IngredientDto> optionalIngredient = ingredientService.findById(id);

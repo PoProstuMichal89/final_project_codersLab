@@ -88,8 +88,8 @@ public class DrinkService {
 
 
     @Transactional
-    public Optional<Drink>findById(int drinkId){
-        return drinkrepository.findById(drinkId);
+    public Optional<DrinkDto>findById(int drinkId){
+        return drinkrepository.findById(drinkId).map(DrinkDtoMapper::map);
     }
 
 //    @Transactional
