@@ -149,6 +149,7 @@ textarea
     color: #FA7C00;
 }
 
+/*lista drinków na widoku skąłdnika*/
 .relatedItemNameOnList
 {
     font-size: 20px;
@@ -171,7 +172,12 @@ textarea
     color: chocolate;
 }
 
-.fieldsetForRelatedDrinks
-{
-    margin-right: 45%;
-}
+/*.fieldsetForRelatedDrinks*/
+/*{*/
+/*    margin-right: 45%;*/
+/*}*/
+
+/*.ediDrinkButtons*/
+/*{*/
+/*    margin: 20px;*/
+/*}*/
