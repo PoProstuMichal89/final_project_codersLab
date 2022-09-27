@@ -20,7 +20,7 @@ public class Ingredient {
     private double quantity;
 
     private String uOm;
-
+//[przerzucić] mapowanie
     @ManyToMany
     private List<Drink> drinks = new ArrayList<>();
 

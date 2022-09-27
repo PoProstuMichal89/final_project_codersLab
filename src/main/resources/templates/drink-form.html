@@ -25,12 +25,11 @@
         <fieldset>
             <legend>Wybierz składniki</legend>
             <div class="columnOfIngredeintsSelect">
-
                 <div class="ingredientSelect">
                     <label for="ingredient">Składnik 1 &nbsp</label>
                     <select id="ingredient" th:field="*{ingredients}" required>
                         <option value="" hidden>Wybierz składnik1</option>
-                        <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient}" th:text="${ingredient.name}"></option>
+                        <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient.id}" th:text="${ingredient.name}"></option>
                     </select>
                 </div>
 
@@ -80,6 +79,7 @@
 
 
             </div>
+
 
 
         </fieldset>

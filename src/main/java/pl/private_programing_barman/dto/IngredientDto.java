@@ -38,6 +38,10 @@ public class IngredientDto {
         this.uOm = uOm;
     }
 
+    public IngredientDto(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

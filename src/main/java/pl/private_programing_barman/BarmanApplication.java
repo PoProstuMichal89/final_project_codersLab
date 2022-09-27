@@ -38,7 +38,7 @@ public class BarmanApplication implements RepositoryRestConfigurer {
 
         DrinkService drinkService = context.getBean(DrinkService.class);
         DrinkToSaveDto newDrink = new DrinkToSaveDto();
-        newDrink.setIngredients(ingredients);
+//        newDrink.setIngredients(ingredients);
         newDrink.setName("Blue Curacao");
         newDrink.setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a ex mauris. Ut vel hendrerit tortor. Nulla venenatis neque mauris, nec dapibus odio fringilla id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed consequat metus id lacus vulputate vestibulum. Donec dignissim, ipsum ac lobortis rhoncus, nisl nisi mattis erat, in consequat est augue sit amet turpis.");
         drinkService.add(newDrink);

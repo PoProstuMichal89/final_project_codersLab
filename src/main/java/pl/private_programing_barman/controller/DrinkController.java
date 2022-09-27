@@ -47,7 +47,7 @@ public class DrinkController {
     }
 
     @PostMapping("/add-drink")
-    public String addDrink(DrinkToSaveDto drink, RedirectAttributes redirectAttributes){
+    public String addDrink(DrinkToSaveDto drink){
         drinkservice.add(drink);
 //        System.out.println(drink.getIngredients()+"xxxx");
         return "redirect:/drinks";
