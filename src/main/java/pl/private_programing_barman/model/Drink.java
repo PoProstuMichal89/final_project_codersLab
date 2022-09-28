@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 @Entity
@@ -24,7 +25,7 @@ public class Drink {
     //String czy obiekt Ingredeint?
 
     @ManyToMany( cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    private List<Ingredient> ingredients = new ArrayList<>();
+    private HashSet<Ingredient> ingredients = new HashSet<>();
 
 //    private LocalDateTime createdAt;
 //    private LocalDateTime updatedAt;
@@ -61,11 +62,11 @@ public class Drink {
         this.description = description;
     }
 
-    public List<Ingredient> getIngredients() {
+    public HashSet<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    public void setIngredients(HashSet<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
