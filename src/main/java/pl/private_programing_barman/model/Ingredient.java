@@ -1,6 +1,8 @@
 package pl.private_programing_barman.model;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +14,7 @@ import java.util.List;
 public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "ingredient_id", unique = true)
     private int id;
 
     private String name;
@@ -24,7 +27,8 @@ public class Ingredient {
     private String uOm;
 
 
-    @ManyToMany(mappedBy = "ingredients")
+    @ManyToMany( mappedBy = "ingredients", fetch = FetchType.LAZY)
+//    @Fetch(FetchMode.SUBSELECT)
     private List<Drink> drinks = new ArrayList<>();
 
 

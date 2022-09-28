@@ -1,6 +1,8 @@
 package pl.private_programing_barman.model;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,6 +15,7 @@ import java.util.List;
 public class Drink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "drink_id", unique = true)
     private int id;
 
     private String name;
@@ -24,8 +27,13 @@ public class Drink {
 
     //String czy obiekt Ingredeint?
 
-    @ManyToMany( cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    private HashSet<Ingredient> ingredients = new HashSet<>();
+    @ManyToMany( cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @JoinTable(
+            name="drinks_ingredients",
+            joinColumns = @JoinColumn(name = "drink_id"),
+            inverseJoinColumns = @JoinColumn(name="ingredient_id")
+    )
+    private List<Ingredient> ingredients = new ArrayList<>();
 
 //    private LocalDateTime createdAt;
 //    private LocalDateTime updatedAt;
@@ -62,11 +70,11 @@ public class Drink {
         this.description = description;
     }
 
-    public HashSet<Ingredient> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(HashSet<Ingredient> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
