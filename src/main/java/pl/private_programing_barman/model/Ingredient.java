@@ -21,7 +21,8 @@ public class Ingredient {
 
     private String uOm;
 
-    @ManyToMany
+
+    @ManyToMany(mappedBy = "ingredients")
     private List<Drink> drinks = new ArrayList<>();
 
 

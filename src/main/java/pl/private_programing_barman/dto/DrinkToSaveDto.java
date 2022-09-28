@@ -2,13 +2,16 @@ package pl.private_programing_barman.dto;
 
 import pl.private_programing_barman.model.Ingredient;
 import pl.private_programing_barman.model.Opinion;
+import pl.private_programing_barman.service.IngredientService;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class DrinkToSaveDto {
 
+    private IngredientService ingredientService;
     private String name;
     private String description;
 
@@ -50,6 +53,7 @@ public class DrinkToSaveDto {
     }
 
     public void setIngredients(List<IngredientDto> ingredients) {
+
         this.ingredients = ingredients;
     }
 

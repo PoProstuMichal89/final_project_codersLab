@@ -1,6 +1,7 @@
 package pl.private_programing_barman.dto;
 
 import pl.private_programing_barman.model.Drink;
+import pl.private_programing_barman.service.IngredientService;
 
 
 import javax.persistence.OneToMany;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IngredientDto {
+    private IngredientService ingredientService;
     private int id;
     private String name;
     private String description;
@@ -85,6 +87,11 @@ public class IngredientDto {
     public List<Drink> getDrinks() {
 
         return drinks;
+    }
+
+    public void setDrinks(List<Drink> drinks) {
+
+        this.drinks = drinks;
     }
 
     @Override

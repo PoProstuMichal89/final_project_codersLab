@@ -2,12 +2,15 @@ package pl.private_programing_barman.dto;
 
 import pl.private_programing_barman.model.Ingredient;
 import pl.private_programing_barman.model.Opinion;
+import pl.private_programing_barman.service.IngredientService;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class DrinkDto {
+    private IngredientService ingredientService;
     private int id;
     private String name;
     private String description;
@@ -56,7 +59,18 @@ public class DrinkDto {
         return ingredients;
     }
 
-    public void setIngredients(List<IngredientDto> ingredients) {
+    public void setIngredients(List<IngredientDto> ingredients, int ingredientId) {
+       Optional<IngredientDto> ingredient= ingredientService.findById(ingredientId);
+       ingredient.ifPresent(ingredientDto -> {
+           IngredientDto ingredientDto1 = new IngredientDto(
+                   ingredientDto.getId(),
+                   ingredientDto.getName(),
+                   ingredientDto.getDescription(),
+                   ingredientDto.getQuantity(),
+                   ingredientDto.getuOm());
+           ingredients.add(ingredientDto1);
+       });
+
         this.ingredients = ingredients;
     }
 

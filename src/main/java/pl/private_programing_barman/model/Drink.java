@@ -21,7 +21,7 @@ public class Drink {
 
     //String czy obiekt Ingredeint?
 
-    @ManyToMany(mappedBy = "drinks")
+    @ManyToMany
     private List<Ingredient> ingredients = new ArrayList<>();
 
 //    private LocalDateTime createdAt;
@@ -90,4 +90,6 @@ public class Drink {
     public void setOpinions(List<Opinion> opinions) {
         this.opinions = opinions;
     }
+
+
 }

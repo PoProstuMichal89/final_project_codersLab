@@ -11,6 +11,7 @@ import pl.private_programing_barman.model.Drink;
 import pl.private_programing_barman.service.DrinkService;
 import pl.private_programing_barman.service.IngredientService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,9 +48,33 @@ public class DrinkController {
     }
 
     @PostMapping("/add-drink")
-    public String addDrink(DrinkToSaveDto drink, RedirectAttributes redirectAttributes){
-        drinkservice.add(drink);
-//        System.out.println(drink.getIngredients()+"xxxx");
+    public String addDrink(@ModelAttribute DrinkToSaveDto drink, @RequestParam List<Integer>ingredients){
+        List<Integer>ingredientsId= ingredients;
+
+        List<IngredientDto> ingredientsList = new ArrayList<>();
+        for (Integer ingredeintID : ingredientsId) {
+            Optional<IngredientDto> ingredient= ingredientService.findById(ingredeintID);
+            ingredient.ifPresent(ingredientDto -> {
+                IngredientDto ingredientDto1 = new IngredientDto(
+                        ingredientDto.getId(),
+                        ingredientDto.getName(),
+                        ingredientDto.getDescription(),
+                        ingredientDto.getQuantity(),
+                        ingredientDto.getuOm());
+                ingredientsList.add(ingredientDto1);
+            });
+        }
+        for (IngredientDto ingredientDto : ingredientsList) {
+            System.out.println("Przekazuję: "+ ingredientDto.getName());
+        }
+
+
+
+        drinkservice.add(drink, ingredientsList);
+        List<IngredientDto> testIngredients = drink.getIngredients();
+        for (IngredientDto testIngredient : testIngredients) {
+            System.out.println("Otrzymuję: "+testIngredient.getName());
+        }
         return "redirect:/drinks";
     }
 

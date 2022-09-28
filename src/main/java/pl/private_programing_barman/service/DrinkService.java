@@ -47,14 +47,13 @@ public class DrinkService {
         List<Ingredient> list = new ArrayList<>();
         for(IngredientDto item : ingredients) {
 
-            for(int index = 0; index < list.size(); index++) {
-                Ingredient newIngredient = new Ingredient();
-                newIngredient.setName(item.getName());
-                newIngredient.setDescription(item.getDescription());
-                newIngredient.setQuantity(item.getQuantity());
-                newIngredient.setuOm(item.getuOm());
-                list.add(newIngredient);
-            }
+            Ingredient newIngredient = new Ingredient();
+            newIngredient.setName(item.getName());
+            newIngredient.setDescription(item.getDescription());
+            newIngredient.setQuantity(item.getQuantity());
+            newIngredient.setuOm(item.getuOm());
+            list.add(newIngredient);
+
         }
 
         return list;
@@ -62,9 +61,9 @@ public class DrinkService {
     }
 
     @Transactional
-    public void add(DrinkToSaveDto newDrink){
-    List<IngredientDto> ingredientsToSave= newDrink.getIngredients();
-    List<Ingredient> entityIngredients= mapIngredientsToEntity(ingredientsToSave);
+    public void add(DrinkToSaveDto newDrink, List<IngredientDto> ingredientsList){
+//    List<IngredientDto> ingredientsToSave= newDrink.getIngredients();
+    List<Ingredient> entityIngredients= mapIngredientsToEntity(ingredientsList);
         Drink drink = new Drink();
         drink.setName(newDrink.getName());
         drink.setDescription(newDrink.getDescription());
