@@ -1,5 +1,7 @@
 package pl.private_programing_barman.model;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ public class Drink {
 
     //String czy obiekt Ingredeint?
 
-    @ManyToMany
+    @ManyToMany( cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Ingredient> ingredients = new ArrayList<>();
 
 //    private LocalDateTime createdAt;
