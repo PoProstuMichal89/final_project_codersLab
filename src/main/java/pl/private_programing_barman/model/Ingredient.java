@@ -12,11 +12,13 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "ingredients")
+
 public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "ingredient_id", unique = true)
+    @Column (unique = true)
     private int id;
+
 
     private String name;
 
@@ -28,8 +30,10 @@ public class Ingredient {
     private String uOm;
 
 
-    @ManyToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "ingredients", fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ingredients")
     @Fetch(FetchMode.SUBSELECT)
+
+//    @JoinColumn(name = "drinks", insertable = false, updatable = false)
     private List<Drink> drinks = new ArrayList<>();
 
 

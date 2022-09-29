@@ -13,7 +13,7 @@ import java.util.*;
 public class Drink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "drink_id", unique = true)
+//    @Column (name = "drink_id", unique = true)
     private int id;
 
     private String name;
@@ -22,20 +22,10 @@ public class Drink {
     private String description;
 
 
-
-    //String czy obiekt Ingredeint?
-
     @ManyToMany( cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
-    @JoinTable(
-            name="drinks_ingredients",
-            joinColumns = @JoinColumn(name = "drink_id"),
-            inverseJoinColumns = @JoinColumn(name="ingredient_id")
-    )
-    @Fetch(FetchMode.SUBSELECT)
     private Set<Ingredient> ingredients = new HashSet<>();
 
-//    private LocalDateTime createdAt;
-//    private LocalDateTime updatedAt;
+
 
     @OneToMany
     @JoinColumn(name = "drink_id")

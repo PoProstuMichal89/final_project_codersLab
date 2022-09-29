@@ -46,7 +46,7 @@ public class DrinkController {
     }
 
     @PostMapping("/add-drink")
-    public String addDrink(@ModelAttribute DrinkToSaveDto drink, @RequestParam List<Integer>ingredients){
+    public String addDrink( DrinkToSaveDto drink, @RequestParam List<Integer>ingredients){
         List<Integer> ingredientsId= ingredients;
 
         Set<IngredientDto> ingredientsList = new HashSet<>();

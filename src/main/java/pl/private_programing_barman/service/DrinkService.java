@@ -60,13 +60,11 @@ public class DrinkService {
 
     @Transactional
     public void add(DrinkToSaveDto newDrink, Set<IngredientDto> ingredientsList){
-//    List<IngredientDto> ingredientsToSave= newDrink.getIngredients();
     Set<Ingredient> entityIngredients= mapIngredientsToEntity(ingredientsList);
         Drink drink = new Drink();
         drink.setName(newDrink.getName());
         drink.setDescription(newDrink.getDescription());
         drink.setIngredients(entityIngredients);
-//        drink.setCreatedAt(newDrink.getCreatedAt());
         drinkrepository.save(drink);
     }
 
