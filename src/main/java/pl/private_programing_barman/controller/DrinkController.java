@@ -11,9 +11,7 @@ import pl.private_programing_barman.model.Drink;
 import pl.private_programing_barman.service.DrinkService;
 import pl.private_programing_barman.service.IngredientService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 public class DrinkController {
@@ -41,7 +39,7 @@ public class DrinkController {
         DrinkToSaveDto drink = new DrinkToSaveDto();
         model.addAttribute("drink", drink);
 
-        List<IngredientDto> allIngredients = ingredientService.findAllIngredients();
+        Set<IngredientDto> allIngredients = ingredientService.findAllIngredients();
 
         model.addAttribute("allIngredients", allIngredients);
         return "drink-form";
@@ -49,9 +47,9 @@ public class DrinkController {
 
     @PostMapping("/add-drink")
     public String addDrink(@ModelAttribute DrinkToSaveDto drink, @RequestParam List<Integer>ingredients){
-        List<Integer>ingredientsId= ingredients;
+        List<Integer> ingredientsId= ingredients;
 
-        List<IngredientDto> ingredientsList = new ArrayList<>();
+        Set<IngredientDto> ingredientsList = new HashSet<>();
         for (Integer ingredeintID : ingredientsId) {
             Optional<IngredientDto> ingredient= ingredientService.findById(ingredeintID);
             ingredient.ifPresent(ingredientDto -> {
@@ -64,17 +62,9 @@ public class DrinkController {
                 ingredientsList.add(ingredientDto1);
             });
         }
-        for (IngredientDto ingredientDto : ingredientsList) {
-            System.out.println("Przekazuję: "+ ingredientDto.getName());
-        }
-
 
 
         drinkservice.add(drink, ingredientsList);
-        List<IngredientDto> testIngredients = drink.getIngredients();
-        for (IngredientDto testIngredient : testIngredients) {
-            System.out.println("Otrzymuję: "+testIngredient.getName());
-        }
         return "redirect:/drinks";
     }
 

@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "ingredients")
@@ -27,8 +28,8 @@ public class Ingredient {
     private String uOm;
 
 
-    @ManyToMany( mappedBy = "ingredients", fetch = FetchType.LAZY)
-//    @Fetch(FetchMode.SUBSELECT)
+    @ManyToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "ingredients", fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SUBSELECT)
     private List<Drink> drinks = new ArrayList<>();
 
 
@@ -77,5 +78,18 @@ public class Ingredient {
 
     public List<Drink> getDrinks() {
         return drinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ingredient that = (Ingredient) o;
+        return id == that.id && Double.compare(that.quantity, quantity) == 0 && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(uOm, that.uOm) && Objects.equals(drinks, that.drinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description, quantity, uOm, drinks);
     }
 }

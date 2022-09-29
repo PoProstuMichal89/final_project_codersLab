@@ -6,9 +6,7 @@ import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name="drinks")
@@ -27,13 +25,14 @@ public class Drink {
 
     //String czy obiekt Ingredeint?
 
-    @ManyToMany( cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @ManyToMany( cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(
             name="drinks_ingredients",
             joinColumns = @JoinColumn(name = "drink_id"),
             inverseJoinColumns = @JoinColumn(name="ingredient_id")
     )
-    private List<Ingredient> ingredients = new ArrayList<>();
+    @Fetch(FetchMode.SUBSELECT)
+    private Set<Ingredient> ingredients = new HashSet<>();
 
 //    private LocalDateTime createdAt;
 //    private LocalDateTime updatedAt;
@@ -70,11 +69,11 @@ public class Drink {
         this.description = description;
     }
 
-    public List<Ingredient> getIngredients() {
+    public Set<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
@@ -102,5 +101,16 @@ public class Drink {
         this.opinions = opinions;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Drink drink = (Drink) o;
+        return id == drink.id && Objects.equals(name, drink.name) && Objects.equals(description, drink.description) && Objects.equals(ingredients, drink.ingredients) && Objects.equals(opinions, drink.opinions);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description, ingredients, opinions);
+    }
 }

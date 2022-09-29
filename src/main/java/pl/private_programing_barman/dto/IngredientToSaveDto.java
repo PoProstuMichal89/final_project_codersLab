@@ -1,6 +1,7 @@
 package pl.private_programing_barman.dto;
 
 
+import java.util.Objects;
 
 public class IngredientToSaveDto {
     private String name;
@@ -55,5 +56,18 @@ public class IngredientToSaveDto {
                 ", quantity=" + quantity +
                 ", uOm='" + uOm + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        IngredientToSaveDto that = (IngredientToSaveDto) o;
+        return Double.compare(that.quantity, quantity) == 0 && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(uOm, that.uOm);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, description, quantity, uOm);
     }
 }

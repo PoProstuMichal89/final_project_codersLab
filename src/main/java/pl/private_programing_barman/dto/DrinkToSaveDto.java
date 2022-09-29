@@ -5,9 +5,7 @@ import pl.private_programing_barman.model.Opinion;
 import pl.private_programing_barman.service.IngredientService;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class DrinkToSaveDto {
 
@@ -15,7 +13,7 @@ public class DrinkToSaveDto {
     private String name;
     private String description;
 
-    private List<IngredientDto> ingredients = new ArrayList<>();
+    private Set<IngredientDto> ingredients = new HashSet<>();
 
     private List<Opinion> opinions = new ArrayList<>();
 
@@ -48,11 +46,11 @@ public class DrinkToSaveDto {
         this.description = description;
     }
 
-    public List<IngredientDto> getIngredients() {
+    public Set<IngredientDto> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<IngredientDto> ingredients) {
+    public void setIngredients(Set<IngredientDto> ingredients) {
 
         this.ingredients = ingredients;
     }
@@ -90,5 +88,18 @@ public class DrinkToSaveDto {
 
     public void setOpinions(List<Opinion> opinions) {
         this.opinions = opinions;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DrinkToSaveDto that = (DrinkToSaveDto) o;
+        return Objects.equals(ingredientService, that.ingredientService) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(ingredients, that.ingredients) && Objects.equals(opinions, that.opinions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ingredientService, name, description, ingredients, opinions);
     }
 }

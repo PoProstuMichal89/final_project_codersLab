@@ -10,6 +10,8 @@ import pl.private_programing_barman.repositories.IngredientRepository;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class IngredientService {
@@ -35,10 +37,10 @@ public class IngredientService {
     }
 
     @Transactional
-    public List<IngredientDto> findAllIngredients(){
+    public Set<IngredientDto> findAllIngredients(){
         return ingredientrepository.findAll().stream()
                 .map(IngredientDtoMapper::map)
-                .toList();
+                .collect(Collectors.toSet());
     }
 
 //    @Transactional

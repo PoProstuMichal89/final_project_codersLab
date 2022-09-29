@@ -7,6 +7,7 @@ import pl.private_programing_barman.service.IngredientService;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class IngredientDto {
     private IngredientService ingredientService;
@@ -103,5 +104,18 @@ public class IngredientDto {
                 ", quantity=" + quantity +
                 ", uOm='" + uOm + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        IngredientDto that = (IngredientDto) o;
+        return id == that.id && Double.compare(that.quantity, quantity) == 0 && Objects.equals(ingredientService, that.ingredientService) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(uOm, that.uOm) && Objects.equals(drinks, that.drinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ingredientService, id, name, description, quantity, uOm, drinks);
     }
 }

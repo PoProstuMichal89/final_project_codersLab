@@ -5,9 +5,7 @@ import pl.private_programing_barman.model.Opinion;
 import pl.private_programing_barman.service.IngredientService;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class DrinkDto {
     private IngredientService ingredientService;
@@ -15,14 +13,14 @@ public class DrinkDto {
     private String name;
     private String description;
 
-    private List<IngredientDto> ingredients = new ArrayList<>();
+    private Set<IngredientDto> ingredients = new HashSet<>();
 
     private List<Opinion> opinions = new ArrayList<>();
 
 //    private LocalDateTime createdAt;
 //    private LocalDateTime updatedAt;
 
-    public DrinkDto(int id, String name, List<IngredientDto> ingredients, String description) {
+    public DrinkDto(int id, String name, Set<IngredientDto> ingredients, String description) {
         this.id=id;
         this.name = name;
         this.description = description;
@@ -55,11 +53,11 @@ public class DrinkDto {
         this.description = description;
     }
 
-    public List<IngredientDto> getIngredients() {
+    public Set<IngredientDto> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<IngredientDto> ingredients, int ingredientId) {
+    public void setIngredients(Set<IngredientDto> ingredients, int ingredientId) {
        Optional<IngredientDto> ingredient= ingredientService.findById(ingredientId);
        ingredient.ifPresent(ingredientDto -> {
            IngredientDto ingredientDto1 = new IngredientDto(
@@ -108,5 +106,18 @@ public class DrinkDto {
 
     public void setOpinions(List<Opinion> opinions) {
         this.opinions = opinions;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DrinkDto drinkDto = (DrinkDto) o;
+        return id == drinkDto.id && Objects.equals(ingredientService, drinkDto.ingredientService) && Objects.equals(name, drinkDto.name) && Objects.equals(description, drinkDto.description) && Objects.equals(ingredients, drinkDto.ingredients) && Objects.equals(opinions, drinkDto.opinions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ingredientService, id, name, description, ingredients, opinions);
     }
 }

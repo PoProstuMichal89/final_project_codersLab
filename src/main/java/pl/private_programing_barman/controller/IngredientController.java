@@ -16,6 +16,7 @@ import pl.private_programing_barman.service.IngredientService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Controller
@@ -29,7 +30,7 @@ public class IngredientController {
     //wyświetlenie wszystkich składników
     @GetMapping("/ingredients")
     public String ingredientsList(Model model){
-        List<IngredientDto> allIngredients = ingredientService.findAllIngredients();
+        Set<IngredientDto> allIngredients = ingredientService.findAllIngredients();
         model.addAttribute("ingredients", allIngredients);
         return "ingredients-list";
     }
