@@ -3,17 +3,19 @@ package pl.private_programing_barman.model;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 @Table(name = "ingredients")
 
-public class Ingredient {
+public class Ingredient extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (unique = true)
@@ -31,14 +33,8 @@ public class Ingredient {
 
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ingredients")
-    @Fetch(FetchMode.SUBSELECT)
-
-//    @JoinColumn(name = "drinks", insertable = false, updatable = false)
     private List<Drink> drinks = new ArrayList<>();
 
-
-
-//czy potrzebne są id w knstruktorze?!
 
     public String getName() {
         return name;
@@ -84,16 +80,18 @@ public class Ingredient {
         return drinks;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ingredient that = (Ingredient) o;
-        return id == that.id && Double.compare(that.quantity, quantity) == 0 && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(uOm, that.uOm) && Objects.equals(drinks, that.drinks);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        if (!super.equals(o)) return false;
+//        Ingredient that = (Ingredient) o;
+//        return Objects.equals(uuid, that.uuid);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(super.hashCode(), uuid);
+//    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, description, quantity, uOm, drinks);
-    }
 }

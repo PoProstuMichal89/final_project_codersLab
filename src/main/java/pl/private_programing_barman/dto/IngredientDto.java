@@ -23,6 +23,7 @@ public class IngredientDto {
     private List<Drink> drinks = new ArrayList<>();
 
 
+
     public IngredientDto(int id, String name, String description, double quantity, String uOm, List<Drink> drinks) {
         this.drinks = drinks;
         this.id = id;
@@ -106,16 +107,5 @@ public class IngredientDto {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        IngredientDto that = (IngredientDto) o;
-        return id == that.id && Double.compare(that.quantity, quantity) == 0 && Objects.equals(ingredientService, that.ingredientService) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(uOm, that.uOm) && Objects.equals(drinks, that.drinks);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(ingredientService, id, name, description, quantity, uOm, drinks);
-    }
 }

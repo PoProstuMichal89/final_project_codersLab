@@ -59,9 +59,18 @@ public class DrinkController {
                         ingredientDto.getDescription(),
                         ingredientDto.getQuantity(),
                         ingredientDto.getuOm());
+
+
                 ingredientsList.add(ingredientDto1);
             });
         }
+
+
+
+//        for (IngredientDto ingredientDto : ingredientsList) {
+//            String currentName= ingredientDto.getName();
+//            String databasename = ingredientService.
+//        }
 
 
         drinkservice.add(drink, ingredientsList);

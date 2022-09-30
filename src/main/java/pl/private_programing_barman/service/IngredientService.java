@@ -54,4 +54,9 @@ public class IngredientService {
         return ingredientrepository.findById(ingredientId).map(IngredientDtoMapper::map);
     }
 
+    @Transactional
+    public Optional<IngredientDto>findByName(String name){
+        return ingredientrepository.findByName(name).map(IngredientDtoMapper::map);
+    }
+
 }

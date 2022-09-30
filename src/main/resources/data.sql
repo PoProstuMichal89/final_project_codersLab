@@ -55,7 +55,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' ||
 
 
 INSERT INTO
-    drinks_ingredients(drinks_id, ingredients_id)
+    drink_ingredients(drinks_id, ingredients_id)
 VALUES
     (1, 1),
     (1, 3),

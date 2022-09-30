@@ -10,7 +10,7 @@ import java.util.*;
 
 @Entity
 @Table(name="drinks")
-public class Drink {
+public class Drink extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @Column (name = "drink_id", unique = true)
@@ -22,7 +22,9 @@ public class Drink {
     private String description;
 
 
-    @ManyToMany( cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    @ManyToMany( cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @JoinTable(name="drink_ingredients", joinColumns = {@JoinColumn(referencedColumnName = "id")},
+    inverseJoinColumns = {@JoinColumn(referencedColumnName = "id")})
     private Set<Ingredient> ingredients = new HashSet<>();
 
 
@@ -30,10 +32,6 @@ public class Drink {
     @OneToMany
     @JoinColumn(name = "drink_id")
     private List<Opinion> opinions = new ArrayList<>();
-
-
-
-
 
     public int getId() {
         return id;
@@ -91,16 +89,19 @@ public class Drink {
         this.opinions = opinions;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Drink drink = (Drink) o;
-        return id == drink.id && Objects.equals(name, drink.name) && Objects.equals(description, drink.description) && Objects.equals(ingredients, drink.ingredients) && Objects.equals(opinions, drink.opinions);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        if (!super.equals(o)) return false;
+//        Drink drink = (Drink) o;
+//        return uuid == drink.uuid;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(super.hashCode(), uuid);
+//    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, description, ingredients, opinions);
-    }
+
 }

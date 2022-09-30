@@ -90,16 +90,5 @@ public class DrinkToSaveDto {
         this.opinions = opinions;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        DrinkToSaveDto that = (DrinkToSaveDto) o;
-        return Objects.equals(ingredientService, that.ingredientService) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(ingredients, that.ingredients) && Objects.equals(opinions, that.opinions);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(ingredientService, name, description, ingredients, opinions);
-    }
 }

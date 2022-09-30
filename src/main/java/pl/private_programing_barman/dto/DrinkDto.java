@@ -108,16 +108,5 @@ public class DrinkDto {
         this.opinions = opinions;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        DrinkDto drinkDto = (DrinkDto) o;
-        return id == drinkDto.id && Objects.equals(ingredientService, drinkDto.ingredientService) && Objects.equals(name, drinkDto.name) && Objects.equals(description, drinkDto.description) && Objects.equals(ingredients, drinkDto.ingredients) && Objects.equals(opinions, drinkDto.opinions);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(ingredientService, id, name, description, ingredients, opinions);
-    }
 }
