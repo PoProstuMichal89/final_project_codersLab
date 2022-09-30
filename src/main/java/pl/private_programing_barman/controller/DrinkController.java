@@ -65,14 +65,6 @@ public class DrinkController {
             });
         }
 
-
-
-//        for (IngredientDto ingredientDto : ingredientsList) {
-//            String currentName= ingredientDto.getName();
-//            String databasename = ingredientService.
-//        }
-
-
         drinkservice.add(drink, ingredientsList);
         return "redirect:/drinks";
     }
@@ -91,10 +83,5 @@ public class DrinkController {
 
         return "redirect:/drinks";
     }
-
-//    @RequestMapping(value="/delete-drink/{id}", method = RequestMethod.DELETE)
-//    public void deleteDrink(@PathVariable int id){
-//        drinkservice.deleteById(id);
-//    }
 
 }

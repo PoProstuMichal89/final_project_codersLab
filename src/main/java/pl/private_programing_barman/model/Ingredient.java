@@ -31,7 +31,6 @@ public class Ingredient extends BaseEntity {
 
     private String uOm;
 
-
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ingredients")
     private List<Drink> drinks = new ArrayList<>();
 
@@ -79,19 +78,5 @@ public class Ingredient extends BaseEntity {
     public List<Drink> getDrinks() {
         return drinks;
     }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        if (!super.equals(o)) return false;
-//        Ingredient that = (Ingredient) o;
-//        return Objects.equals(uuid, that.uuid);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(super.hashCode(), uuid);
-//    }
 
 }
