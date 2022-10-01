@@ -11,9 +11,7 @@ import pl.private_programing_barman.model.Ingredient;
 import pl.private_programing_barman.repositories.DrinkRepository;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -43,18 +41,17 @@ public class DrinkService {
     }
 
     //Mapper listy IngredientToSaveDto na ecnję. Docelowo do przeniesienia do klasy DrinkDtoMapper
-    public List<Ingredient> mapIngredientsToEntity(List<IngredientDto> ingredients){
-        List<Ingredient> list = new ArrayList<>();
+    public Set<Ingredient> mapIngredientsToEntity(Set<IngredientDto> ingredients){
+        Set<Ingredient> list = new HashSet<>();
         for(IngredientDto item : ingredients) {
 
-            for(int index = 0; index < list.size(); index++) {
-                Ingredient newIngredient = new Ingredient();
-                newIngredient.setName(item.getName());
-                newIngredient.setDescription(item.getDescription());
-                newIngredient.setQuantity(item.getQuantity());
-                newIngredient.setuOm(item.getuOm());
-                list.add(newIngredient);
-            }
+            Ingredient newIngredient = new Ingredient();
+            newIngredient.setName(item.getName());
+            newIngredient.setDescription(item.getDescription());
+            newIngredient.setQuantity(item.getQuantity());
+            newIngredient.setuOm(item.getuOm());
+            list.add(newIngredient);
+
         }
 
         return list;
@@ -62,14 +59,12 @@ public class DrinkService {
     }
 
     @Transactional
-    public void add(DrinkToSaveDto newDrink){
-    List<IngredientDto> ingredientsToSave= newDrink.getIngredients();
-    List<Ingredient> entityIngredients= mapIngredientsToEntity(ingredientsToSave);
+    public void add(DrinkToSaveDto newDrink, Set<IngredientDto> ingredientsList){
+    Set<Ingredient> entityIngredients= mapIngredientsToEntity(ingredientsList);
         Drink drink = new Drink();
         drink.setName(newDrink.getName());
         drink.setDescription(newDrink.getDescription());
         drink.setIngredients(entityIngredients);
-//        drink.setCreatedAt(newDrink.getCreatedAt());
         drinkrepository.save(drink);
     }
 

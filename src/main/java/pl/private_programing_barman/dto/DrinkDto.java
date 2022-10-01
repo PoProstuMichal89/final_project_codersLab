@@ -2,24 +2,25 @@ package pl.private_programing_barman.dto;
 
 import pl.private_programing_barman.model.Ingredient;
 import pl.private_programing_barman.model.Opinion;
+import pl.private_programing_barman.service.IngredientService;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class DrinkDto {
+    private IngredientService ingredientService;
     private int id;
     private String name;
     private String description;
 
-    private List<IngredientDto> ingredients = new ArrayList<>();
+    private Set<IngredientDto> ingredients = new HashSet<>();
 
     private List<Opinion> opinions = new ArrayList<>();
 
 //    private LocalDateTime createdAt;
 //    private LocalDateTime updatedAt;
 
-    public DrinkDto(int id, String name, List<IngredientDto> ingredients, String description) {
+    public DrinkDto(int id, String name, Set<IngredientDto> ingredients, String description) {
         this.id=id;
         this.name = name;
         this.description = description;
@@ -52,11 +53,22 @@ public class DrinkDto {
         this.description = description;
     }
 
-    public List<IngredientDto> getIngredients() {
+    public Set<IngredientDto> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<IngredientDto> ingredients) {
+    public void setIngredients(Set<IngredientDto> ingredients, int ingredientId) {
+       Optional<IngredientDto> ingredient= ingredientService.findById(ingredientId);
+       ingredient.ifPresent(ingredientDto -> {
+           IngredientDto ingredientDto1 = new IngredientDto(
+                   ingredientDto.getId(),
+                   ingredientDto.getName(),
+                   ingredientDto.getDescription(),
+                   ingredientDto.getQuantity(),
+                   ingredientDto.getuOm());
+           ingredients.add(ingredientDto1);
+       });
+
         this.ingredients = ingredients;
     }
 
@@ -95,4 +107,6 @@ public class DrinkDto {
     public void setOpinions(List<Opinion> opinions) {
         this.opinions = opinions;
     }
+
+
 }

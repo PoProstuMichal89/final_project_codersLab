@@ -27,6 +27,7 @@ public class BarmanApplication implements RepositoryRestConfigurer {
         ConfigurableApplicationContext context = SpringApplication.run(BarmanApplication.class, args);
 
 
+<<<<<<< HEAD
         IngredientService ingredientService = context.getBean(IngredientService.class);
 
         List<IngredientDto> ingredients = new ArrayList<>();
@@ -42,6 +43,23 @@ public class BarmanApplication implements RepositoryRestConfigurer {
         newDrink.setName("Blue Curacao");
         newDrink.setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a ex mauris. Ut vel hendrerit tortor. Nulla venenatis neque mauris, nec dapibus odio fringilla id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed consequat metus id lacus vulputate vestibulum. Donec dignissim, ipsum ac lobortis rhoncus, nisl nisi mattis erat, in consequat est augue sit amet turpis.");
         drinkService.add(newDrink);
+=======
+//        IngredientService ingredientService = context.getBean(IngredientService.class);
+//
+//        List<IngredientDto> ingredients = new ArrayList<>();
+//        Optional<IngredientDto> gin = ingredientService.findById(2);
+////        gin.ifPresent(item -> ingredients.add(item));
+//
+//        Optional<IngredientDto> vermut = ingredientService.findById(3);
+////        vermut.ifPresent(item -> ingredients.add(item));
+//
+//        DrinkService drinkService = context.getBean(DrinkService.class);
+//        DrinkToSaveDto newDrink = new DrinkToSaveDto();
+////        newDrink.setIngredients(ingredients);
+//        newDrink.setName("Blue Curacao");
+//        newDrink.setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a ex mauris. Ut vel hendrerit tortor. Nulla venenatis neque mauris, nec dapibus odio fringilla id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed consequat metus id lacus vulputate vestibulum. Donec dignissim, ipsum ac lobortis rhoncus, nisl nisi mattis erat, in consequat est augue sit amet turpis.");
+//        drinkService.add(newDrink);
+>>>>>>> develop
 
 
 //

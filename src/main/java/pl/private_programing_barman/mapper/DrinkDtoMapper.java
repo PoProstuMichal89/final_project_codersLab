@@ -8,14 +8,16 @@ import pl.private_programing_barman.model.Drink;
 import pl.private_programing_barman.model.Ingredient;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class DrinkDtoMapper {
 
     //Mapowanie listy składników na listę DTO
-    public static List<IngredientDto> mapIngredientsToDto(List<Ingredient> ingredients){
-       List<IngredientDto> list = new ArrayList<>();
+    public static Set<IngredientDto> mapIngredientsToDto(Set<Ingredient> ingredients){
+       Set<IngredientDto> list = new HashSet<>();
 
         for(Ingredient item : ingredients) {
 
@@ -31,8 +33,8 @@ public class DrinkDtoMapper {
 
     public static DrinkDto map(Drink drink){
 
-       List<Ingredient> ingredientList = drink.getIngredients();
-      List<IngredientDto> ingedientDtoList= mapIngredientsToDto(ingredientList);
+       Set<Ingredient> ingredientList = drink.getIngredients();
+      Set<IngredientDto> ingedientDtoList= mapIngredientsToDto(ingredientList);
 
          return new DrinkDto(
                  drink.getId(),

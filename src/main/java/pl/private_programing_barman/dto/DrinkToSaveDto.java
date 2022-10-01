@@ -2,17 +2,18 @@ package pl.private_programing_barman.dto;
 
 import pl.private_programing_barman.model.Ingredient;
 import pl.private_programing_barman.model.Opinion;
+import pl.private_programing_barman.service.IngredientService;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class DrinkToSaveDto {
 
+    private IngredientService ingredientService;
     private String name;
     private String description;
 
-    private List<IngredientDto> ingredients = new ArrayList<>();
+    private Set<IngredientDto> ingredients = new HashSet<>();
 
     private List<Opinion> opinions = new ArrayList<>();
 
@@ -45,11 +46,12 @@ public class DrinkToSaveDto {
         this.description = description;
     }
 
-    public List<IngredientDto> getIngredients() {
+    public Set<IngredientDto> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<IngredientDto> ingredients) {
+    public void setIngredients(Set<IngredientDto> ingredients) {
+
         this.ingredients = ingredients;
     }
 
@@ -87,4 +89,6 @@ public class DrinkToSaveDto {
     public void setOpinions(List<Opinion> opinions) {
         this.opinions = opinions;
     }
+
+
 }

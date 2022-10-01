@@ -19,7 +19,6 @@ public class IngredientDtoMapper {
     }
 
 
-
     public static IngredientToSaveDto mapToSave(IngredientDto ingredient) {
         IngredientToSaveDto toSaveIngredeint = new IngredientToSaveDto();
         toSaveIngredeint.setName(ingredient.getName());
@@ -29,4 +28,17 @@ public class IngredientDtoMapper {
 
         return toSaveIngredeint;
     }
+
+//    public static IngredientDto mapFromOptional(Optional<IngredientDto> ingredientDtoOptional) {
+//        ingredientDtoOptional.ifPresent(ingredientDto -> {
+//            IngredientDto ingredientDto1 = new IngredientDto(
+//                    ingredientDto.getId(),
+//                    ingredientDto.getName(),
+//                    ingredientDto.getDescription(),
+//                    ingredientDto.getuOm(),
+//                    ingredientDto.getQuantity();
+//
+//
+//        });
+//    }
 }

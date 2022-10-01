@@ -1,16 +1,26 @@
 package pl.private_programing_barman.model;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 @Table(name = "ingredients")
-public class Ingredient {
+
+public class Ingredient extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (unique = true)
     private int id;
+
 
     private String name;
 
@@ -20,13 +30,15 @@ public class Ingredient {
     private double quantity;
 
     private String uOm;
+<<<<<<< HEAD
 //[przerzucić] mapowanie
     @ManyToMany
+=======
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ingredients")
+>>>>>>> develop
     private List<Drink> drinks = new ArrayList<>();
 
-
-
-//czy potrzebne są id w knstruktorze?!
 
     public String getName() {
         return name;
@@ -71,4 +83,5 @@ public class Ingredient {
     public List<Drink> getDrinks() {
         return drinks;
     }
+
 }

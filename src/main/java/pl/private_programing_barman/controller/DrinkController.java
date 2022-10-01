@@ -11,8 +11,7 @@ import pl.private_programing_barman.model.Drink;
 import pl.private_programing_barman.service.DrinkService;
 import pl.private_programing_barman.service.IngredientService;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 public class DrinkController {
@@ -40,16 +39,39 @@ public class DrinkController {
         DrinkToSaveDto drink = new DrinkToSaveDto();
         model.addAttribute("drink", drink);
 
-        List<IngredientDto> allIngredients = ingredientService.findAllIngredients();
+        Set<IngredientDto> allIngredients = ingredientService.findAllIngredients();
 
         model.addAttribute("allIngredients", allIngredients);
         return "drink-form";
     }
 
     @PostMapping("/add-drink")
+<<<<<<< HEAD
     public String addDrink(DrinkToSaveDto drink){
         drinkservice.add(drink);
 //        System.out.println(drink.getIngredients()+"xxxx");
+=======
+    public String addDrink( DrinkToSaveDto drink, @RequestParam List<Integer>ingredients){
+        List<Integer> ingredientsId= ingredients;
+
+        Set<IngredientDto> ingredientsList = new HashSet<>();
+        for (Integer ingredeintID : ingredientsId) {
+            Optional<IngredientDto> ingredient= ingredientService.findById(ingredeintID);
+            ingredient.ifPresent(ingredientDto -> {
+                IngredientDto ingredientDto1 = new IngredientDto(
+                        ingredientDto.getId(),
+                        ingredientDto.getName(),
+                        ingredientDto.getDescription(),
+                        ingredientDto.getQuantity(),
+                        ingredientDto.getuOm());
+
+
+                ingredientsList.add(ingredientDto1);
+            });
+        }
+
+        drinkservice.add(drink, ingredientsList);
+>>>>>>> develop
         return "redirect:/drinks";
     }
 
@@ -67,10 +89,5 @@ public class DrinkController {
 
         return "redirect:/drinks";
     }
-
-//    @RequestMapping(value="/delete-drink/{id}", method = RequestMethod.DELETE)
-//    public void deleteDrink(@PathVariable int id){
-//        drinkservice.deleteById(id);
-//    }
 
 }

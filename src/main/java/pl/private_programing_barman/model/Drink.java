@@ -1,15 +1,19 @@
 package pl.private_programing_barman.model;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name="drinks")
-public class Drink {
+public class Drink extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column (name = "drink_id", unique = true)
     private int id;
 
     private String name;
@@ -18,22 +22,16 @@ public class Drink {
     private String description;
 
 
+    @ManyToMany( cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @JoinTable(name="drink_ingredients", joinColumns = {@JoinColumn(referencedColumnName = "id")},
+    inverseJoinColumns = {@JoinColumn(referencedColumnName = "id")})
+    private Set<Ingredient> ingredients = new HashSet<>();
 
-    //String czy obiekt Ingredeint?
 
-    @ManyToMany(mappedBy = "drinks")
-    private List<Ingredient> ingredients = new ArrayList<>();
-
-//    private LocalDateTime createdAt;
-//    private LocalDateTime updatedAt;
 
     @OneToMany
     @JoinColumn(name = "drink_id")
     private List<Opinion> opinions = new ArrayList<>();
-
-
-
-
 
     public int getId() {
         return id;
@@ -59,11 +57,11 @@ public class Drink {
         this.description = description;
     }
 
-    public List<Ingredient> getIngredients() {
+    public Set<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
@@ -90,4 +88,20 @@ public class Drink {
     public void setOpinions(List<Opinion> opinions) {
         this.opinions = opinions;
     }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        if (!super.equals(o)) return false;
+//        Drink drink = (Drink) o;
+//        return uuid == drink.uuid;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(super.hashCode(), uuid);
+//    }
+
+
 }

@@ -1,13 +1,16 @@
 package pl.private_programing_barman.dto;
 
 import pl.private_programing_barman.model.Drink;
+import pl.private_programing_barman.service.IngredientService;
 
 
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class IngredientDto {
+    private IngredientService ingredientService;
     private int id;
     private String name;
     private String description;
@@ -20,6 +23,7 @@ public class IngredientDto {
     private List<Drink> drinks = new ArrayList<>();
 
 
+
     public IngredientDto(int id, String name, String description, double quantity, String uOm, List<Drink> drinks) {
         this.drinks = drinks;
         this.id = id;
@@ -27,6 +31,10 @@ public class IngredientDto {
         this.description = description;
         this.quantity = quantity;
         this.uOm = uOm;
+    }
+
+    public IngredientDto(int id) {
+        this.id = id;
     }
 
     //konstruktor bez podawania listy drinków!
@@ -87,6 +95,11 @@ public class IngredientDto {
         return drinks;
     }
 
+    public void setDrinks(List<Drink> drinks) {
+
+        this.drinks = drinks;
+    }
+
     @Override
     public String toString() {
         return "IngredientDto{" +
@@ -97,4 +110,6 @@ public class IngredientDto {
                 ", uOm='" + uOm + '\'' +
                 '}';
     }
+
+
 }

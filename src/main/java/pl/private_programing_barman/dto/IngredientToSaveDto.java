@@ -1,6 +1,7 @@
 package pl.private_programing_barman.dto;
 
 
+import java.util.Objects;
 
 public class IngredientToSaveDto {
     private String name;
@@ -56,4 +57,5 @@ public class IngredientToSaveDto {
                 ", uOm='" + uOm + '\'' +
                 '}';
     }
+
 }
