@@ -46,11 +46,6 @@ public class DrinkController {
     }
 
     @PostMapping("/add-drink")
-<<<<<<< HEAD
-    public String addDrink(DrinkToSaveDto drink){
-        drinkservice.add(drink);
-//        System.out.println(drink.getIngredients()+"xxxx");
-=======
     public String addDrink( DrinkToSaveDto drink, @RequestParam List<Integer>ingredients){
         List<Integer> ingredientsId= ingredients;
 
@@ -71,7 +66,6 @@ public class DrinkController {
         }
 
         drinkservice.add(drink, ingredientsList);
->>>>>>> develop
         return "redirect:/drinks";
     }
 

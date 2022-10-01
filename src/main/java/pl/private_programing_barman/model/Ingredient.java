@@ -30,13 +30,12 @@ public class Ingredient extends BaseEntity {
     private double quantity;
 
     private String uOm;
-<<<<<<< HEAD
-//[przerzucić] mapowanie
-    @ManyToMany
-=======
+
+//przerzucić mapowanie
+
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ingredients")
->>>>>>> develop
+
     private List<Drink> drinks = new ArrayList<>();
 
 

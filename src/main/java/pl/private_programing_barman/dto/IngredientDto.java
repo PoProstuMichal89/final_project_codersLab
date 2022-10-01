@@ -33,10 +33,6 @@ public class IngredientDto {
         this.uOm = uOm;
     }
 
-    public IngredientDto(int id) {
-        this.id = id;
-    }
-
     //konstruktor bez podawania listy drinków!
     public IngredientDto(int id, String name, String description, double quantity, String uOm) {
         this.id = id;

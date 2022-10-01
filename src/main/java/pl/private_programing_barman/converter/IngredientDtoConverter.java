@@ -12,8 +12,7 @@ public class IngredientDtoConverter implements Converter<String, IngredientDto>{
     public IngredientDto convert(String source) {
         return new IngredientDto(Integer.parseInt(source));
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> develop
+
+
