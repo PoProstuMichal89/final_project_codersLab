@@ -23,7 +23,7 @@
   <div class="ingredientDescBox" th:object="${drink}">
     <h1>Ingredients:</h1>
     <ul th:each="ingredient: *{ingredients}">
-      <li th:text="${ingredient.id}"> </li>
+      <li th:text="${ingredient.name}"> </li>
     </ul>
   </div>
 

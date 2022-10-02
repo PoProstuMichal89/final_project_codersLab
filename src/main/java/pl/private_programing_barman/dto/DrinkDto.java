@@ -8,17 +8,17 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class DrinkDto {
-    private IngredientService ingredientService;
+
     private int id;
     private String name;
     private String description;
 
-    private List<IngredientDto> ingredients = new ArrayList<>();
+    private List<Ingredient> ingredients = new ArrayList<>();
 
     private List<Opinion> opinions = new ArrayList<>();
 
 
-    public DrinkDto(int id, String name, List<IngredientDto> ingredients, String description) {
+    public DrinkDto(int id, String name, List<Ingredient> ingredients, String description) {
         this.id=id;
         this.name = name;
         this.description = description;
@@ -49,11 +49,11 @@ public class DrinkDto {
         this.description = description;
     }
 
-    public List<IngredientDto> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<IngredientDto> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 

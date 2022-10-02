@@ -31,13 +31,13 @@ public class DrinkDtoMapper {
 
     public static DrinkDto map(Drink drink) {
 
-        List<Ingredient> ingredientList = drink.getIngredients();
-        List<IngredientDto> ingedientDtoList = mapIngredientsToDto(ingredientList);
+        List<Ingredient> ingredientDtoList = drink.getIngredients();
+//        List<Ingredient> ingedientDtoList = mapIngredientsToDto(ingredientList);
 
         return new DrinkDto(
                 drink.getId(),
                 drink.getName(),
-                ingedientDtoList,
+                ingredientDtoList,
                 drink.getDescription()
         );
     }
