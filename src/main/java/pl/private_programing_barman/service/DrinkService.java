@@ -41,8 +41,8 @@ public class DrinkService {
     }
 
     //Mapper listy IngredientToSaveDto na ecnję. Docelowo do przeniesienia do klasy DrinkDtoMapper
-    public Set<Ingredient> mapIngredientsToEntity(Set<IngredientDto> ingredients){
-        Set<Ingredient> list = new HashSet<>();
+    public List<Ingredient> mapIngredientsToEntity(List<IngredientDto> ingredients){
+        List<Ingredient> list = new ArrayList<>();
         for(IngredientDto item : ingredients) {
 
             Ingredient newIngredient = new Ingredient();
@@ -60,8 +60,8 @@ public class DrinkService {
     }
 
     @Transactional
-    public void add(DrinkToSaveDto newDrink, Set<IngredientDto> ingredientsList){
-    Set<Ingredient> entityIngredients= mapIngredientsToEntity(ingredientsList);
+    public void add(DrinkToSaveDto newDrink, List<IngredientDto> ingredientsList){
+    List<Ingredient> entityIngredients= mapIngredientsToEntity(ingredientsList);
         Drink drink = new Drink();
         drink.setName(newDrink.getName());
         drink.setDescription(newDrink.getDescription());

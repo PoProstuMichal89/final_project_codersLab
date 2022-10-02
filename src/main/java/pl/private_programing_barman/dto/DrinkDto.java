@@ -13,14 +13,14 @@ public class DrinkDto {
     private String name;
     private String description;
 
-    private Set<IngredientDto> ingredients = new HashSet<>();
+    private List<IngredientDto> ingredients = new ArrayList<>();
 
     private List<Opinion> opinions = new ArrayList<>();
 
 //    private LocalDateTime createdAt;
 //    private LocalDateTime updatedAt;
 
-    public DrinkDto(int id, String name, Set<IngredientDto> ingredients, String description) {
+    public DrinkDto(int id, String name, List<IngredientDto> ingredients, String description) {
         this.id=id;
         this.name = name;
         this.description = description;
@@ -53,11 +53,11 @@ public class DrinkDto {
         this.description = description;
     }
 
-    public Set<IngredientDto> getIngredients() {
+    public List<IngredientDto> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(Set<IngredientDto> ingredients, int ingredientId) {
+    public void setIngredients(List<IngredientDto> ingredients, int ingredientId) {
        Optional<IngredientDto> ingredient= ingredientService.findById(ingredientId);
        ingredient.ifPresent(ingredientDto -> {
            IngredientDto ingredientDto1 = new IngredientDto(

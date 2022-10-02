@@ -10,7 +10,7 @@ import java.util.*;
 
 @Entity
 @Table(name="drinks")
-public class Drink extends BaseEntity {
+public class Drink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @Column (name = "drink_id", unique = true)
@@ -25,7 +25,7 @@ public class Drink extends BaseEntity {
     @ManyToMany( cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(name="drink_ingredients", joinColumns = {@JoinColumn(referencedColumnName = "id")},
     inverseJoinColumns = {@JoinColumn(referencedColumnName = "id")})
-    private Set<Ingredient> ingredients = new HashSet<>();
+    private List<Ingredient> ingredients = new ArrayList<>();
 
 
 
@@ -57,11 +57,11 @@ public class Drink extends BaseEntity {
         this.description = description;
     }
 
-    public Set<Ingredient> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(Set<Ingredient> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 

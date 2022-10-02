@@ -15,7 +15,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "ingredients")
 
-public class Ingredient extends BaseEntity {
+public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (unique = true)

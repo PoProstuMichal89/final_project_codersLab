@@ -49,7 +49,7 @@ public class DrinkController {
     public String addDrink( DrinkToSaveDto drink, @RequestParam List<Integer>ingredients){
         List<Integer> ingredientsId= ingredients;
 
-        Set<IngredientDto> ingredientsList = new HashSet<>();
+        List<IngredientDto> ingredientsList = new ArrayList<>();
         for (Integer ingredeintID : ingredientsId) {
             Optional<IngredientDto> ingredient= ingredientService.findById(ingredeintID);
             ingredient.ifPresent(ingredientDto -> {
