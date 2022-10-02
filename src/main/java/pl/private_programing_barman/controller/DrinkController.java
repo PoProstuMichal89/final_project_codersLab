@@ -60,12 +60,12 @@ public class DrinkController {
                         ingredientDto.getQuantity(),
                         ingredientDto.getuOm());
 
-
+//                drink.setIngredients(ingredientsList);
                 ingredientsList.add(ingredientDto1);
             });
         }
 
-        drinkservice.add(drink, ingredientsList);
+        drinkservice.add(drink);
         return "redirect:/drinks";
     }
 

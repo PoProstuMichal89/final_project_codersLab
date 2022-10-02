@@ -17,16 +17,12 @@ public class DrinkDto {
 
     private List<Opinion> opinions = new ArrayList<>();
 
-//    private LocalDateTime createdAt;
-//    private LocalDateTime updatedAt;
 
     public DrinkDto(int id, String name, List<IngredientDto> ingredients, String description) {
         this.id=id;
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;
-//        this.createdAt = createdAt;
-//        this.updatedAt = updatedAt;
     }
 
     public int getId() {
@@ -57,36 +53,25 @@ public class DrinkDto {
         return ingredients;
     }
 
-    public void setIngredients(List<IngredientDto> ingredients, int ingredientId) {
-       Optional<IngredientDto> ingredient= ingredientService.findById(ingredientId);
-       ingredient.ifPresent(ingredientDto -> {
-           IngredientDto ingredientDto1 = new IngredientDto(
-                   ingredientDto.getId(),
-                   ingredientDto.getName(),
-                   ingredientDto.getDescription(),
-                   ingredientDto.getQuantity(),
-                   ingredientDto.getuOm());
-           ingredients.add(ingredientDto1);
-       });
-
+    public void setIngredients(List<IngredientDto> ingredients) {
         this.ingredients = ingredients;
     }
 
-//    public LocalDateTime getCreatedAt() {
-//        return createdAt;
-//    }
+//    public void setIngredients(List<IngredientDto> ingredients, int ingredientId) {
+//       Optional<IngredientDto> ingredient= ingredientService.findById(ingredientId);
+//       ingredient.ifPresent(ingredientDto -> {
+//           IngredientDto ingredientDto1 = new IngredientDto(
+//                   ingredientDto.getId(),
+//                   ingredientDto.getName(),
+//                   ingredientDto.getDescription(),
+//                   ingredientDto.getQuantity(),
+//                   ingredientDto.getuOm());
+//           ingredients.add(ingredientDto1);
+//       });
 //
-//    public void setCreatedAt(LocalDateTime createdAt) {
-//        this.createdAt = createdAt;
+//        this.ingredients = ingredients;
 //    }
-//
-//    public LocalDateTime getUpdatedAt() {
-//        return updatedAt;
-//    }
-//
-//    public void setUpdatedAt(LocalDateTime updatedAt) {
-//        this.updatedAt = updatedAt;
-//    }
+
 
     @Override
     public String toString() {

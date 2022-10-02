@@ -13,7 +13,7 @@ import java.util.*;
 public class Drink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column (name = "drink_id", unique = true)
+
     private int id;
 
     private String name;

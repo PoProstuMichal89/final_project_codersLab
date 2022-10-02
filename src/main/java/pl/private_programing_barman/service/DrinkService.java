@@ -23,8 +23,6 @@ public class DrinkService {
 
     }
 
-
-
     public List<IngredientToSaveDto> mapIngredientDtoToSaveDto(List<IngredientDto> ingredients){
         List<IngredientToSaveDto> list = new ArrayList<>();
         for (IngredientDto item: ingredients) {
@@ -54,15 +52,12 @@ public class DrinkService {
             list.add(newIngredient);
 
         }
-
         return list;
-
     }
 
     @Transactional
-    public void add(DrinkToSaveDto newDrink, List<IngredientDto> ingredientsList){
-    List<Ingredient> entityIngredients= mapIngredientsToEntity(ingredientsList);
-
+    public void add(DrinkToSaveDto newDrink){
+    List<Ingredient> entityIngredients= mapIngredientsToEntity(newDrink.getIngredients());
         Drink drink = new Drink();
         drink.setName(newDrink.getName());
         drink.setDescription(newDrink.getDescription());
@@ -82,19 +77,10 @@ public class DrinkService {
                 .toList();
     }
 
-
-
     @Transactional
     public Optional<DrinkDto>findById(int drinkId){
         return drinkrepository.findById(drinkId).map(DrinkDtoMapper::map);
     }
-
-//    @Transactional
-//    public void addIngredient(Ingredient ingredient, DrinkDto drinkDto){
-//
-//        drinkDto.getIngredients().add(ingredient);
-//    }
-
 
 
 
