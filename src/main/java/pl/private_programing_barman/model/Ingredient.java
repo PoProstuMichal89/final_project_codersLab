@@ -31,7 +31,7 @@ public class Ingredient {
 
     private String uOm;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ingredients")
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "ingredients")
     private List<Drink> drinks = new ArrayList<>();
 
 

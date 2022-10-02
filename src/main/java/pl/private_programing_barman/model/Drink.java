@@ -22,7 +22,7 @@ public class Drink {
     private String description;
 
 
-    @ManyToMany( cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @ManyToMany( cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name="drink_ingredients", joinColumns = {@JoinColumn(referencedColumnName = "id")},
     inverseJoinColumns = {@JoinColumn(referencedColumnName = "id")})
     private List<Ingredient> ingredients = new ArrayList<>();
@@ -65,21 +65,7 @@ public class Drink {
         this.ingredients = ingredients;
     }
 
-//    public LocalDateTime getCreatedAt() {
-//        return createdAt;
-//    }
-//
-//    public void setCreatedAt(LocalDateTime createdAt) {
-//        this.createdAt = createdAt;
-//    }
-//
-//    public LocalDateTime getUpdatedAt() {
-//        return updatedAt;
-//    }
-//
-//    public void setUpdatedAt(LocalDateTime updatedAt) {
-//        this.updatedAt = updatedAt;
-//    }
+
 
     public List<Opinion> getOpinions() {
         return opinions;
@@ -89,19 +75,6 @@ public class Drink {
         this.opinions = opinions;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        if (!super.equals(o)) return false;
-//        Drink drink = (Drink) o;
-//        return uuid == drink.uuid;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(super.hashCode(), uuid);
-//    }
 
 
 }

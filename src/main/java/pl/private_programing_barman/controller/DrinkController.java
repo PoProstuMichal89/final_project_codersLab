@@ -74,7 +74,7 @@ public class DrinkController {
     public String getDrink(@PathVariable int id, Model model){
         Optional<DrinkDto> optionalDrink = drinkservice.findById(id);
         optionalDrink.ifPresent(drink -> model.addAttribute("drink", drink));
-        return "drink";
+        return "drink_test";
     }
 
     //usuwanie drinka

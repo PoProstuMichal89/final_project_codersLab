@@ -62,6 +62,7 @@ public class DrinkService {
     @Transactional
     public void add(DrinkToSaveDto newDrink, List<IngredientDto> ingredientsList){
     List<Ingredient> entityIngredients= mapIngredientsToEntity(ingredientsList);
+
         Drink drink = new Drink();
         drink.setName(newDrink.getName());
         drink.setDescription(newDrink.getDescription());
@@ -94,23 +95,7 @@ public class DrinkService {
 //        drinkDto.getIngredients().add(ingredient);
 //    }
 
-//    @Transactional
-//    public DrinkDto getDrinkDetails(int drinkId){
-//        Drink drink1= new Drink();
-//        Optional<Drink> drink = drinkrepository.findById(2);
-//        if(drink.isPresent()){
-//             drink1 = drink.get();
-//        }
-//        DrinkDto drinkDetail = new DrinkDto(
-//                drink1.getId(),
-//                drink1.getName(),
-//                drink1.getDescription(),
-//                drink1.getIngredients(),
-//                drink1.getCreatedAt(),
-//                drink1.getUpdatedAt()
-//                );
-//        return drinkDetail;
-//    }
+
 
 
 }

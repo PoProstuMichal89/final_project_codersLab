@@ -20,12 +20,14 @@
   </div>
 
 
-  <div class="ingredientDescBox">
+  <div class="ingredientDescBox" th:object="${drink}">
     <h1>Ingredients:</h1>
-    <ul th:each="ingredient: ${drink.ingredients}">
-      <li  th:text="${ingredient.name}"> </li>
+    <ul th:each="ingredient: *{ingredients}">
+      <li th:text="${ingredient.id}"> </li>
     </ul>
   </div>
+
+
 
   <div class="editDrinkButtons">
     <span>
