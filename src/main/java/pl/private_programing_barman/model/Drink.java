@@ -22,7 +22,7 @@ public class Drink extends BaseEntity {
     private String description;
 
 
-    @ManyToMany( cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @ManyToMany( cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(name="drink_ingredients", joinColumns = {@JoinColumn(referencedColumnName = "id")},
     inverseJoinColumns = {@JoinColumn(referencedColumnName = "id")})
     private Set<Ingredient> ingredients = new HashSet<>();

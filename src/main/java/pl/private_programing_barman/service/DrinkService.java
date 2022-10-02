@@ -46,6 +46,7 @@ public class DrinkService {
         for(IngredientDto item : ingredients) {
 
             Ingredient newIngredient = new Ingredient();
+            newIngredient.setId(item.getId());
             newIngredient.setName(item.getName());
             newIngredient.setDescription(item.getDescription());
             newIngredient.setQuantity(item.getQuantity());
