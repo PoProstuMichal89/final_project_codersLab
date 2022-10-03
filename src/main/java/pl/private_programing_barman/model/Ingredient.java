@@ -31,15 +31,10 @@ public class Ingredient {
 
     private String uOm;
 
-<<<<<<< HEAD
-//przerzucić mapowanie
+
 
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ingredients")
-
-=======
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "ingredients")
->>>>>>> develop
     private List<Drink> drinks = new ArrayList<>();
 
 
