@@ -37,10 +37,10 @@ public class IngredientService {
     }
 
     @Transactional
-    public Set<IngredientDto> findAllIngredients(){
+    public List<IngredientDto> findAllIngredients(){
         return ingredientrepository.findAll().stream()
                 .map(IngredientDtoMapper::map)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
     }
 
 //    @Transactional

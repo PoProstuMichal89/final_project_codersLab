@@ -30,7 +30,7 @@ public class IngredientController {
     //wyświetlenie wszystkich składników
     @GetMapping("/ingredients")
     public String ingredientsList(Model model){
-        Set<IngredientDto> allIngredients = ingredientService.findAllIngredients();
+        List<IngredientDto> allIngredients = ingredientService.findAllIngredients();
         model.addAttribute("ingredients", allIngredients);
         return "ingredients-list";
     }

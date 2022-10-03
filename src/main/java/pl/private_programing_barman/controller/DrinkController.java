@@ -39,8 +39,7 @@ public class DrinkController {
         DrinkToSaveDto drink = new DrinkToSaveDto();
         model.addAttribute("drink", drink);
 
-        Set<IngredientDto> allIngredients = ingredientService.findAllIngredients();
-
+        List<IngredientDto> allIngredients = ingredientService.findAllIngredients();
         model.addAttribute("allIngredients", allIngredients);
         return "drink-form";
     }
@@ -91,8 +90,12 @@ public class DrinkController {
         Optional<DrinkDto> optionalDrink = drinkservice.findById(id);
         optionalDrink.ifPresent(drink -> model.addAttribute("drink", drink));
 
+        List<IngredientDto> allIngredients = ingredientService.findAllIngredients();
+        model.addAttribute("allIngredients", allIngredients);
+
 //        Set<IngredientDto> ingredientDtos = drinkservice.findAllIngredientsByDrink(id);
 //        model.addAttribute("allIngredeints", ingredientDtos );
+
         return "drink-edit-form";
     }
 
