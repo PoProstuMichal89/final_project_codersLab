@@ -13,21 +13,9 @@ public class DrinkToSaveDto {
     private String name;
     private String description;
 
-    private Set<IngredientDto> ingredients = new HashSet<>();
+    private List<IngredientDto> ingredients = new ArrayList<>();
 
     private List<Opinion> opinions = new ArrayList<>();
-
-//    private LocalDateTime createdAt;
-//    private LocalDateTime updatedAt;
-
-//    public DrinkToSaveDto(String name, List<Ingredient> ingredients, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
-//
-//        this.name = name;
-//        this.description = description;
-//        this.ingredients = ingredients;
-//        this.createdAt = createdAt;
-//        this.updatedAt = updatedAt;
-//    }
 
 
     public String getName() {
@@ -46,30 +34,15 @@ public class DrinkToSaveDto {
         this.description = description;
     }
 
-    public Set<IngredientDto> getIngredients() {
+    public List<IngredientDto> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(Set<IngredientDto> ingredients) {
+    public void setIngredients(List<IngredientDto> ingredients) {
 
         this.ingredients = ingredients;
     }
 
-//    public LocalDateTime getCreatedAt() {
-//        return createdAt;
-//    }
-//
-//    public void setCreatedAt(LocalDateTime createdAt) {
-//        this.createdAt = createdAt;
-//    }
-//
-//    public LocalDateTime getUpdatedAt() {
-//        return updatedAt;
-//    }
-//
-//    public void setUpdatedAt(LocalDateTime updatedAt) {
-//        this.updatedAt = updatedAt;
-//    }
 
     @Override
     public String toString() {
@@ -77,8 +50,6 @@ public class DrinkToSaveDto {
                 ", name='" + name + '\'' +
                 ", Description='" + description + '\'' +
                 ", ingredients=" + ingredients +
-//                ", createdAt=" + createdAt +
-//                ", updatedAt=" + updatedAt +
                 '}';
     }
 

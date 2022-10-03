@@ -49,7 +49,7 @@ public class DrinkController {
     public String addDrink( DrinkToSaveDto drink, @RequestParam List<Integer>ingredients){
         List<Integer> ingredientsId= ingredients;
 
-        Set<IngredientDto> ingredientsList = new HashSet<>();
+        List<IngredientDto> ingredientsList = new ArrayList<>();
         for (Integer ingredeintID : ingredientsId) {
             Optional<IngredientDto> ingredient= ingredientService.findById(ingredeintID);
             ingredient.ifPresent(ingredientDto -> {
@@ -60,12 +60,12 @@ public class DrinkController {
                         ingredientDto.getQuantity(),
                         ingredientDto.getuOm());
 
-
+//                drink.setIngredients(ingredientsList);
                 ingredientsList.add(ingredientDto1);
             });
         }
 
-        drinkservice.add(drink, ingredientsList);
+        drinkservice.add(drink);
         return "redirect:/drinks";
     }
 
@@ -77,10 +77,18 @@ public class DrinkController {
         return "drink";
     }
 
+    //usuwanie drinka
     @GetMapping("/delete-drink/{id}")
     public String deleteDrink(@PathVariable int id){
         drinkservice.deleteById(id);
 
+        return "redirect:/drinks";
+    }
+
+    //edycja drinka
+    @GetMapping("/edit-drink/{id}")
+    public String editDrink(@PathVariable int id){
+        Optional<DrinkDto> optionalDrink = drinkservice.findById(id);
         return "redirect:/drinks";
     }
 

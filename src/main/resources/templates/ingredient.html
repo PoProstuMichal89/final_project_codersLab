@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,7 +11,7 @@
 <body>
 <div clas="wrapper">
     <div>
-        <h2 th:text="${ingredient.name}" ></h2>
+        <h2 th:text="*{ingredient.name}" ></h2>
     </div>
 
     <div class="ingredientDescBox">
@@ -33,8 +36,8 @@
         <h1>You'll find it in drinks:</h1>
 
             <table>
-                <tr  th:each="drink: ${ingredient.drinks}">
-                    <td class="relatedItemNameOnList"  th:text="${ingredient.drinks.listIterator().next().name}"></td>
+                <tr th:each="drink: ${ingredient.drinks}" >
+                    <td class="relatedItemNameOnList" th:text=" ${drink.name}"></td>
                     <td class="editRelatedItemOnListLink">
                         <a class="editRelatedItemOnListLink" th:href="@{'/drink/{id}'(id=${ingredient.drinks.listIterator().next().id})}">View</a>
                     </td>
@@ -42,12 +45,6 @@
             </table>
 
 
-
-
-<!--        <h1>You'll find it in drinks</h1>-->
-<!--        <ul th:field="${ingredient.drinks}">-->
-<!--            <li th:each="drink: ${ingredient.drinks}" th:text="${ingredient.drinks.listIterator().next().name}"> </li>-->
-<!--        </ul>-->
     </div>
 
     <div class="navBar">

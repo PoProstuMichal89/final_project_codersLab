@@ -10,10 +10,10 @@ import java.util.*;
 
 @Entity
 @Table(name="drinks")
-public class Drink extends BaseEntity {
+public class Drink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column (name = "drink_id", unique = true)
+
     private int id;
 
     private String name;
@@ -22,10 +22,10 @@ public class Drink extends BaseEntity {
     private String description;
 
 
-    @ManyToMany( cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @ManyToMany( cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name="drink_ingredients", joinColumns = {@JoinColumn(referencedColumnName = "id")},
     inverseJoinColumns = {@JoinColumn(referencedColumnName = "id")})
-    private Set<Ingredient> ingredients = new HashSet<>();
+    private List<Ingredient> ingredients = new ArrayList<>();
 
 
 
@@ -57,29 +57,15 @@ public class Drink extends BaseEntity {
         this.description = description;
     }
 
-    public Set<Ingredient> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(Set<Ingredient> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
-//    public LocalDateTime getCreatedAt() {
-//        return createdAt;
-//    }
-//
-//    public void setCreatedAt(LocalDateTime createdAt) {
-//        this.createdAt = createdAt;
-//    }
-//
-//    public LocalDateTime getUpdatedAt() {
-//        return updatedAt;
-//    }
-//
-//    public void setUpdatedAt(LocalDateTime updatedAt) {
-//        this.updatedAt = updatedAt;
-//    }
+
 
     public List<Opinion> getOpinions() {
         return opinions;
@@ -89,19 +75,6 @@ public class Drink extends BaseEntity {
         this.opinions = opinions;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        if (!super.equals(o)) return false;
-//        Drink drink = (Drink) o;
-//        return uuid == drink.uuid;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(super.hashCode(), uuid);
-//    }
 
 
 }

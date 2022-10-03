@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
@@ -16,13 +19,29 @@
     <p class="ingredientDescription" th:text="${drink.description}"></p>
   </div>
 
-
   <div class="ingredientDescBox">
+
     <h1>Ingredients:</h1>
-    <ul th:field="${drink.ingredients}">
-      <li th:each="ingredient: ${drink.ingredients}" th:text="${drink.ingredients.listIterator().next().name}"> </li>
-    </ul>
+
+  <table th:object="${drink}">
+    <tr th:each="ingredient: *{ingredients}" >
+      <td class="relatedItemNameOnList" th:text=" ${ingredient.name}"></td>
+      <td class="editRelatedItemOnListLink">
+        <a class="editRelatedItemOnListLink" th:href="@{'/ingredient/{id}'(id=${ingredient.id})}">View</a>
+      </td>
+    </tr>
+  </table>
+
   </div>
+
+<!--  <div class="ingredientDescBox" th:object="${drink}">-->
+<!--    <h1>Ingredients:</h1>-->
+<!--    <ul th:each="ingredient: *{ingredients}">-->
+<!--      <li class="relatedItemNameOnList" th:text="${ingredient.name}"> </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+
+
 
   <div class="editDrinkButtons">
     <span>
