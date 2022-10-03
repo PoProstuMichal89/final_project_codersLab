@@ -88,10 +88,11 @@ public class DrinkController {
     //edycja drinka
     @GetMapping("/edit-drink/{id}")
     public String editDrink(@PathVariable int id, Model model){
-        DrinkToSaveDto drink = new DrinkToSaveDto();
-//        Optional<DrinkDto> optionalDrink = drinkservice.findById(id);
-//        optionalDrink.ifPresent(drink -> model.addAttribute("drink", optionalDrink));
-        model.addAttribute("drink", drink);
+        Optional<DrinkDto> optionalDrink = drinkservice.findById(id);
+        optionalDrink.ifPresent(drink -> model.addAttribute("drink", drink));
+
+//        Set<IngredientDto> ingredientDtos = drinkservice.findAllIngredientsByDrink(id);
+//        model.addAttribute("allIngredeints", ingredientDtos );
         return "drink-edit-form";
     }
 
