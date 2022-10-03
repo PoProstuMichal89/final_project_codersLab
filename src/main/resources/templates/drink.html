@@ -34,19 +34,10 @@
 
   </div>
 
-<!--  <div class="ingredientDescBox" th:object="${drink}">-->
-<!--    <h1>Ingredients:</h1>-->
-<!--    <ul th:each="ingredient: *{ingredients}">-->
-<!--      <li class="relatedItemNameOnList" th:text="${ingredient.name}"> </li>-->
-<!--    </ul>-->
-<!--  </div>-->
-
-
-
   <div class="editDrinkButtons">
     <span>
       <button class="drinkOperationButton">
-              <a class="editDrinkOperationButtonLink"  href="/add-drink">Edit</a>
+              <a class="editDrinkOperationButtonLink"  th:href="@{'/edit-drink/{id}'(id=${drink.id})}">Edit</a>
       </button>
     </span>
 

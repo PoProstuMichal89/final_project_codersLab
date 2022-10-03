@@ -82,6 +82,16 @@ public class DrinkService {
         return drinkrepository.findById(drinkId).map(DrinkDtoMapper::map);
     }
 
+    @Transactional
+    public void updateDrink(DrinkDto drink){
+        Drink drinkToUpdate = new Drink();
+        drinkToUpdate.setId(drink.getId());
+        drinkToUpdate.setName(drink.getName());
+        drinkToUpdate.setDescription(drink.getDescription());
+        drinkToUpdate.setIngredients(drink.getIngredients());
+       drinkrepository.save(drinkToUpdate);
+    }
+
 
 
 }
