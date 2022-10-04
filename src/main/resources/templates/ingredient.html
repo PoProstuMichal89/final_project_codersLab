@@ -35,11 +35,11 @@
 
         <h1>You'll find it in drinks:</h1>
 
-            <table>
-                <tr th:each="drink: ${ingredient.drinks}" >
+            <table th:object="${ingredient}">
+                <tr th:each="drink: *{drinks}" >
                     <td class="relatedItemNameOnList" th:text=" ${drink.name}"></td>
                     <td class="editRelatedItemOnListLink">
-                        <a class="editRelatedItemOnListLink" th:href="@{'/drink/{id}'(id=${ingredient.drinks.listIterator().next().id})}">View</a>
+                        <a class="editRelatedItemOnListLink" th:href="@{'/drink/{id}'(id=${drink.id})}">View</a>
                     </td>
                 </tr>
             </table>
