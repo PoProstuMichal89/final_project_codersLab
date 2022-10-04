@@ -16,7 +16,10 @@
 
   <div class="ingredientDescBox">
     <h1>Description</h1>
-    <p class="ingredientDescription" th:text="${drink.description}"></p>
+    <div id="ingredientDescContent">
+      <p class="ingredientDescription" th:text="${drink.description}"></p>
+    </div>
+
   </div>
 
   <div class="ingredientDescBox">
@@ -32,27 +35,30 @@
     </tr>
   </table>
 
-    <div class="ingredientDescBox">
-      <h1>Opinions</h1>
+  </div>
+
+  <div class="opinionBox">
+    <h1>Opinions</h1>
 
 
-      <table th:object="${drink}">
-        <tr>
-          <th>Nickname</th>
-          <th>Opinion</th>
-          <th>Rate</th>
-        </tr>
+    <table th:object="${drink}">
+      <tr>
+        <th class="opinionHeader">Nickname</th>
+        <th class="opinionHeader">Opinion</th>
+        <th class="opinionHeader">Rate</th>
+      </tr>
+
         <tr th:each="opinion: *{opinions}" >
-          <td class="relatedItemNameOnList" th:text=" ${opinion.nickname}">LOlo123</td>
-          <td class="relatedItemNameOnList" th:text=" ${opinion.content}">Lorem ipusm</td>
-          <td class="relatedItemNameOnList" th:text=" ${opinion.rate}">5</td>
+          <td class="opinionDetailRow" th:text=" ${opinion.nickname}"></td>
+
+          <td class="opinionDetailRow">
+            <div class="opinionDetailContentRow" th:text=" ${opinion.content}"> </div>
+          </td>
+          <td class="opinionDetailRow"  id=opinionDetailRateRow th:text=" ${opinion.rate}"></td>
         </tr>
-      </table>
-
-    </div>
 
 
-
+    </table>
 
   </div>
 
@@ -83,11 +89,12 @@
 </div>
 
 <div class="navBar">
+
   <span class="navItems">
-    <a class="navItemsLinks" href="/add-drink">Add New Drink</a>
+    <a class="navItemsLinks" href="/add-drink">New Drink</a>
   </span>
   <span class="navItems">
-    <a class="navItemsLinks" href="/add-ingredient">Add New Ingredient</a>
+    <a class="navItemsLinks" href="/add-ingredient">New Ingredient</a>
   </span>
   <span class="navItems">
     <a class="navItemsLinks" href="/drinks">Drinks</a>

@@ -38,6 +38,6 @@ public class OpinionController {
     @PostMapping("/add-opinion/{id}")
     public String addOpinion(OpinionToSaveDto opinion, @PathVariable int id){
         opinionService.add(opinion, id);
-        return "redirect:/drinks";
+        return "redirect:/drink/{id}";
     }
 }
