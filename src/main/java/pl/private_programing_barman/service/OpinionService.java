@@ -21,11 +21,12 @@ public class OpinionService {
     }
 
     @Transactional
-    public void add(OpinionToSaveDto newOpinion) {
+    public void add(OpinionToSaveDto newOpinion, int id) {
       Opinion opinion = new Opinion();
       opinion.setNickname(newOpinion.getNickname());
       opinion.setContent(newOpinion.getContent());
       opinion.setRate(newOpinion.getRate());
+      opinion.setDrinkId(id);
       opinionrepository.save(opinion);
     }
 

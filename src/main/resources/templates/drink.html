@@ -32,6 +32,27 @@
     </tr>
   </table>
 
+    <div class="ingredientDescBox">
+      <h1>Opinions</h1>
+
+      <table th:object="${drink}">
+        <tr>
+          <th>Nickname</th>
+          <th>Opinion</th>
+          <th>Rate</th>
+        </tr>
+        <tr th:each="opinion: *{opinions}" >
+          <td class="relatedItemNameOnList" th:text=" ${opinion.nickname}">LOlo123</td>
+          <td class="relatedItemNameOnList" th:text=" ${opinion.content}">Lorem ipusm</td>
+          <td class="relatedItemNameOnList" th:text=" ${opinion.rate}">5</td>
+        </tr>
+      </table>
+
+    </div>
+
+
+
+
   </div>
 
   <div class="editDrinkButtons">
@@ -40,6 +61,13 @@
               <a class="editDrinkOperationButtonLink"  th:href="@{'/edit-drink/{id}'(id=${drink.id})}">Edit</a>
       </button>
     </span>
+
+    <span>
+      <button class="drinkOperationButton">
+              <a class="editDrinkOperationButtonLink"  th:href="@{'/add-opinion/{id}'(id=${drink.id})}">Rate</a>
+      </button>
+    </span>
+
 
     <span>
       <button class="drinkOperationButton" >

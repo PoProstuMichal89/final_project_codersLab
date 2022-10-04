@@ -13,6 +13,12 @@ public class Opinion {
     private String content;
     private int rate;
 
+   @ManyToOne
+    private Drink drink;
+
+   @Column(insertable = false, updatable = false)
+   private int drink_id;
+
     public int getId() {
         return id;
     }
@@ -43,6 +49,14 @@ public class Opinion {
 
     public void setRate(int rate) {
         this.rate = rate;
+    }
+
+    public int getDrinkId() {
+        return drink_id;
+    }
+
+    public void setDrinkId(int drink_id) {
+        this.drink_id = drink.getId();
     }
 
     @Override

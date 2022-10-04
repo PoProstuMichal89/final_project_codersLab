@@ -15,7 +15,7 @@ public class DrinkToSaveDto {
 
     private List<IngredientDto> ingredients = new ArrayList<>();
 
-    private List<Opinion> opinions = new ArrayList<>();
+    private List<OpinionDto> opinions = new ArrayList<>();
 
 
     public String getName() {
@@ -53,13 +53,6 @@ public class DrinkToSaveDto {
                 '}';
     }
 
-    public List<Opinion> getOpinions() {
-        return opinions;
-    }
-
-    public void setOpinions(List<Opinion> opinions) {
-        this.opinions = opinions;
-    }
 
 
 }

@@ -71,13 +71,13 @@ VALUES
     (2, 1),
     (2, 4);
 
-INSERT INTO
-opinions(content, nickname, rate, drink_id)
-    VALUES
-        ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus nibh. Aliquam quis tempus orci, sed volutpat tortor. ' ||
-            'Nullam volutpat libero ac sagittis auctor. Sed rutrum quis elit eget placerat. Class aptent taciti sociosqu', 'XYZ', 4, 2 ),
-        ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum consequat eros.', 'Rudy', 7,3),
-        ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer gravida eu tellus quis commodo. Curabitur fermentum gravida leo.', 'Ila', 5, 4),
-        ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat orci vitae eros maximus egestas quis bibendum quam. Donec semper.', 'Ziuum', 2, 1);
+-- INSERT INTO
+-- opinions(content, nickname, rate, drink_id)
+--     VALUES
+--         ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus nibh. Aliquam quis tempus orci, sed volutpat tortor. ' ||
+--             'Nullam volutpat libero ac sagittis auctor. Sed rutrum quis elit eget placerat. Class aptent taciti sociosqu', 'XYZ', 4, 2 ),
+--         ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum consequat eros.', 'Rudy', 7,3),
+--         ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer gravida eu tellus quis commodo. Curabitur fermentum gravida leo.', 'Ila', 5, 4),
+--         ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat orci vitae eros maximus egestas quis bibendum quam. Donec semper.', 'Ziuum', 2, 1);
 
 

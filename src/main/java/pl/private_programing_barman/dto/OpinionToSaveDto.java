@@ -6,14 +6,17 @@ public class OpinionToSaveDto {
     private String content;
     private int rate;
 
-    public OpinionToSaveDto(String nickname, String content, int rate) {
+    private DrinkDto drink;
+
+    public OpinionToSaveDto(String nickname, String content, int rate, DrinkDto drink) {
         this.nickname = nickname;
         this.content = content;
         this.rate = rate;
+        this.drink = drink;
     }
 
-
-
+    public OpinionToSaveDto() {
+    }
 
     public String getNickname() {
         return nickname;

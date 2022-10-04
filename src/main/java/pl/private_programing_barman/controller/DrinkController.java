@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.private_programing_barman.dto.DrinkDto;
 import pl.private_programing_barman.dto.DrinkToSaveDto;
 import pl.private_programing_barman.dto.IngredientDto;
+import pl.private_programing_barman.dto.OpinionToSaveDto;
 import pl.private_programing_barman.service.DrinkService;
 import pl.private_programing_barman.service.IngredientService;
 
@@ -85,4 +86,5 @@ public class DrinkController {
         drinkservice.updateDrink(drink);
         return "redirect:/drinks";
     }
+
 }
