@@ -14,11 +14,12 @@
         <fieldset>
             <div class="createNewDrink">
                 <fieldset>
-                    <legend>Your opinion: </legend>
-                    <label>Nickname <br> <input class="detailsOfItem" th:field="*{nickname}" ></label> <br><br>
+                    <legend>Your opinion:</legend>
+                    <label>Nickname <br> <input class="detailsOfItem" th:field="*{nickname}"></label> <br><br>
                     <label>Content <br> <textarea th:field="*{content}"></textarea> </label><br><br>
-                    <label>Rate <br> <input class="detailsOfItem" th:field="*{rate}" ></label> <br><br>
-                    <label> <br> <input class="detailsOfItem" th:value="${drink.id}" name="drink_id" hidden></label> <br><br>
+                    <label>Rate <br> <input class="detailsOfItem" th:field="*{rate}"></label> <br><br>
+                    <label> <br> <input class="detailsOfItem" th:value="${drink.id}" name="drink_id" hidden></label>
+                    <br><br>
                 </fieldset>
                 <input class="addButton" type="submit" value="Add">
             </div>
@@ -40,8 +41,6 @@
    <a class="navItemsLinks" href="/ingredients">Ingredients</a>
  </span>
     </div>
-
-
 
 </form>
 </body>
