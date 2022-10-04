@@ -14,10 +14,8 @@ public class Opinion {
     private int rate;
 
    @ManyToOne
+   @JoinColumn(name="drink_id")
     private Drink drink;
-
-   @Column(insertable = false, updatable = false)
-   private int drink_id;
 
     public int getId() {
         return id;
@@ -51,13 +49,20 @@ public class Opinion {
         this.rate = rate;
     }
 
-    public int getDrinkId() {
-        return drink_id;
+    public Drink getDrink() {
+        return drink;
     }
 
-    public void setDrinkId(int drink_id) {
-        this.drink_id = drink.getId();
+    public void setDrink(Drink drink) {
+        this.drink = drink;
     }
+
+    //    public Opinion(String nickname, String content, int rate, Drink drink) {
+//        this.nickname = nickname;
+//        this.content = content;
+//        this.rate = rate;
+//        this.drink = drink;
+//    }
 
     @Override
     public String toString() {

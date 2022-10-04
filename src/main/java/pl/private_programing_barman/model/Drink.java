@@ -28,8 +28,7 @@ public class Drink {
 
 
 
-    @OneToMany
-    @JoinColumn(name = "id")
+    @OneToMany(mappedBy = "drink", orphanRemoval = true)
     private List<Opinion> opinions = new ArrayList<>();
 
     public int getId() {

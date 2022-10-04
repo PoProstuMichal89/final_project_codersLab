@@ -43,6 +43,13 @@ public class DrinkToSaveDto {
         this.ingredients = ingredients;
     }
 
+    public List<OpinionDto> getOpinions() {
+        return opinions;
+    }
+
+    public void setOpinions(List<OpinionDto> opinions) {
+        this.opinions = opinions;
+    }
 
     @Override
     public String toString() {
