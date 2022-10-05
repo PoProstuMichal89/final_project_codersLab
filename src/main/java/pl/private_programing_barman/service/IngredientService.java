@@ -5,12 +5,11 @@ import pl.private_programing_barman.dto.IngredientDto;
 import pl.private_programing_barman.dto.IngredientToSaveDto;
 import pl.private_programing_barman.mapper.IngredientDtoMapper;
 import pl.private_programing_barman.model.Ingredient;
-import pl.private_programing_barman.repositories.IngredientRepository;
+import pl.private_programing_barman.repository.IngredientRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service

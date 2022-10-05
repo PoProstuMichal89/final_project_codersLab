@@ -7,10 +7,7 @@ import org.hibernate.annotations.LazyCollection;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "ingredients")
@@ -32,7 +29,7 @@ public class Ingredient {
     private String uOm;
 
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "ingredients")
-    private List<Drink> drinks = new ArrayList<>();
+    private Set<Drink> drinks = new HashSet<>();
 
 
     public String getName() {
@@ -75,8 +72,11 @@ public class Ingredient {
         this.id = id;
     }
 
-    public List<Drink> getDrinks() {
+    public Set<Drink> getDrinks() {
         return drinks;
     }
 
+    public void setDrinks(Set<Drink> drinks) {
+        this.drinks = drinks;
+    }
 }

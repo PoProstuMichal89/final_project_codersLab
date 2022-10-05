@@ -8,11 +8,10 @@ import pl.private_programing_barman.dto.IngredientToSaveDto;
 import pl.private_programing_barman.mapper.DrinkDtoMapper;
 import pl.private_programing_barman.model.Drink;
 import pl.private_programing_barman.model.Ingredient;
-import pl.private_programing_barman.repositories.DrinkRepository;
+import pl.private_programing_barman.repository.DrinkRepository;
 
 import javax.transaction.Transactional;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class DrinkService {

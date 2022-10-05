@@ -6,8 +6,8 @@ import pl.private_programing_barman.dto.OpinionToSaveDto;
 import pl.private_programing_barman.mapper.OpinionDtoMapper;
 import pl.private_programing_barman.model.Drink;
 import pl.private_programing_barman.model.Opinion;
-import pl.private_programing_barman.repositories.DrinkRepository;
-import pl.private_programing_barman.repositories.OpinionRepository;
+import pl.private_programing_barman.repository.DrinkRepository;
+import pl.private_programing_barman.repository.OpinionRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;

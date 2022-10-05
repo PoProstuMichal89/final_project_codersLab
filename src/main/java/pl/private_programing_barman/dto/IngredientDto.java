@@ -5,9 +5,7 @@ import pl.private_programing_barman.service.IngredientService;
 
 
 import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class IngredientDto {
     private IngredientService ingredientService;
@@ -20,11 +18,11 @@ public class IngredientDto {
 
 
     //dodane do konstruktora, żeby zwracał w obiekcie drinki z którymi jest powązany składnik. Czy przeciążać konstruktor bez podawania listy drinków?
-    private List<Drink> drinks = new ArrayList<>();
+    private Set<Drink> drinks = new HashSet<>();
 
 
 
-    public IngredientDto(int id, String name, String description, double quantity, String uOm, List<Drink> drinks) {
+    public IngredientDto(int id, String name, String description, double quantity, String uOm, Set<Drink> drinks) {
         this.drinks = drinks;
         this.id = id;
         this.name = name;
@@ -86,12 +84,12 @@ public class IngredientDto {
         this.uOm = uOm;
     }
 
-    public List<Drink> getDrinks() {
+    public Set<Drink> getDrinks() {
 
         return drinks;
     }
 
-    public void setDrinks(List<Drink> drinks) {
+    public void setDrinks(Set<Drink> drinks) {
 
         this.drinks = drinks;
     }
