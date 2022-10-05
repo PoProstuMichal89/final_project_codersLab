@@ -18,11 +18,19 @@ public class DrinkDto {
     private List<Opinion> opinions = new ArrayList<>();
 
 
-    public DrinkDto(int id, String name, List<Ingredient> ingredients, String description) {
-        this.id=id;
+//    public DrinkDto(int id, String name, List<Ingredient> ingredients, String description) {
+//        this.id=id;
+//        this.name = name;
+//        this.description = description;
+//        this.ingredients = ingredients;
+//    }
+
+    public DrinkDto(int id, String name, String description, List<Ingredient> ingredients, List<Opinion> opinions) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;
+        this.opinions = opinions;
     }
 
     public int getId() {

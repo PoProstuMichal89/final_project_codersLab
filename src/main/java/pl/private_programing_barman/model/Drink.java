@@ -13,7 +13,6 @@ import java.util.*;
 public class Drink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int id;
 
     private String name;
@@ -29,8 +28,7 @@ public class Drink {
 
 
 
-    @OneToMany
-    @JoinColumn(name = "drink_id")
+    @OneToMany(mappedBy = "drink", orphanRemoval = true)
     private List<Opinion> opinions = new ArrayList<>();
 
     public int getId() {

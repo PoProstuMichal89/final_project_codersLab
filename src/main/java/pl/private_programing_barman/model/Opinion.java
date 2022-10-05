@@ -13,6 +13,10 @@ public class Opinion {
     private String content;
     private int rate;
 
+   @ManyToOne
+   @JoinColumn(name="drink_id")
+    private Drink drink;
+
     public int getId() {
         return id;
     }
@@ -44,6 +48,21 @@ public class Opinion {
     public void setRate(int rate) {
         this.rate = rate;
     }
+
+    public Drink getDrink() {
+        return drink;
+    }
+
+    public void setDrink(Drink drink) {
+        this.drink = drink;
+    }
+
+    //    public Opinion(String nickname, String content, int rate, Drink drink) {
+//        this.nickname = nickname;
+//        this.content = content;
+//        this.rate = rate;
+//        this.drink = drink;
+//    }
 
     @Override
     public String toString() {
