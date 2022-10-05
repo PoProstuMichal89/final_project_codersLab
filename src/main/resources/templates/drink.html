@@ -53,7 +53,7 @@
         <th class="opinionHeader">Rate</th>
       </tr>
 
-        <tr th:each="opinion: *{opinions}" >
+        <tr class="opinionBoxHeadLess" th:each="opinion: *{opinions}" >
           <td class="opinionDetailRow" th:text=" ${opinion.nickname}"></td>
 
           <td class="opinionDetailRow">

@@ -17,7 +17,9 @@
                 <fieldset>
                     <legend>Detail</legend>
                     <label>Name <br> <input class="detailsOfItem" th:field="*{name}" th:placeholder="${drink.name}" ></label> <br><br>
+                    <p th:errors="*{name}" class="error"></p>
                     <label>Description <br> <textarea th:field="*{description}" th:placeholder="${drink.description}" ></textarea> </label><br><br>
+                    <p th:errors="*{description}" class="error"></p>
                 </fieldset>
             </div>
 

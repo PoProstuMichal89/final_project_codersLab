@@ -2,15 +2,18 @@ package pl.private_programing_barman.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import pl.private_programing_barman.dto.DrinkDto;
 import pl.private_programing_barman.dto.DrinkToSaveDto;
 import pl.private_programing_barman.dto.IngredientDto;
-import pl.private_programing_barman.dto.OpinionToSaveDto;
 import pl.private_programing_barman.service.DrinkService;
 import pl.private_programing_barman.service.IngredientService;
 
-import java.util.ArrayList;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,9 +48,15 @@ public class DrinkController {
     }
 
     @PostMapping("/add-drink")
-    public String addDrink(DrinkToSaveDto drink) {
-        drinkservice.add(drink);
-        return "redirect:/drinks";
+    public String addDrink(@Valid @ModelAttribute("drink") DrinkToSaveDto drink, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            List<IngredientDto> allIngredients = ingredientService.findAllIngredients();
+            model.addAttribute("allIngredients", allIngredients);
+            return "/drink-form";
+        } else {
+            drinkservice.add(drink);
+            return "redirect:/drinks";
+        }
     }
 
     //widok detali drinka
@@ -66,9 +75,6 @@ public class DrinkController {
         return "redirect:/drinks";
     }
 
-
-
-
     //EDYCJA DRINKA
     @GetMapping("/edit-drink/{id}")
     public String editDrinkForm(@PathVariable int id, Model model) {
@@ -82,9 +88,16 @@ public class DrinkController {
     }
 
     @PostMapping("/edit-drink/{id}")
-    public String editDrink(DrinkDto drink) {
-        drinkservice.updateDrink(drink);
-        return "redirect:/drinks";
+    public String editDrink(@Valid @ModelAttribute("drink") DrinkDto drink, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            List<IngredientDto> allIngredients = ingredientService.findAllIngredients();
+            model.addAttribute("allIngredients", allIngredients);
+            return "drink-edit-form";
+        } else {
+
+            drinkservice.updateDrink(drink);
+            return "redirect:/drinks";
+        }
     }
 
 }

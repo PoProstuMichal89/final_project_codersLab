@@ -5,6 +5,8 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -15,9 +17,12 @@ public class Drink {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotBlank(message = "The 'name' field cannot be empty")
+    @Size(min=2, max=50, message = "The 'name' length must be between 2 and 50 characters")
     private String name;
 
     @Column(length = 900)
+    @Size(max=900)
     private String description;
 
 

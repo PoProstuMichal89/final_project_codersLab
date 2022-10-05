@@ -6,11 +6,17 @@ import pl.private_programing_barman.service.IngredientService;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import javax.validation.constraints.*;
 
 public class DrinkDto {
 
     private int id;
+
+    @NotBlank
+    @Size(min = 2, max = 50)
     private String name;
+
+    @Size(max=900)
     private String description;
 
     private List<Ingredient> ingredients = new ArrayList<>();

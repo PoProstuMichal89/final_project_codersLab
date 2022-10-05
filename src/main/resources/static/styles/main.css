@@ -32,6 +32,13 @@ h2
     display: none;
 }
 
+.error
+{
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
 .row
 {
     margin: 20px 10px
@@ -271,6 +278,7 @@ textarea
     font-weight: 50;
     padding: 6px;
     margin-top: 45px;
+    padding-top: 25px;
 
 }
 
@@ -302,7 +310,13 @@ textarea
 
 .opinionHeader
 {
-    font-size: 19px;
+    font-size: 18px;
     color: #FA7C00;
-    font-weight: 75;
+    font-weight: 85;
+    padding-top: 10px;
+}
+
+.opinionBoxHeadLess
+{
+    margin-top: 10px;
 }
