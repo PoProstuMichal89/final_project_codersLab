@@ -27,6 +27,11 @@ h2
 
 }
 
+.noDisplay
+{
+    display: none;
+}
+
 .row
 {
     margin: 20px 10px

@@ -9,7 +9,12 @@ drinks (name, description)
 
 INSERT INTO
     ingredients(name, description, quantity, u_om)
-VALUES ('Vodka', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur erat.
+VALUES
+    ('Wybierz składnik', ' ' ||
+              ' ',
+     50.221, ' '),
+
+('Vodka', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur erat.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in euismod leo. ' ||
 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',

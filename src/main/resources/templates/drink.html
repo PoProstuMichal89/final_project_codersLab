@@ -27,10 +27,15 @@
     <h1>Ingredients:</h1>
 
   <table th:object="${drink}">
+
     <tr th:each="ingredient: *{ingredients}" >
-      <td class="relatedItemNameOnList" th:text=" ${ingredient.name}"></td>
+
+      <td class="noDisplay" th:if="${ingredient.id == 1}"></td>
+      <td class="relatedItemNameOnList" th:if="${ingredient.id != 1}" th:text=" ${ingredient.name}"></td>
+
+      <td class="noDisplay" th:if="${ingredient.id == 1}"></td>
       <td class="editRelatedItemOnListLink">
-        <a class="editRelatedItemOnListLink" th:href="@{'/ingredient/{id}'(id=${ingredient.id})}">View</a>
+        <a class="editRelatedItemOnListLink" th:if="${ingredient.id != 1}" th:href="@{'/ingredient/{id}'(id=${ingredient.id})}">View</a>
       </td>
     </tr>
   </table>
