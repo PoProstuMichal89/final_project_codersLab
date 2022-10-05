@@ -10,7 +10,7 @@ drinks (name, description)
 INSERT INTO
     ingredients(name, description, quantity, u_om)
 VALUES
-    ('Wybierz składnik', ' ' ||
+    ('Choose ingredient', ' ' ||
               ' ',
      50.221, ' '),
 

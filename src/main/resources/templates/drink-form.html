@@ -14,39 +14,39 @@
         <fieldset>
             <div class="createNewDrink">
                 <fieldset>
-                    <legend>Detale</legend>
-                    <label>Nazwa <br> <input class="detailsOfItem" th:field="*{name}" ></label> <br><br>
-                    <label>Opis <br> <textarea th:field="*{description}"></textarea> </label><br><br>
+                    <legend>Detail</legend>
+                    <label>Name <br> <input class="detailsOfItem" th:field="*{name}" ></label> <br><br>
+                    <label>Description <br> <textarea th:field="*{description}"></textarea> </label><br><br>
                 </fieldset>
             </div>
 
 
             <div class="selectIngredientInDrinkAdd">
                 <fieldset>
-                    <legend>Wybierz składniki</legend>
+                    <legend>Choose ingredients</legend>
                     <div class="columnOfIngredeintsSelect">
 
                         <div class="ingredientSelect">
-                            <label for="ingredient">Składnik &nbsp</label>
+                            <label for="ingredient">Ingredient 1 &nbsp</label>
                             <select id="ingredient" th:field="*{ingredients}" name="ingredients">
-                                <option value="1" hidden>Wybierz składnik1</option>
+                                <option value="1" hidden>Choose ingredient</option>
                                 <option th:each="ingredient: ${allIngredients}" th:value="${ingredient.id}"
                                         th:text="${ingredient.name}" name="ingredientId"></option>
                             </select>
                         </div>
 
                                         <div class="ingredientSelect">
-                                            <label for="ingredient1">Składnik  &nbsp</label>
+                                            <label for="ingredient1">Ingredient 2  &nbsp</label>
                                             <select id="ingredient1" th:field="*{ingredients}" required>
-                                                <option value="1" hidden>Wybierz składnik2</option>
+                                                <option value="1" hidden>Choose ingredient</option>
                                                 <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient.id}" th:text="${ingredient.name}"></option>
                                             </select>
                                         </div>
 
                                         <div class="ingredientSelect">
-                                            <label for="ingredient2">Składnik &nbsp</label>
-                                            <select id="ingredient2" th:field="*{ingredients}" required>
-                                                <option value="1" hidden>Wybierz składnik3</option>
+                                            <label for="ingredient2">Ingredient 3 &nbsp</label>
+                                            <select id="ingredient2" th:field="*{ingredients}">
+                                                <option value="1" hidden>Choose ingredient</option>
                                                 <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient.id}" th:text="${ingredient.name}"></option>
                                             </select>
                                         </div>
