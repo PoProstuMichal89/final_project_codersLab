@@ -30,7 +30,7 @@
 
     <tr th:each="ingredient: *{ingredients}" >
 
-      <td class="noDisplay" th:if="${ingredient.id == 1}"></td>
+<!--      <td class="noDisplay" th:if="${ingredient.id == 1}"></td>-->
       <td class="relatedItemNameOnList" th:if="${ingredient.id != 1}" th:text=" ${ingredient.name}"></td>
 
       <td class="noDisplay" th:if="${ingredient.id == 1}"></td>
