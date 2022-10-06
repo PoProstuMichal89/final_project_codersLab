@@ -16,8 +16,11 @@
                 <fieldset>
                     <legend>Your opinion:</legend>
                     <label>Nickname <br> <input class="detailsOfItem" th:field="*{nickname}"></label> <br><br>
+                    <p th:errors="*{nickname}" class="error"></p>
                     <label>Content <br> <textarea th:field="*{content}"></textarea> </label><br><br>
+                    <p th:errors="*{content}" class="error"></p>
                     <label>Rate <br> <input class="detailsOfItem" th:field="*{rate}"></label> <br><br>
+                    <p th:errors="*{rate}" class="error"></p>
                     <label> <br> <input class="detailsOfItem" th:value="${drink.id}" name="drink_id" hidden></label>
                     <br><br>
                 </fieldset>

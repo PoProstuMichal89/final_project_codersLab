@@ -1,10 +1,19 @@
 package pl.private_programing_barman.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class OpinionToSaveDto {
 
+    @NotBlank
+    @Size(min = 2, max = 50)
     private String nickname;
+
+    @Size(max=500)
+    @NotBlank
     private String content;
     private int rate;
+
 
     private DrinkDto drink;
 
