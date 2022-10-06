@@ -23,6 +23,7 @@ public class Drink {
 
     @Column(length = 900)
     @Size(max=900)
+    @NotBlank
     private String description;
 
 

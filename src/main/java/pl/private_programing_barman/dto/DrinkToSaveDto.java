@@ -12,6 +12,7 @@ public class DrinkToSaveDto {
     @Size(min = 2, max = 50)
     private String name;
     @Size(max=900)
+    @NotBlank
     private String description;
 
     private List<IngredientDto> ingredients = new ArrayList<>();
