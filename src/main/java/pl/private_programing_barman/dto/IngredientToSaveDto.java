@@ -22,6 +22,7 @@ public class IngredientToSaveDto {
     private double quantity;
 
     @Pattern(regexp = ("[a-zA-Z]*"))
+    @NotBlank
     private String uOm;
 
 //    public IngredientToSaveDto(String name, String description, double quantity, String uOm) {
