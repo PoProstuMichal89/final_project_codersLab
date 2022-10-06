@@ -288,7 +288,7 @@ textarea
     color: burlywood;
     font-weight: 45;
     padding: 10px;
-    text-align: justify;
+    text-align: center;
     margin-left: 5px;
     margin-right: 15px;
     overflow-wrap: break-word;
@@ -310,9 +310,9 @@ textarea
 
 .opinionHeader
 {
-    font-size: 18px;
+    font-size: 17px;
     color: #FA7C00;
-    font-weight: 85;
+    font-weight: 80;
     padding-top: 10px;
 }
 
