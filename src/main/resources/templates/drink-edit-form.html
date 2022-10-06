@@ -11,7 +11,7 @@
 <form action="" method="post" th:object="${drink}">
     <div class="addNewDrink">
 <!--        dodać nazwę drinka do edycj w nagłóœko h2-->
-        <h2>Edit drink  </h2>
+        <h2 th:text="|Edit ${drink.name}|">Edit drink  </h2>
         <fieldset>
             <div class="createNewDrink">
                 <fieldset>
