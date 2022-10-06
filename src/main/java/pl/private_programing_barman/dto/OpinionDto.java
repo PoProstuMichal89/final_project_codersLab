@@ -1,11 +1,15 @@
 package pl.private_programing_barman.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class OpinionDto {
     private int id;
 
     private String nickname;
     private String content;
     private int rate;
+
 
     public OpinionDto(int id, String nickname, String content, int rate) {
         this.id=id;
@@ -50,8 +54,5 @@ public class OpinionDto {
     public void setRate(int rate) {
         this.rate = rate;
     }
-
-
-
 
 }

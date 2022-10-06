@@ -1,7 +1,11 @@
 package pl.private_programing_barman.dto;
 
+import org.aspectj.weaver.Lint;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OpinionToSaveDto {
 
@@ -13,7 +17,6 @@ public class OpinionToSaveDto {
     @NotBlank
     private String content;
     private int rate;
-
 
     private DrinkDto drink;
 
@@ -48,6 +51,7 @@ public class OpinionToSaveDto {
     }
 
     public void setRate(int rate) {
+
         this.rate = rate;
     }
 

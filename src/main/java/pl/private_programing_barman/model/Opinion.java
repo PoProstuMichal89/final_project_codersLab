@@ -1,6 +1,8 @@
 package pl.private_programing_barman.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "opinions")
@@ -11,10 +13,11 @@ public class Opinion {
 
     private String nickname;
     private String content;
-    private int rate;
 
-   @ManyToOne
-   @JoinColumn(name="drink_id")
+   private  int rate;
+
+    @ManyToOne
+    @JoinColumn(name = "drink_id")
     private Drink drink;
 
     public int getId() {
@@ -73,4 +76,5 @@ public class Opinion {
                 ", rate=" + rate +
                 '}';
     }
+
 }

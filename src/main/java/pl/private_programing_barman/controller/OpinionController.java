@@ -13,6 +13,8 @@ import pl.private_programing_barman.service.DrinkService;
 import pl.private_programing_barman.service.OpinionService;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -35,6 +37,9 @@ public class OpinionController {
         OpinionToSaveDto opinion = new OpinionToSaveDto();
         model.addAttribute("opinion", opinion);
 
+        String[] rateRange= {"1","2","3","4","5","6"};
+        model.addAttribute("rateRange", rateRange);
+
         return "/opinion-form";
     }
 
@@ -43,6 +48,10 @@ public class OpinionController {
         if (bindingResult.hasErrors()) {
             Optional<DrinkDto> optionalDrink = drinkService.findById(id);
             optionalDrink.ifPresent(drink -> model.addAttribute("drink", drink));
+
+            int[] rateRange= {1,2,3,4,5,6};
+            model.addAttribute("rateRange", rateRange);
+
             return "/opinion-form";
         } else {
             opinionService.add(opinion, id);
