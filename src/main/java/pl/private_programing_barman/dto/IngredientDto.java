@@ -5,13 +5,22 @@ import pl.private_programing_barman.service.IngredientService;
 
 
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.util.*;
 
 public class IngredientDto {
     private IngredientService ingredientService;
     private int id;
+    @NotBlank
+    @Size(min = 2, max = 50)
     private String name;
+
+    @Size(max=900)
+    @NotBlank
     private String description;
+
     private double quantity;
 
     private String uOm;

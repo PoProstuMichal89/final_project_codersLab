@@ -4,9 +4,13 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 import java.util.*;
 
 @Entity
@@ -18,11 +22,15 @@ public class Ingredient {
     @Column (unique = true)
     private int id;
 
-
+    @NotBlank
+    @Size(min = 2, max = 50)
     private String name;
 
-@Column(length = 900)
+    @Column(length = 900)
+    @Size(max=900)
+    @NotBlank
     private String description;
+
 
     private double quantity;
 
