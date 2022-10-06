@@ -49,7 +49,7 @@ public class OpinionController {
             Optional<DrinkDto> optionalDrink = drinkService.findById(id);
             optionalDrink.ifPresent(drink -> model.addAttribute("drink", drink));
 
-            int[] rateRange= {1,2,3,4,5,6};
+            int[] rateRange= {0,1,2,3,4,5,6,7,8,9,10};
             model.addAttribute("rateRange", rateRange);
 
             return "/opinion-form";
