@@ -27,6 +27,15 @@ h2
 
 }
 
+h3
+{
+    font-size: 25px;
+    font-weight: 230;
+    text-align: center;
+    color: #FA7C00;
+    margin-top: 75px;
+}
+
 .noDisplay
 {
     display: none;
@@ -56,6 +65,15 @@ h2
     display: block;
     text-align: justify;
     color: burlywood;
+}
+
+.ingredientProperties
+{
+    margin-right: 40%;
+    display: block;
+    text-align: justify;
+    color: burlywood;
+    font-size: 22px;
 }
 
 .ingredientDescBox

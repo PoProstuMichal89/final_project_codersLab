@@ -43,11 +43,13 @@
   </div>
 
   <div class="opinionBox">
-    <h1>Opinions</h1>
+    <div class="noDisplay" th:if="${drink.opinions.isEmpty()}"></div>
+    <h1 th:unless="${drink.opinions.isEmpty()}">Opinions</h1>
 
 
     <table th:object="${drink}">
-      <tr>
+      <div class="noDisplay" th:if="${drink.opinions.isEmpty()}"></div>
+      <tr th:unless="${drink.opinions.isEmpty()}">
         <th class="opinionHeader">Nickname</th>
         <th class="opinionHeader">Opinion</th>
         <th class="opinionHeader">Rate</th>

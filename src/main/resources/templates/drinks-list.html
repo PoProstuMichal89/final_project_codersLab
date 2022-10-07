@@ -7,8 +7,10 @@
 </head>
 <body>
 <h2>Drinks</h2>
+
 <table>
-    <tr th:each="drink: ${drinks}" >
+    <h3 th:if="${drinks.isEmpty()}">There are no drinks available! </h3>
+    <tr th:unless="${drinks.isEmpty()} "th:each="drink: ${drinks}" >
         <td class="itemNameOnList" th:text="${drink.name}"></td>
         <td class="editItemOnList">
             <a class="editItemOnListLink" th:href="@{'/drink/{id}'(id=${drink.id})}">View</a>

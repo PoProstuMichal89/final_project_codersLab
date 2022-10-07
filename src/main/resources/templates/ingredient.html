@@ -21,22 +21,25 @@
 
     <div class="ingredientDescBox">
         <h1>Unit of Measure</h1>
-        <p class="ingredientDescription" th:text="${ingredient.uOm}"></p>
+        <p class="ingredientProperties" th:text="${ingredient.uOm}"></p>
     </div>
 
     <div class="ingredientDescBox">
         <h1>Quantity</h1>
-        <p class="ingredientDescription" th:text="${ingredient.quantity}"></p>
+        <p class="ingredientProperties" th:text="${ingredient.quantity}"></p>
     </div>
 
     <!--- Zamienić na tabelę, dodać "zobacz" prowadzący do detali drinka --->
 
     <div class="ingredientDescBox">
 
-        <h1>You'll find it in drinks:</h1>
+        <div class="noDisplay" th:if="*{ingredient.drinks.isEmpty()}"></div>
+        <h1 th:unless="*{ingredient.drinks.isEmpty()}">You'll find it in drinks</h1>
 
-            <table th:object="${ingredient}">
-                <tr th:each="drink: *{drinks}" >
+
+        <table th:object="${ingredient}">
+            <div class="noDisplay" th:if="*{drinks.isEmpty()}"></div>
+                <tr th:unless="*{drinks.isEmpty()}" th:each="drink: *{drinks}" >
                     <td class="relatedItemNameOnList" th:text=" ${drink.name}"></td>
                     <td class="editRelatedItemOnListLink">
                         <a class="editRelatedItemOnListLink" th:href="@{'/drink/{id}'(id=${drink.id})}">View</a>
