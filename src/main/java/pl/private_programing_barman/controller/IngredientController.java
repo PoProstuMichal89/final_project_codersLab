@@ -1,5 +1,6 @@
 package pl.private_programing_barman.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.private_programing_barman.dto.DrinkDto;
 import pl.private_programing_barman.dto.IngredientDto;
@@ -62,10 +64,9 @@ public class IngredientController {
     //wyświetlenie detali składnika
     @GetMapping("/ingredient/{id}")
     public String getIngredient(@PathVariable int id, Model model){
-        Optional<IngredientDto> optionalIngredient = ingredientService.findById(id);
+        Optional<IngredientDto> optionalIngredient = Optional.ofNullable(ingredientService.findById(id).
+                orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
         optionalIngredient.ifPresent(ingredient -> model.addAttribute("ingredient", ingredient));
-
-
         return "ingredient";
     }
 
