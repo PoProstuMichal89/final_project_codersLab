@@ -6,11 +6,18 @@ import pl.private_programing_barman.service.IngredientService;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import javax.validation.constraints.*;
 
 public class DrinkDto {
 
     private int id;
+
+    @NotBlank
+    @Size(min = 2, max = 50)
     private String name;
+
+    @Size(max=900)
+    @NotBlank
     private String description;
 
     private List<Ingredient> ingredients = new ArrayList<>();
@@ -18,11 +25,19 @@ public class DrinkDto {
     private List<Opinion> opinions = new ArrayList<>();
 
 
-    public DrinkDto(int id, String name, List<Ingredient> ingredients, String description) {
-        this.id=id;
+//    public DrinkDto(int id, String name, List<Ingredient> ingredients, String description) {
+//        this.id=id;
+//        this.name = name;
+//        this.description = description;
+//        this.ingredients = ingredients;
+//    }
+
+    public DrinkDto(int id, String name, String description, List<Ingredient> ingredients, List<Opinion> opinions) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;
+        this.opinions = opinions;
     }
 
     public int getId() {

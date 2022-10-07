@@ -1,19 +1,34 @@
 package pl.private_programing_barman.dto;
 
+import org.aspectj.weaver.Lint;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
+
 public class OpinionToSaveDto {
 
+    @NotBlank
+    @Size(min = 2, max = 50)
     private String nickname;
+
+    @Size(max=500)
+    @NotBlank
     private String content;
     private int rate;
 
-    public OpinionToSaveDto(String nickname, String content, int rate) {
+    private DrinkDto drink;
+
+    public OpinionToSaveDto(String nickname, String content, int rate, DrinkDto drink) {
         this.nickname = nickname;
         this.content = content;
         this.rate = rate;
+        this.drink = drink;
     }
 
-
-
+    public OpinionToSaveDto() {
+    }
 
     public String getNickname() {
         return nickname;
@@ -36,6 +51,7 @@ public class OpinionToSaveDto {
     }
 
     public void setRate(int rate) {
+
         this.rate = rate;
     }
 

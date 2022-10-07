@@ -1,0 +1,60 @@
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <link rel="stylesheet" href="/styles/main.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post" th:object="${opinion}">
+    <div class="addNewDrink">
+        <h2>Add opinion</h2>
+        <fieldset>
+            <div class="createNewDrink">
+                <fieldset>
+                    <legend th:text="|Your opinion to ${drink.name}|">Your opinion:</legend>
+                    <label>Nickname <br> <input class="detailsOfItem" th:field="*{nickname}"></label> <br><br>
+                    <p th:errors="*{nickname}" class="error"></p>
+                    <label>Content <br> <textarea th:field="*{content}"></textarea> </label><br><br>
+                    <p th:errors="*{content}" class="error"></p>
+
+                    <label for="rate">Rate</label>
+                        <select id="rate" th:field="*{rate}">
+                            <option th:each="rateNum: ${rateRange}" th:value="${rateNum}"
+                                    th:text="${rateNum}"></option>
+                        </select>
+
+
+
+                    <label> <br> <input class="detailsOfItem" th:value="${drink.id}" name="drink_id" hidden></label>
+                    <br><br>
+                </fieldset>
+                <input class="addButton" type="submit" value="Add">
+            </div>
+
+        </fieldset>
+    </div>
+
+    <div class="navBar">
+ <span class="navItems">
+   <a class="navItemsLinks" href="/add-drink">Add New Drink</a>
+ </span>
+        <span class="navItems">
+   <a class="navItemsLinks" href="/add-ingredient">Add New Ingredient</a>
+ </span>
+        <span class="navItems">
+   <a class="navItemsLinks" href="/drinks">Drinks</a>
+ </span>
+        <span class="navItems">
+   <a class="navItemsLinks" href="/ingredients">Ingredients</a>
+ </span>
+    </div>
+
+</form>
+</body>
+
+</html>
+
+</html>

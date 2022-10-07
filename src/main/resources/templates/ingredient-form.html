@@ -13,16 +13,20 @@
 
 <form action="" method="post" th:object="${ingredient}">
 
-    <h2>Dodaj składnik</h2>
+    <h2>Add Ingredient</h2>
     <fieldset>
-        <legend>Detale składnika</legend>
-        <label>Nazwa <br> <input class="detailsOfItem" th:field="*{name}" name="name"></label> <br><br>
-        <label>Opis: <br>
+        <legend>Ingredient Detail</legend>
+        <label>Name <br> <input class="detailsOfItem" th:field="*{name}" name="name"></label> <br><br>
+        <p th:errors="*{name}" class="error"></p>
+        <label>Description <br>
             <textarea th:field="*{description}" id="opis"></textarea></label><br><br>
+        <p th:errors="*{description}" class="error"></p>
 
-        <label>Ilość <br> <input class="detailsOfItem" th:field="*{quantity}"> </label> <br><br>
-        <label>Jednostka miary <br> <input class="detailsOfItem" th:field="*{uOm}"> </label> <br><br>
-        <input class="addButton" type="submit" value="Dodaj">
+        <label>Quantity <br> <input class="detailsOfItem" th:field="*{quantity}"> </label> <br><br>
+        <p th:errors="*{quantity}" class="error"></p>
+        <label>Unit of measure <br> <input class="detailsOfItem" th:field="*{uOm}"> </label> <br><br>
+        <p th:errors="*{uOm}" class="error"></p>
+        <input class="addButton" type="submit" value="Add">
     </fieldset>
 
 </form>

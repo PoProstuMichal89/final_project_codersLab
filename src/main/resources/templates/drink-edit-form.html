@@ -8,16 +8,17 @@
     <title>Title</title>
 </head>
 <body>
-<form action="" method="post" enctype="multipart/form-data"  th:object="${drink}">
+<form action="" method="post" th:object="${drink}">
     <div class="addNewDrink">
-        <h2>Add Drink</h2>
+<!--        dodać nazwę drinka do edycj w nagłóœko h2-->
+        <h2 th:text="|Edit ${drink.name}|">Edit drink  </h2>
         <fieldset>
             <div class="createNewDrink">
                 <fieldset>
                     <legend>Detail</legend>
-                    <label>Name <br> <input class="detailsOfItem" th:field="*{name}" ></label> <br><br>
+                    <label>Name <br> <input class="detailsOfItem" th:field="*{name}" th:placeholder="${drink.name}" ></label> <br><br>
                     <p th:errors="*{name}" class="error"></p>
-                    <label>Description <br> <textarea th:field="*{description}"></textarea> </label><br><br>
+                    <label>Description <br> <textarea th:field="*{description}" th:placeholder="${drink.description}" ></textarea> </label><br><br>
                     <p th:errors="*{description}" class="error"></p>
                 </fieldset>
             </div>
@@ -30,16 +31,17 @@
 
                         <div class="ingredientSelect">
                             <label for="ingredient">Ingredient 1 &nbsp</label>
-                            <select id="ingredient" th:field="*{ingredients}" name="ingredients">
+                            <select id="ingredient" th:field="*{ingredients}">
+<!--                                        selceted +count-->
                                 <option value="1" hidden>Choose ingredient</option>
                                 <option th:each="ingredient: ${allIngredients}" th:value="${ingredient.id}"
-                                        th:text="${ingredient.name}" name="ingredientId"></option>
+                                        th:text="${ingredient.name}" ></option>
                             </select>
                         </div>
 
                                         <div class="ingredientSelect">
-                                            <label for="ingredient1">Ingredient 2  &nbsp</label>
-                                            <select id="ingredient1" th:field="*{ingredients}" required>
+                                            <label for="ingredient1">Ingredient 2 &nbsp</label>
+                                            <select id="ingredient1" th:field="*{ingredients}" >
                                                 <option value="1" hidden>Choose ingredient</option>
                                                 <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient.id}" th:text="${ingredient.name}"></option>
                                             </select>
@@ -47,12 +49,11 @@
 
                                         <div class="ingredientSelect">
                                             <label for="ingredient2">Ingredient 3 &nbsp</label>
-                                            <select id="ingredient2" th:field="*{ingredients}">
-                                                <option value="1" hidden>Choose ingredient</option>
+                                            <select id="ingredient2" th:field="*{ingredients}" >
+                                                <option value="1" hidden selected>Choose ingredient</option>
                                                 <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient.id}" th:text="${ingredient.name}"></option>
                                             </select>
                                         </div>
-
 
                     </div>
 
@@ -74,11 +75,15 @@
 <!--                                                </select>-->
 <!--                                            </div>-->
 
-        </fieldset>
-                    </div>
+
+<!--                    </div>-->
+
+
                 </fieldset>
+
+
             </div>
-            <input class="addButton" type="submit" value="Add">
+            <input class="addButton" type="submit" value="Edit">
         </fieldset>
 
     </div>

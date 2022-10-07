@@ -16,7 +16,10 @@
 
   <div class="ingredientDescBox">
     <h1>Description</h1>
-    <p class="ingredientDescription" th:text="${drink.description}"></p>
+    <div id="ingredientDescContent">
+      <p class="ingredientDescription" th:text="${drink.description}"></p>
+    </div>
+
   </div>
 
   <div class="ingredientDescBox">
@@ -24,31 +27,61 @@
     <h1>Ingredients:</h1>
 
   <table th:object="${drink}">
+
     <tr th:each="ingredient: *{ingredients}" >
-      <td class="relatedItemNameOnList" th:text=" ${ingredient.name}"></td>
+
+<!--      <td class="noDisplay" th:if="${ingredient.id == 1}"></td>-->
+      <td class="relatedItemNameOnList" th:if="${ingredient.id != 1}" th:text=" ${ingredient.name}"></td>
+
+      <td class="noDisplay" th:if="${ingredient.id == 1}"></td>
       <td class="editRelatedItemOnListLink">
-        <a class="editRelatedItemOnListLink" th:href="@{'/ingredient/{id}'(id=${ingredient.id})}">View</a>
+        <a class="editRelatedItemOnListLink" th:if="${ingredient.id != 1}" th:href="@{'/ingredient/{id}'(id=${ingredient.id})}">View</a>
       </td>
     </tr>
   </table>
 
   </div>
 
-<!--  <div class="ingredientDescBox" th:object="${drink}">-->
-<!--    <h1>Ingredients:</h1>-->
-<!--    <ul th:each="ingredient: *{ingredients}">-->
-<!--      <li class="relatedItemNameOnList" th:text="${ingredient.name}"> </li>-->
-<!--    </ul>-->
-<!--  </div>-->
+  <div class="opinionBox">
+    <div class="noDisplay" th:if="${drink.opinions.isEmpty()}"></div>
+    <h1 th:unless="${drink.opinions.isEmpty()}">Opinions</h1>
 
 
+    <table th:object="${drink}">
+      <div class="noDisplay" th:if="${drink.opinions.isEmpty()}"></div>
+      <tr th:unless="${drink.opinions.isEmpty()}">
+        <th class="opinionHeader">Nickname</th>
+        <th class="opinionHeader">Opinion</th>
+        <th class="opinionHeader">Rate</th>
+      </tr>
+
+        <tr class="opinionBoxHeadLess" th:each="opinion: *{opinions}" >
+          <td class="opinionDetailRow" th:text=" ${opinion.nickname}"></td>
+
+          <td class="opinionDetailRow">
+            <div class="opinionDetailContentRow" th:text=" ${opinion.content}"> </div>
+          </td>
+          <td class="opinionDetailRow"  id=opinionDetailRateRow th:text=" ${opinion.rate}"></td>
+        </tr>
+
+
+    </table>
+
+  </div>
 
   <div class="editDrinkButtons">
     <span>
       <button class="drinkOperationButton">
-              <a class="editDrinkOperationButtonLink"  href="/add-drink">Edit</a>
+              <a class="editDrinkOperationButtonLink"  th:href="@{'/edit-drink/{id}'(id=${drink.id})}">Edit</a>
       </button>
     </span>
+
+    <span>
+      <button class="drinkOperationButton">
+              <a class="editDrinkOperationButtonLink"  th:href="@{'/add-opinion/{id}'(id=${drink.id})}">Rate</a>
+      </button>
+    </span>
+
 
     <span>
       <button class="drinkOperationButton" >
@@ -63,11 +96,12 @@
 </div>
 
 <div class="navBar">
+
   <span class="navItems">
-    <a class="navItemsLinks" href="/add-drink">Add New Drink</a>
+    <a class="navItemsLinks" href="/add-drink">New Drink</a>
   </span>
   <span class="navItems">
-    <a class="navItemsLinks" href="/add-ingredient">Add New Ingredient</a>
+    <a class="navItemsLinks" href="/add-ingredient">New Ingredient</a>
   </span>
   <span class="navItems">
     <a class="navItemsLinks" href="/drinks">Drinks</a>

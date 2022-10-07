@@ -8,11 +8,10 @@ import pl.private_programing_barman.dto.IngredientToSaveDto;
 import pl.private_programing_barman.mapper.DrinkDtoMapper;
 import pl.private_programing_barman.model.Drink;
 import pl.private_programing_barman.model.Ingredient;
-import pl.private_programing_barman.repositories.DrinkRepository;
+import pl.private_programing_barman.repository.DrinkRepository;
 
 import javax.transaction.Transactional;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class DrinkService {
@@ -80,6 +79,16 @@ public class DrinkService {
     @Transactional
     public Optional<DrinkDto>findById(int drinkId){
         return drinkrepository.findById(drinkId).map(DrinkDtoMapper::map);
+    }
+
+    @Transactional
+    public void updateDrink(DrinkDto drink){
+        Drink drinkToUpdate = new Drink();
+        drinkToUpdate.setId(drink.getId());
+        drinkToUpdate.setName(drink.getName());
+        drinkToUpdate.setDescription(drink.getDescription());
+        drinkToUpdate.setIngredients(drink.getIngredients());
+       drinkrepository.save(drinkToUpdate);
     }
 
 

@@ -1,21 +1,23 @@
 package pl.private_programing_barman.dto;
 
-import pl.private_programing_barman.model.Ingredient;
-import pl.private_programing_barman.model.Opinion;
-import pl.private_programing_barman.service.IngredientService;
-
-import java.time.LocalDateTime;
-import java.util.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DrinkToSaveDto {
 
-    private IngredientService ingredientService;
+    //    private IngredientService ingredientService;
+    @NotBlank
+    @Size(min = 2, max = 50)
     private String name;
+    @Size(max=900)
+    @NotBlank
     private String description;
 
     private List<IngredientDto> ingredients = new ArrayList<>();
 
-    private List<Opinion> opinions = new ArrayList<>();
+    private List<OpinionDto> opinions = new ArrayList<>();
 
 
     public String getName() {
@@ -43,6 +45,13 @@ public class DrinkToSaveDto {
         this.ingredients = ingredients;
     }
 
+    public List<OpinionDto> getOpinions() {
+        return opinions;
+    }
+
+    public void setOpinions(List<OpinionDto> opinions) {
+        this.opinions = opinions;
+    }
 
     @Override
     public String toString() {
@@ -51,14 +60,6 @@ public class DrinkToSaveDto {
                 ", Description='" + description + '\'' +
                 ", ingredients=" + ingredients +
                 '}';
-    }
-
-    public List<Opinion> getOpinions() {
-        return opinions;
-    }
-
-    public void setOpinions(List<Opinion> opinions) {
-        this.opinions = opinions;
     }
 
 

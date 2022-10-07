@@ -4,13 +4,14 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
+import java.util.*;
 
 @Entity
 @Table(name = "ingredients")
@@ -21,21 +22,22 @@ public class Ingredient {
     @Column (unique = true)
     private int id;
 
-
+    @NotBlank
+    @Size(min = 2, max = 50)
     private String name;
 
-@Column(length = 900)
+    @Column(length = 900)
+    @Size(max=900)
+    @NotBlank
     private String description;
+
 
     private double quantity;
 
     private String uOm;
 
-
-
-
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ingredients")
-    private List<Drink> drinks = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "ingredients")
+    private Set<Drink> drinks = new HashSet<>();
 
 
     public String getName() {
@@ -78,8 +80,11 @@ public class Ingredient {
         this.id = id;
     }
 
-    public List<Drink> getDrinks() {
+    public Set<Drink> getDrinks() {
         return drinks;
     }
 
+    public void setDrinks(Set<Drink> drinks) {
+        this.drinks = drinks;
+    }
 }

@@ -9,8 +9,9 @@
 <h2>Ingredients</h2>
 <table>
 <tr th:each="ingredient: ${ingredients}" >
-  <td class="itemNameOnList" th:text="${ingredient.name}"></td>
-  <td class="editItemOnList">
+<!--  <td class="noDisplay" th:if="${ingredient.id == 1}"></td>-->
+  <td class="itemNameOnList"  th:if="${ingredient.id != 1}" th:text="${ingredient.name}"></td>
+  <td class="editItemOnList" th:if="${ingredient.id != 1}">
     <a class="editItemOnListLink" th:href="@{'/ingredient/{id}'(id=${ingredient.id})}">View</a>
   </td>
 <!--  <td th:each="ingredient: ${ingredients}" th:text="${ingredient.name}"></td>-->

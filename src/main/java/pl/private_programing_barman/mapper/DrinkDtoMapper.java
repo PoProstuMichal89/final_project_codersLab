@@ -37,8 +37,9 @@ public class DrinkDtoMapper {
         return new DrinkDto(
                 drink.getId(),
                 drink.getName(),
+                drink.getDescription(),
                 ingredientDtoList,
-                drink.getDescription()
+                drink.getOpinions()
         );
     }
 }
