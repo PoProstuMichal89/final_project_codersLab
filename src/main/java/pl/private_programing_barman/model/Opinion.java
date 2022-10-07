@@ -1,6 +1,7 @@
 package pl.private_programing_barman.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,8 @@ public class Opinion {
     private int id;
 
     private String nickname;
+
+    @Size(max = 500)
     private String content;
 
    private  int rate;
