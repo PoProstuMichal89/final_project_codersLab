@@ -23,43 +23,8 @@ import java.util.Optional;
 public class BarmanApplication implements RepositoryRestConfigurer {
 
     public static void main(String[] args) {
-//        SpringApplication.run(BarmanApplication.class, args);
-        ConfigurableApplicationContext context = SpringApplication.run(BarmanApplication.class, args);
+        SpringApplication.run(BarmanApplication.class, args);
+//        ConfigurableApplicationContext context = SpringApplication.run(BarmanApplication.class, args);
 
-
-//        IngredientService ingredientService = context.getBean(IngredientService.class);
-//
-//        List<IngredientDto> ingredients = new ArrayList<>();
-//        Optional<IngredientDto> gin = ingredientService.findById(2);
-////        gin.ifPresent(item -> ingredients.add(item));
-//
-//        Optional<IngredientDto> vermut = ingredientService.findById(3);
-////        vermut.ifPresent(item -> ingredients.add(item));
-//
-//        DrinkService drinkService = context.getBean(DrinkService.class);
-//        DrinkToSaveDto newDrink = new DrinkToSaveDto();
-////        newDrink.setIngredients(ingredients);
-//        newDrink.setName("Blue Curacao");
-//        newDrink.setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a ex mauris. Ut vel hendrerit tortor. Nulla venenatis neque mauris, nec dapibus odio fringilla id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed consequat metus id lacus vulputate vestibulum. Donec dignissim, ipsum ac lobortis rhoncus, nisl nisi mattis erat, in consequat est augue sit amet turpis.");
-//        drinkService.add(newDrink);
-
-
-
-//
-//        ingredientService.add(gin);
-//        ingredientService.add(vermut);
-//
-//        ingredients.add(gin);
-//        ingredients.add(vermut);
-//
-//
-//
-//
-//        drinkService.add(drink_new);
-//
-//
-//        System.out.println(drinkService.getDrinkDetails(1));
     }
-
-
 }

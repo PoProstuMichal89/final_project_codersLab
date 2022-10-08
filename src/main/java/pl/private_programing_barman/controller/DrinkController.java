@@ -1,12 +1,11 @@
 package pl.private_programing_barman.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import pl.private_programing_barman.dto.DrinkDto;
 import pl.private_programing_barman.dto.DrinkToSaveDto;
 import pl.private_programing_barman.dto.IngredientDto;
@@ -47,6 +46,7 @@ public class DrinkController {
         return "drink-form";
     }
 
+    //dodawanie drinka
     @PostMapping("/add-drink")
     public String addDrink(@Valid @ModelAttribute("drink") DrinkToSaveDto drink, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
@@ -62,7 +62,7 @@ public class DrinkController {
     //widok detali drinka
     @GetMapping("/drink/{id}")
     public String getDrink(@PathVariable int id, Model model) {
-        Optional<DrinkDto> optionalDrink = drinkservice.findById(id);
+        Optional<DrinkDto> optionalDrink = Optional.ofNullable(drinkservice.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
         optionalDrink.ifPresent(drink -> model.addAttribute("drink", drink));
         return "drink";
     }
@@ -75,7 +75,7 @@ public class DrinkController {
         return "redirect:/drinks";
     }
 
-    //EDYCJA DRINKA
+    //EDYCJA DRINKA - formularz
     @GetMapping("/edit-drink/{id}")
     public String editDrinkForm(@PathVariable int id, Model model) {
         Optional<DrinkDto> optionalDrink = drinkservice.findById(id);
@@ -87,6 +87,7 @@ public class DrinkController {
         return "drink-edit-form";
     }
 
+    //edycja drinka
     @PostMapping("/edit-drink/{id}")
     public String editDrink(@Valid @ModelAttribute("drink") DrinkDto drink, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
@@ -94,7 +95,6 @@ public class DrinkController {
             model.addAttribute("allIngredients", allIngredients);
             return "drink-edit-form";
         } else {
-
             drinkservice.updateDrink(drink);
             return "redirect:/drinks";
         }

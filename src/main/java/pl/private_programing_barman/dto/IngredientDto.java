@@ -3,12 +3,10 @@ package pl.private_programing_barman.dto;
 import pl.private_programing_barman.model.Drink;
 import pl.private_programing_barman.service.IngredientService;
 
-
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class IngredientDto {
     private IngredientService ingredientService;
@@ -17,7 +15,7 @@ public class IngredientDto {
     @Size(min = 2, max = 50)
     private String name;
 
-    @Size(max=900)
+    @Size(max = 900)
     @NotBlank
     private String description;
 
@@ -25,10 +23,7 @@ public class IngredientDto {
 
     private String uOm;
 
-
-    //dodane do konstruktora, żeby zwracał w obiekcie drinki z którymi jest powązany składnik. Czy przeciążać konstruktor bez podawania listy drinków?
     private Set<Drink> drinks = new HashSet<>();
-
 
 
     public IngredientDto(int id, String name, String description, double quantity, String uOm, Set<Drink> drinks) {
