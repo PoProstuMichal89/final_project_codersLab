@@ -25,12 +25,6 @@ public class IngredientToSaveDto {
     @NotBlank
     private String uOm;
 
-//    public IngredientToSaveDto(String name, String description, double quantity, String uOm) {
-//        this.name = name;
-//        this.description = description;
-//        this.quantity = quantity;
-//        this.uOm = uOm;
-//    }
 
     public String getName() {
         return name;

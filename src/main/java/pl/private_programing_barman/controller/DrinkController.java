@@ -46,6 +46,7 @@ public class DrinkController {
         return "drink-form";
     }
 
+    //dodawanie drinka
     @PostMapping("/add-drink")
     public String addDrink(@Valid @ModelAttribute("drink") DrinkToSaveDto drink, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
@@ -74,7 +75,7 @@ public class DrinkController {
         return "redirect:/drinks";
     }
 
-    //EDYCJA DRINKA
+    //EDYCJA DRINKA - formularz
     @GetMapping("/edit-drink/{id}")
     public String editDrinkForm(@PathVariable int id, Model model) {
         Optional<DrinkDto> optionalDrink = drinkservice.findById(id);
@@ -86,6 +87,7 @@ public class DrinkController {
         return "drink-edit-form";
     }
 
+    //edycja drinka
     @PostMapping("/edit-drink/{id}")
     public String editDrink(@Valid @ModelAttribute("drink") DrinkDto drink, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
@@ -93,7 +95,6 @@ public class DrinkController {
             model.addAttribute("allIngredients", allIngredients);
             return "drink-edit-form";
         } else {
-
             drinkservice.updateDrink(drink);
             return "redirect:/drinks";
         }

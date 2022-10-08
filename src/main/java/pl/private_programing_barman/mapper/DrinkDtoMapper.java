@@ -32,7 +32,7 @@ public class DrinkDtoMapper {
     public static DrinkDto map(Drink drink) {
 
         List<Ingredient> ingredientDtoList = drink.getIngredients();
-//        List<Ingredient> ingedientDtoList = mapIngredientsToDto(ingredientList);
+
 
         return new DrinkDto(
                 drink.getId(),

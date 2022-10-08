@@ -57,8 +57,6 @@ public class IngredientController {
             ingredientService.add(ingredient);
             return "redirect:/ingredients";
         }
-
-
     }
 
     //wyświetlenie detali składnika

@@ -338,11 +338,6 @@ textarea
 
 }
 
-/*.opinionDetailBox*/
-/*{*/
-/*    margin-top: 35px;*/
-/*}*/
-
 .opinionDetailRow
 {
     font-size: 17px;
@@ -373,13 +368,6 @@ textarea
     text-align: right;
 }
 
-/*.opinionDetailBox*/
-/*{*/
-/*   word-break-inside: break-all;*/
-/*}*/
-
-
-
 .opinionHeader
 {
     font-size: 17px;
@@ -387,7 +375,6 @@ textarea
     font-weight: 80;
     padding-top: 10px;
 }
-
 .opinionBoxHeadLess
 {
     margin-top: 10px;

@@ -24,14 +24,6 @@ public class DrinkDto {
 
     private List<Opinion> opinions = new ArrayList<>();
 
-
-//    public DrinkDto(int id, String name, List<Ingredient> ingredients, String description) {
-//        this.id=id;
-//        this.name = name;
-//        this.description = description;
-//        this.ingredients = ingredients;
-//    }
-
     public DrinkDto(int id, String name, String description, List<Ingredient> ingredients, List<Opinion> opinions) {
         this.id = id;
         this.name = name;
@@ -71,22 +63,7 @@ public class DrinkDto {
     public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
-
-//    public void setIngredients(List<IngredientDto> ingredients, int ingredientId) {
-//       Optional<IngredientDto> ingredient= ingredientService.findById(ingredientId);
-//       ingredient.ifPresent(ingredientDto -> {
-//           IngredientDto ingredientDto1 = new IngredientDto(
-//                   ingredientDto.getId(),
-//                   ingredientDto.getName(),
-//                   ingredientDto.getDescription(),
-//                   ingredientDto.getQuantity(),
-//                   ingredientDto.getuOm());
-//           ingredients.add(ingredientDto1);
-//       });
-//
-//        this.ingredients = ingredients;
-//    }
-
+    
 
     @Override
     public String toString() {
@@ -95,8 +72,6 @@ public class DrinkDto {
                 ", name='" + name + '\'' +
                 ", Description='" + description + '\'' +
                 ", ingredients=" + ingredients +
-//                ", createdAt=" + createdAt +
-//                ", updatedAt=" + updatedAt +
                 '}';
     }
 

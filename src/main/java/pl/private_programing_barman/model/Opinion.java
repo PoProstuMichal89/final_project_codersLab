@@ -63,12 +63,6 @@ public class Opinion {
         this.drink = drink;
     }
 
-    //    public Opinion(String nickname, String content, int rate, Drink drink) {
-//        this.nickname = nickname;
-//        this.content = content;
-//        this.rate = rate;
-//        this.drink = drink;
-//    }
 
     @Override
     public String toString() {

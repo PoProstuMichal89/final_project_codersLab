@@ -4,6 +4,8 @@ import pl.private_programing_barman.dto.IngredientDto;
 import pl.private_programing_barman.dto.IngredientToSaveDto;
 import pl.private_programing_barman.model.Ingredient;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class IngredientDtoMapper {
@@ -29,16 +31,37 @@ public class IngredientDtoMapper {
         return toSaveIngredeint;
     }
 
-//    public static IngredientDto mapFromOptional(Optional<IngredientDto> ingredientDtoOptional) {
-//        ingredientDtoOptional.ifPresent(ingredientDto -> {
-//            IngredientDto ingredientDto1 = new IngredientDto(
-//                    ingredientDto.getId(),
-//                    ingredientDto.getName(),
-//                    ingredientDto.getDescription(),
-//                    ingredientDto.getuOm(),
-//                    ingredientDto.getQuantity();
-//
-//
-//        });
+    //Mapper listy IngredientToSaveDto na ecnję
+    public static List<Ingredient> mapIngredientsToEntity(List<IngredientDto> ingredients) {
+        List<Ingredient> list = new ArrayList<>();
+        for (IngredientDto item : ingredients) {
+
+            Ingredient newIngredient = new Ingredient();
+            newIngredient.setId(item.getId());
+            newIngredient.setName(item.getName());
+            newIngredient.setDescription(item.getDescription());
+            newIngredient.setQuantity(item.getQuantity());
+            newIngredient.setuOm(item.getuOm());
+            list.add(newIngredient);
+
+        }
+        return list;
+    }
+
+    //    public List<IngredientToSaveDto> mapIngredientDtoToSaveDto(List<IngredientDto> ingredients) {
+//        List<IngredientToSaveDto> list = new ArrayList<>();
+//        for (IngredientDto item : ingredients) {
+//            for (int index = 0; index < list.size(); index++) {
+//                IngredientToSaveDto newIngredient = new IngredientToSaveDto();
+//                newIngredient.setName(item.getName());
+//                newIngredient.setDescription(item.getDescription());
+//                newIngredient.setQuantity(item.getQuantity());
+//                newIngredient.setuOm(item.getuOm());
+//                list.add(newIngredient);
+//            }
+//        }
+//        return list;
 //    }
+//
+
 }

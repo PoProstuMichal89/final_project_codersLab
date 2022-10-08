@@ -57,26 +57,35 @@
 
                     </div>
 
-<!--                    <div class="columnOfIngredeintsSelect">-->
+                    <div class="columnOfIngredeintsSelect">
 
-<!--                                            <div class="ingredientSelect">-->
-<!--                                                <label for="ingredient3">Składnik 4 &nbsp</label>-->
-<!--                                                <select id="ingredient3" th:field="*{ingredients}" required>-->
-<!--                                                    <option value="" hidden>Wybierz składnik4</option>-->
-<!--                                                    <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient.id}" th:text="${ingredient.name}"></option>-->
-<!--                                                </select>-->
-<!--                                            </div>-->
+                        <div class="ingredientSelect">
+                            <label for="ingredient3">Ingredient 4 &nbsp</label>
+                            <select id="ingredient3" th:field="*{ingredients}" required>
+                                <option value="1" hidden>Choose ingredient</option>
+                                <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient.id}" th:text="${ingredient.name}"></option>
+                            </select>
+                        </div>
 
-<!--                                            <div class="ingredientSelect">-->
-<!--                                                <label for="ingredient4">Składnik 4 &nbsp</label>-->
-<!--                                                <select id="ingredient4" th:field="*{ingredients}" required>-->
-<!--                                                    <option value="" hidden>Wybierz składnik5</option>-->
-<!--                                                    <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient.id}" th:text="${ingredient.name}"></option>-->
-<!--                                                </select>-->
-<!--                                            </div>-->
+                        <div class="ingredientSelect">
+                            <label for="ingredient4">Ingredient 5 &nbsp</label>
+                            <select id="ingredient4" th:field="*{ingredients}" required>
+                                <option value="1" hidden>Choose ingredient</option>
+                                <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient.id}" th:text="${ingredient.name}"></option>
+                            </select>
+                        </div>
+
+                        <div class="ingredientSelect">
+                            <label for="ingredient5">Ingredient 6 &nbsp</label>
+                            <select id="ingredient5" th:field="*{ingredients}" required>
+                                <option value="1" hidden>Choose ingredient</option>
+                                <option th:each="ingredient: ${allIngredients}"  th:value="${ingredient.id}" th:text="${ingredient.name}"></option>
+                            </select>
+                        </div>
 
 
-<!--                    </div>-->
+                    </div>
+
 
 
                 </fieldset>

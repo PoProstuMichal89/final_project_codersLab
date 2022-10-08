@@ -9,9 +9,12 @@ import pl.private_programing_barman.mapper.DrinkDtoMapper;
 import pl.private_programing_barman.model.Drink;
 import pl.private_programing_barman.model.Ingredient;
 import pl.private_programing_barman.repository.DrinkRepository;
+import pl.private_programing_barman.mapper.IngredientDtoMapper;
 
 import javax.transaction.Transactional;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DrinkService {
@@ -22,41 +25,10 @@ public class DrinkService {
 
     }
 
-    public List<IngredientToSaveDto> mapIngredientDtoToSaveDto(List<IngredientDto> ingredients){
-        List<IngredientToSaveDto> list = new ArrayList<>();
-        for (IngredientDto item: ingredients) {
-            for(int index = 0; index < list.size(); index++) {
-                IngredientToSaveDto newIngredient = new IngredientToSaveDto();
-                newIngredient.setName(item.getName());
-                newIngredient.setDescription(item.getDescription());
-                newIngredient.setQuantity(item.getQuantity());
-                newIngredient.setuOm(item.getuOm());
-                list.add(newIngredient);
-            }
-        }
-        return list;
-    }
-
-    //Mapper listy IngredientToSaveDto na ecnję. Docelowo do przeniesienia do klasy DrinkDtoMapper
-    public List<Ingredient> mapIngredientsToEntity(List<IngredientDto> ingredients){
-        List<Ingredient> list = new ArrayList<>();
-        for(IngredientDto item : ingredients) {
-
-            Ingredient newIngredient = new Ingredient();
-            newIngredient.setId(item.getId());
-            newIngredient.setName(item.getName());
-            newIngredient.setDescription(item.getDescription());
-            newIngredient.setQuantity(item.getQuantity());
-            newIngredient.setuOm(item.getuOm());
-            list.add(newIngredient);
-
-        }
-        return list;
-    }
-
     @Transactional
-    public void add(DrinkToSaveDto newDrink){
-    List<Ingredient> entityIngredients= mapIngredientsToEntity(newDrink.getIngredients());
+    public void add(DrinkToSaveDto newDrink) {
+        IngredientDtoMapper mapper = new IngredientDtoMapper();
+        List<Ingredient> entityIngredients = mapper.mapIngredientsToEntity(newDrink.getIngredients());
         Drink drink = new Drink();
         drink.setName(newDrink.getName());
         drink.setDescription(newDrink.getDescription());
@@ -65,32 +37,29 @@ public class DrinkService {
     }
 
     @Transactional
-    public void deleteById(int drinkId){
+    public void deleteById(int drinkId) {
         drinkrepository.deleteById(drinkId);
     }
 
     @Transactional
-    public List<DrinkDto> findAllDrinks(){
+    public List<DrinkDto> findAllDrinks() {
         return drinkrepository.findAll().stream()
                 .map(DrinkDtoMapper::map)
                 .toList();
     }
 
     @Transactional
-    public Optional<DrinkDto>findById(int drinkId){
+    public Optional<DrinkDto> findById(int drinkId) {
         return drinkrepository.findById(drinkId).map(DrinkDtoMapper::map);
     }
 
     @Transactional
-    public void updateDrink(DrinkDto drink){
+    public void updateDrink(DrinkDto drink) {
         Drink drinkToUpdate = new Drink();
         drinkToUpdate.setId(drink.getId());
         drinkToUpdate.setName(drink.getName());
         drinkToUpdate.setDescription(drink.getDescription());
         drinkToUpdate.setIngredients(drink.getIngredients());
-       drinkrepository.save(drinkToUpdate);
+        drinkrepository.save(drinkToUpdate);
     }
-
-
-
 }
