@@ -4,7 +4,8 @@ drinks (name, description)
         ('Hala bum-bum', 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis'),
         ('Mojito', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis'),
         ('Aperol', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis'),
-        ('Tequila Sunrise', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis');
+        ('Tequila Sunrise', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis'),
+        ('Malibu', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel feugiat sem. Donec condimentum iaculis');
 
 
 INSERT INTO
@@ -54,9 +55,32 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' ||
 ('Lemon', 'Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' ||
 'Nulla sit amet libero ipsum. Donec tincidunt tincidunt diam, a commodo massa aliquam a. Nullam arcu sapien, ' ||
  'placerat auctor ex feugiat, viverra ullamcorper nisi. Nam imperdiet.',
- 2, 'piece');
+ 2, 'piece'),
 
+('Prosecco', 'Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' ||
+              'Nulla sit amet libero ipsum. Donec tincidunt tincidunt diam, a commodo massa aliquam a. Nullam arcu sapien, ' ||
+              'placerat auctor ex feugiat, viverra ullamcorper nisi. Nam imperdiet.',
+     90, 'ml'),
 
+    ('Malibu', 'Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' ||
+                 'Nulla sit amet libero ipsum. Donec tincidunt tincidunt diam, a commodo massa aliquam a. Nullam arcu sapien, ' ||
+                 'placerat auctor ex feugiat, viverra ullamcorper nisi. Nam imperdiet.',
+     60, 'ml'),
+
+    ('Rum', 'Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' ||
+                 'Nulla sit amet libero ipsum. Donec tincidunt tincidunt diam, a commodo massa aliquam a. Nullam arcu sapien, ' ||
+                 'placerat auctor ex feugiat, viverra ullamcorper nisi. Nam imperdiet.',
+     50, 'ml'),
+
+    ('Pineapple juice', 'Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' ||
+            'Nulla sit amet libero ipsum. Donec tincidunt tincidunt diam, a commodo massa aliquam a. Nullam arcu sapien, ' ||
+            'placerat auctor ex feugiat, viverra ullamcorper nisi. Nam imperdiet.',
+     200, 'ml'),
+
+    ('Coconut milk', 'Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' ||
+                        'Nulla sit amet libero ipsum. Donec tincidunt tincidunt diam, a commodo massa aliquam a. Nullam arcu sapien, ' ||
+                        'placerat auctor ex feugiat, viverra ullamcorper nisi. Nam imperdiet.',
+     150, 'ml');
 
 
 INSERT INTO
@@ -74,7 +98,12 @@ VALUES
     (3, 5),
     (2, 2),
     (2, 1),
-    (2, 4);
+    (2, 4),
+    (5, 9),
+    (5, 10),
+    (5, 11),
+    (5, 12),
+    (5, 13);
 
 INSERT INTO
 opinions(content, nickname, rate, drink_id)
