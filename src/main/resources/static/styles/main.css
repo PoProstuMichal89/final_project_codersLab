@@ -110,7 +110,7 @@ h3
     display: block;
     height: 35px;
     width: 120px;
-    background: wheat;
+    background: lightgrey;
     color: #FA7C00;
     font-weight: 850;
     font-size: 20px;
@@ -244,8 +244,8 @@ textarea
 .drinkOperationButton
 {
     /*display: block;*/
-    height: 30px;
-    width: 105px;
+    height: 25px;
+    width: 100px;
     background: lightgrey;
     /*color: #FA7C00;*/
     /*font-weight: 850;*/
@@ -259,7 +259,7 @@ textarea
 .editDrinkOperationButtonLink
 {
     text-decoration: none;
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 550;
     color: #FA7C00;
     padding: 6px;
@@ -272,10 +272,19 @@ textarea
 
 .navBar
 {
-    margin-top: 150px;
+    margin-top: 100px;
     margin-left: 650px;
-    margin-right: 650px;
+    margin-right: 655px;
     margin-bottom: 100px;
+    width: 25%;
+
+}
+
+.navBarMainPage
+{
+    width: 20%;
+   margin: auto;
+    padding: 55px;
 }
 
 .navItems
@@ -285,6 +294,14 @@ textarea
     padding: 3px;
 }
 
+.navItemsMainPage
+{
+    padding: 3px;
+    margin-top: 4px;
+    font-weight: 20;
+    font-size: 20px;
+}
+
 
 .navItemsLinks
 {
@@ -292,6 +309,26 @@ textarea
     color: #FA7C00;
     font-size: 17px;
 }
+
+.navItemsLinks:hover
+{
+    font-weight: 15;
+    color: burlywood;
+}
+
+.navItemsLinksMenu
+{
+    text-decoration: none;
+    color: #FA7C00;
+    /*font-size: 17px;*/
+}
+
+.navItemsLinksMenu:hover
+{
+    font-weight: 15;
+    color: burlywood;
+}
+
 
 /*Opinie do drinka - widok*/
 
